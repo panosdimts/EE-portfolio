@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EcoBeam collaborative embedded-system prototype for trail guidance, environmental sensing, distress signaling, solar power, and radio communication." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/EcoBeam/ecobeam.html" />
+  <meta property="og:title" content="EcoBeam - Panos Dimtsoudis" />
+  <meta property="og:description" content="Collaborative trail-node prototype with LED display, sensors, solar power, and radio communication." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/EcoBeam/ecobeam.html" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <script src="../../site.js"></script>
+  <title>EcoBeam - Panos Dimtsoudis</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../about.html" class="nav-link">About</a></li>
+        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="project-detail" tabindex="-1">
+    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <p class="project-detail-tag">Sustainable Embedded Systems &middot; Mesh Networking</p>
+        <h1 class="project-detail-title">EcoBeam</h1>
+        <p class="project-detail-sub">
+          A collaborative outdoor embedded-system prototype for trail guidance, environmental sensing,
+          distress signaling, and low-power radio communication between deployed nodes.
+        </p>
+        <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Role</span>
+            <span class="project-meta-value">Project Collaborator</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Focus</span>
+            <span class="project-meta-value">Trail Safety & Environmental Monitoring</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Subsystems</span>
+            <span class="project-meta-value">Display, Sensors, Radio, Power</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Prototype</span>
+            <span class="project-meta-value">Solar-Powered Field Node</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-detail-cover project-detail-cover-contain project-detail-cover-light ecobeam-hero">
+        <img src="images/ecobeam-prototype.webp" alt="EcoBeam prototype mounted to a tree with solar panel and LED matrix">
+      </div>
+    </section>
+
+    <div class="project-content-grid">
+      <aside class="project-sidebar">
+        <div class="project-info-card">
+          <h2>Project Snapshot</h2>
+          <p>
+            EcoBeam combines local visual guidance, climate sensing, emergency signaling, solar power,
+            and radio communication in a trail-mounted node.
+          </p>
+        </div>
+        <div class="project-info-card">
+          <h2>Tools & Areas</h2>
+          <div class="project-chip-row">
+            <span class="skill-chip">Arduino</span>
+            <span class="skill-chip">Radio Modules</span>
+            <span class="skill-chip">LED Matrix</span>
+            <span class="skill-chip">Sensors</span>
+            <span class="skill-chip">Solar Power</span>
+            <span class="skill-chip">Mesh Networks</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-detail-body">
+        <section class="project-panel">
+          <h2>Overview</h2>
+          <p>
+            EcoBeam is a modular outdoor device intended for trail mounting. Each node can provide
+            directional feedback through an 8x8 LED matrix, collect environmental readings such as temperature and
+            CO2 concentration, and send status information through a radio link. A distress button provides a direct
+            emergency signal from the field.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>System Architecture</h2>
+          <figure class="design-sketch-figure">
+            <img src="images/ecobeam-system-diagram.png" alt="EcoBeam system architecture diagram showing sensors, radio module, power system, distress button, mesh network, ground station, and database">
+            <figcaption>
+              System concept showing a single EcoBeam node and the broader mesh network, where multiple radio-linked
+              nodes can relay data toward a ground station, database, and web interface.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="project-panel">
+          <h2>Core Features</h2>
+          <ul class="project-list">
+            <li>Uses an 8x8 LED matrix to indicate trail direction or local status at the node.</li>
+            <li>Includes environmental sensing for climate parameters such as temperature and CO2 concentration.</li>
+            <li>Uses radio modules so EcoBeam nodes can communicate as part of a distributed mesh network.</li>
+            <li>Includes a distress button to provide an emergency signal from the field node.</li>
+            <li>Targets autonomous operation through an integrated power-supply system and solar panel.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Prototype</h2>
+          <figure class="design-sketch-figure">
+            <img src="images/ecobeam-prototype.webp" alt="EcoBeam outdoor prototype with solar panel, button, and LED matrix">
+            <figcaption>
+              Outdoor EcoBeam prototype mounted to a tree, with the solar panel above the enclosure and an LED matrix
+              visible on the front panel for directional or status feedback.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="project-panel">
+          <h2>Collaboration</h2>
+          <p>
+            This page represents my collaborator role in the shared system concept and prototype effort.
+            The project combines embedded hardware, power-aware design, sensor integration, and networked
+            field communication in a trail-safety node.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis &middot; Built with HTML & CSS &middot; Hosted on GitHub Pages</p>
+  </footer>
+  <script src="../../scroll-animations.js"></script>
+</body>
+</html>

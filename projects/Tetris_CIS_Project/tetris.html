@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Completed Java Swing Tetris desktop application by Panagiotis Dimtsoudis, covering event-driven design, state management, persistence, and testing." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Tetris_CIS_Project/tetris.html" />
+  <meta property="og:title" content="Java Tetris | Panos Dimtsoudis" />
+  <meta property="og:description" content="CIS 1200 Java Swing Tetris project with event-driven input, game-state management, persistence, and tests." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Tetris_CIS_Project/tetris.html" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <script src="../../site.js"></script>
+  <title>Java Tetris | Panagiotis Dimtsoudis</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../about.html" class="nav-link">About</a></li>
+        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="project-detail" tabindex="-1">
+    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <p class="project-detail-tag">Software Systems &middot; Java &middot; Event-Driven Design</p>
+        <h1 class="project-detail-title">Java Tetris</h1>
+        <p class="project-detail-sub">
+          A Java Swing desktop implementation of Tetris with custom board and piece logic, keyboard input, scoring, state management, undo support, file-based persistence, and separated interface and game logic.
+        </p>
+        <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Course</span>
+            <span class="project-meta-value">CIS 1200</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Status</span>
+            <span class="project-meta-value">Completed</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Platform</span>
+            <span class="project-meta-value">Java desktop application</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Tools</span>
+            <span class="project-meta-value">Java 17, Swing, Maven, JUnit</span>
+          </div>
+        </div>
+      </div>
+
+      <figure class="project-detail-cover tetris-visual" role="img" aria-label="Stylized Tetris board showing falling and placed blocks">
+        <div class="tetris-visual-window" aria-hidden="true">
+          <span class="tetris-block cyan" style="--x: 4; --y: 1;"></span>
+          <span class="tetris-block cyan" style="--x: 4; --y: 2;"></span>
+          <span class="tetris-block cyan" style="--x: 4; --y: 3;"></span>
+          <span class="tetris-block cyan" style="--x: 4; --y: 4;"></span>
+          <span class="tetris-block purple" style="--x: 2; --y: 11;"></span>
+          <span class="tetris-block purple" style="--x: 3; --y: 11;"></span>
+          <span class="tetris-block purple" style="--x: 4; --y: 11;"></span>
+          <span class="tetris-block purple" style="--x: 3; --y: 10;"></span>
+          <span class="tetris-block blue" style="--x: 7; --y: 12;"></span>
+          <span class="tetris-block blue" style="--x: 7; --y: 13;"></span>
+          <span class="tetris-block blue" style="--x: 7; --y: 14;"></span>
+          <span class="tetris-block blue" style="--x: 6; --y: 14;"></span>
+          <span class="tetris-block yellow" style="--x: 0; --y: 15;"></span>
+          <span class="tetris-block yellow" style="--x: 1; --y: 15;"></span>
+          <span class="tetris-block yellow" style="--x: 0; --y: 16;"></span>
+          <span class="tetris-block yellow" style="--x: 1; --y: 16;"></span>
+          <span class="tetris-block green" style="--x: 4; --y: 16;"></span>
+          <span class="tetris-block green" style="--x: 5; --y: 16;"></span>
+          <span class="tetris-block green" style="--x: 3; --y: 17;"></span>
+          <span class="tetris-block green" style="--x: 4; --y: 17;"></span>
+          <span class="tetris-block red" style="--x: 6; --y: 16;"></span>
+          <span class="tetris-block red" style="--x: 7; --y: 16;"></span>
+          <span class="tetris-block red" style="--x: 7; --y: 17;"></span>
+          <span class="tetris-block red" style="--x: 8; --y: 17;"></span>
+        </div>
+        <figcaption>Project visual based on the game's grid, piece, and state-management architecture.</figcaption>
+      </figure>
+    </section>
+
+    <div class="project-content-grid">
+      <aside class="project-sidebar">
+        <div class="project-info-card">
+          <h2>Why It Belongs Here</h2>
+          <p>
+            This is a software project, not a hardware build. It is included because event-driven input, deterministic state transitions, modular structure, data structures, testing, and debugging are useful foundations for embedded firmware.
+          </p>
+        </div>
+        <div class="project-info-card">
+          <h2>Verified Files</h2>
+          <div class="project-chip-row">
+            <span class="skill-chip">GameBoard.java</span>
+            <span class="skill-chip">TetrisGame.java</span>
+            <span class="skill-chip">InputHandler.java</span>
+            <span class="skill-chip">SaveManager.java</span>
+            <span class="skill-chip">TetrisTest.java</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-detail-body">
+        <section class="project-panel">
+          <h2>Objective</h2>
+          <p>
+            The project implements a desktop Tetris game in Java for CIS 1200. The goal was to build an interactive application with object-oriented structure, persistent state, testable logic, and a responsive Swing interface.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Software Architecture</h2>
+          <p>
+            The implementation separates the model, rendering, input, and persistence responsibilities. <code>TetrisGame</code> manages gameplay state and timers, <code>GamePanel</code> renders the Swing interface, <code>InputHandler</code> maps keyboard events to state-aware actions, and <code>SaveManager</code> handles file I/O.
+          </p>
+          <div class="architecture-grid">
+            <div>
+              <span>Model</span>
+              <strong><code>TetrisGame</code></strong>
+              <p>Game state, timers, scoring, current and next pieces, undo snapshots.</p>
+            </div>
+            <div>
+              <span>View</span>
+              <strong><code>GamePanel</code></strong>
+              <p>Swing rendering for board, active piece, next piece, score, menus, overlays.</p>
+            </div>
+            <div>
+              <span>Input</span>
+              <strong><code>InputHandler</code></strong>
+              <p>Keyboard routing for menu, playing, paused, game-over, and high-score states.</p>
+            </div>
+            <div>
+              <span>Persistence</span>
+              <strong><code>SaveManager</code></strong>
+              <p>Human-readable autosave file for state restore and top-score loading.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-panel">
+          <h2>Board and Game Logic</h2>
+          <ul class="project-list">
+            <li><code>GameBoard</code> stores the board as a 20 by 18 two-dimensional integer grid.</li>
+            <li>Four invisible wall columns on each side use <code>-1</code> values for boundary handling.</li>
+            <li><code>TetrisGame.canMove</code> validates movement and rotation by checking bounds and occupied cells.</li>
+            <li>Placed tetrominoes are written into the grid by piece ID, which also drives rendering color.</li>
+            <li>Full rows are detected, cleared, and shifted downward by <code>clearFullRows</code>.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Input and State Management</h2>
+          <p>
+            The game uses explicit states: <code>MENU</code>, <code>COUNTDOWN</code>, <code>PLAYING</code>, <code>PAUSED</code>, <code>GAME_OVER</code>, and <code>VIEWING_SCORES</code>. Keyboard behavior changes based on the active state, which keeps menu navigation, gameplay controls, saving, loading, pausing, and restart behavior from collapsing into one input path.
+          </p>
+          <ul class="project-list">
+            <li>Arrow keys move and rotate the active piece during gameplay.</li>
+            <li>Space drops the piece instantly.</li>
+            <li><code>P</code> pauses or resumes depending on state.</li>
+            <li><code>S</code> saves during gameplay or while paused.</li>
+            <li><code>L</code> loads a saved game from the menu.</li>
+            <li><code>H</code> opens high scores, and Escape returns from the high-score view.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Persistence and Undo</h2>
+          <p>
+            Persistence is implemented through <code>SaveManager</code>, which writes the game state, difficulty, score, top scores, board grid, and current/next tetromino data to <code>autosave.txt</code>. Undo is implemented in Easy mode using a <code>Deque</code> of snapshots containing the board grid, current piece, next piece, and score before placement.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Testing and Debugging</h2>
+          <p>
+            The repository includes JUnit tests for core logic in <code>TetrisTest.java</code>, including row clearing, score updates, tetromino rotation, and factory output validation. A course-provided compilation test remains in the cleaned source package.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Final Result</h2>
+          <p>
+            The final application is a playable Java Swing Tetris desktop game with menu states, countdown start, active and next-piece rendering, high-score display, scoring, pause behavior, save/load, and Easy-mode undo.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Run Locally / Source Code</h2>
+          <p>
+            The downloadable archive is <code>tetris-cis1200-source.zip</code>. It extracts to <code>Tetris Full Project</code> and uses Maven's exec plugin to run <code>org.cis1200.Game</code>. Java 17 is required by the Maven configuration.
+          </p>
+          <div class="project-actions">
+            <a href="game/tetris-cis1200-source.zip" download class="btn-primary">Download Source ZIP</a>
+            <button class="btn-outline" type="button" data-toggle-panel="tetris-readme">View Formatted README</button>
+          </div>
+          <pre class="code-block"><code># From this repository
+cd "projects/Tetris_CIS_Project/Tetris Full Project"
+mvn compile
+mvn exec:java
+
+# From the downloaded ZIP
+Expand-Archive .\tetris-cis1200-source.zip
+cd ".\Tetris Full Project"
+mvn compile
+mvn exec:java</code></pre>
+        </section>
+
+        <section class="project-panel readme-showcase" id="tetris-readme" hidden>
+          <div class="readme-showcase-header">
+            <p class="project-detail-tag">Formatted Project README</p>
+            <h2>CIS 1200 Game Project Notes</h2>
+            <p>
+              A cleaned presentation of the project README with the implementation details most relevant to the finished application.
+            </p>
+          </div>
+
+          <div class="readme-section">
+            <h3>Core Concepts</h3>
+            <div class="readme-concept-grid">
+              <article>
+                <span>File I/O</span>
+                <h4>Save and load game state</h4>
+                <p><code>SaveManager.java</code> uses buffered file reading and writing to persist the board, pieces, scores, and difficulty. Saving and restoring structured game state made file I/O a central part of the implementation.</p>
+              </article>
+              <article>
+                <span>2D Arrays</span>
+                <h4>Board representation</h4>
+                <p>The board is stored as a two-dimensional grid. Cells encode empty spaces, wall markers, and piece IDs, which gives the game direct indexed access to collision, placement, and row-clearing behavior.</p>
+              </article>
+              <article>
+                <span>Collections</span>
+                <h4>Snapshot-based undo</h4>
+                <p>Undo uses a stack-like <code>Deque</code> of game snapshots. Each snapshot keeps previous board state, current piece, next piece, and score so Easy mode can restore a prior state consistently.</p>
+              </article>
+              <article>
+                <span>Inheritance</span>
+                <h4>Piece hierarchy</h4>
+                <p><code>Piece</code> defines shared behavior for game pieces, while <code>Tetromino</code> extends it with concrete piece behavior such as rotation and duplication.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="readme-section">
+            <h3>Class Overview</h3>
+            <dl class="class-list">
+              <div>
+                <dt><code>GamePanel.java</code></dt>
+                <dd>Renders the board, overlays, next-piece preview, menu text, score display, and other Swing UI elements.</dd>
+              </div>
+              <div>
+                <dt><code>InputHandler.java</code></dt>
+                <dd>Maps keyboard input to state-aware actions such as move, rotate, save, pause, load, and undo.</dd>
+              </div>
+              <div>
+                <dt><code>SaveManager.java</code></dt>
+                <dd>Handles file-based saving and loading through <code>autosave.txt</code>, including difficulty, score, board layout, and active pieces.</dd>
+              </div>
+              <div>
+                <dt><code>ScoreManager.java</code></dt>
+                <dd>Tracks current score, row-clear bonuses, placed-piece score, and top scores.</dd>
+              </div>
+              <div>
+                <dt><code>Piece.java</code> and <code>Tetromino.java</code></dt>
+                <dd>Model shared piece behavior and concrete tetromino rotation/copying.</dd>
+              </div>
+              <div>
+                <dt><code>Factory.java</code></dt>
+                <dd>Generates new tetrominoes randomly or by requested type.</dd>
+              </div>
+              <div>
+                <dt><code>Frame.java</code></dt>
+                <dd>Initializes the Swing window, game model, render panel, input handler, and repaint loop.</dd>
+              </div>
+              <div>
+                <dt><code>GameBoard.java</code></dt>
+                <dd>Maintains the grid, detects full rows, clears rows, and updates cells.</dd>
+              </div>
+              <div>
+                <dt><code>TetrisGame.java</code></dt>
+                <dd>Coordinates core gameplay: placement, state transitions, undo, timers, scoring, and top-score initialization.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="readme-section">
+            <h3>Implementation Challenges</h3>
+            <p>
+              The hardest feature was undo. Restoring a previous move required more than replacing the board grid: the current piece, next piece, and score also had to return to a consistent state, especially after row clears.
+            </p>
+            <p>
+              File I/O was another debugging-heavy part of the project because the save format had to be read back in the exact order it was written. The README also notes that <code>GamePanel</code> took repeated refinement because the Swing rendering, overlays, and state-dependent text all needed to work together.
+            </p>
+          </div>
+
+          <div class="readme-section">
+            <h3>Design Reflection</h3>
+            <p>
+              The final design separates responsibilities across the game model, rendering panel, input handler, persistence layer, scoring, board representation, and piece hierarchy. If revisited, the README identifies <code>GamePanel</code> as a candidate for further modularization and suggests adding levels so the game increases speed and difficulty as score grows.
+            </p>
+          </div>
+
+          <div class="readme-section">
+            <h3>External Resources</h3>
+            <p>
+              The project README states that no external resources were used; the implementation was treated as a Java and game-design challenge.
+            </p>
+          </div>
+
+          <div class="project-actions readme-close-actions">
+            <button class="btn-outline" type="button" data-close-panel="tetris-readme">Hide README</button>
+            <a href="Tetris Full Project/README.txt" class="text-link">Open raw README.txt</a>
+          </div>
+        </section>
+
+        <section class="project-panel">
+          <h2>Lessons Learned</h2>
+          <p>
+            The project README describes undo and file I/O as the most difficult parts of the implementation. Restoring a previous board state while keeping the active piece, next piece, and score consistent required careful snapshot design, and loading structured save data required keeping the file format and read order synchronized.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
+  </footer>
+  <script src="../../scroll-animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Project index for Panagiotis Dimtsoudis, including device research, PCB design, bioelectronics, embedded audio, sustainable embedded systems, software, and analog audio work." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects.html" />
+  <meta property="og:title" content="Projects | Panagiotis Dimtsoudis" />
+  <meta property="og:description" content="Electrical engineering and software project index with device, PCB, embedded, signal-conditioning, and Java work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/AlScN_Ferroelectric_Diode/images/Cross%20Section%20View.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <script src="site.js"></script>
+  <title>Projects | Panagiotis Dimtsoudis</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand-link" href="index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="page-hero">
+      <p class="eyebrow">Projects</p>
+      <h1>Projects, reports, galleries, and build notes.</h1>
+      <p>Each row links to a project page with images, reports, demos, and technical context.</p>
+    </section>
+
+    <section class="project-index" aria-label="All projects">
+      <a class="project-row" href="projects/AlScN_Ferroelectric_Diode/alscn.html">
+        <div class="project-row-meta">
+          <span>Device Research</span>
+          <span>2026</span>
+          <img src="projects/AlScN_Ferroelectric_Diode/images/Cross Section View.png" alt="AlScN ferroelectric junction cross-section view" loading="lazy" />
+        </div>
+        <div class="project-row-body">
+          <h2>AlScN Ferroelectric Junctions</h2>
+          <p>Contributor work on temperature-dependent characterization, data organization, analysis, and visualization for ultrathin all-nitride ferroelectric junctions.</p>
+          <div class="chip-row">
+            <span class="skill-chip">AlScN</span>
+            <span class="skill-chip">Cryogenic Testing</span>
+            <span class="skill-chip">Device Physics</span>
+            <span class="skill-chip">Python</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="projects/Metal_Detector_ESE319/metal-detector.html">
+        <div class="project-row-meta">
+          <span>Analog PCB</span>
+          <span>2026</span>
+          <img src="projects/Metal_Detector_ESE319/images/PCB_MD.png" alt="3D render of the metal detector PCB" loading="lazy" />
+        </div>
+        <div class="project-row-body">
+          <h2>Metal Detector PCB</h2>
+          <p>Oscillator-based detector PCB designed, fabricated, soldered, debugged, tested, and documented for ESE 3190.</p>
+          <div class="chip-row">
+            <span class="skill-chip">PCB Layout</span>
+            <span class="skill-chip">Analog Circuits</span>
+            <span class="skill-chip">Soldering</span>
+            <span class="skill-chip">Testing</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="projects/Wireless_ECG_Monitor/ecg.html">
+        <div class="project-row-meta">
+          <span>Bioelectronics</span>
+          <span>2026</span>
+          <img src="projects/Wireless_ECG_Monitor/images/Circuit 1.jpeg" alt="Wireless ECG monitor breadboard circuit" loading="lazy" />
+        </div>
+        <div class="project-row-body">
+          <h2>Wireless ECG Monitor</h2>
+          <p>ESE 2150 final project combining ECG analog filtering, Feather-based sampling, wireless capture, and Python R-peak heart-rate estimation.</p>
+          <div class="chip-row">
+            <span class="skill-chip">ECG</span>
+            <span class="skill-chip">Analog Filters</span>
+            <span class="skill-chip">Feather</span>
+            <span class="skill-chip">Python</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html">
+        <div class="project-row-meta">
+          <span>Embedded Audio</span>
+          <span>2026</span>
+          <img src="projects/Guitar_Hero_Synth_ESE3500/images/Guitar Hero Synth.jpeg" alt="Guitar Hero controller converted into a synthesizer" loading="lazy" />
+        </div>
+        <div class="project-row-body">
+          <h2>Guitar Hero Synthesizer</h2>
+          <p>ATmega328PB-based bare-metal C synthesizer with real-time PWM audio synthesis, controller input handling, and pitch-mapping controls.</p>
+          <div class="chip-row">
+            <span class="skill-chip">ATmega328PB</span>
+            <span class="skill-chip">Bare-Metal C</span>
+            <span class="skill-chip">PWM Audio</span>
+            <span class="skill-chip">I2C</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="projects/EcoBeam/ecobeam.html">
+        <div class="project-row-meta">
+          <span>Embedded Systems</span>
+          <span>2026</span>
+          <img src="projects/EcoBeam/images/ecobeam-prototype.webp" alt="EcoBeam prototype mounted outdoors" loading="lazy" />
+        </div>
+        <div class="project-row-body">
+          <h2>EcoBeam</h2>
+          <p>Collaborative trail-node prototype for direction display, environmental sensing, distress signaling, solar power, and radio communication.</p>
+          <div class="chip-row">
+            <span class="skill-chip">Arduino</span>
+            <span class="skill-chip">Mesh Networking</span>
+            <span class="skill-chip">Solar Power</span>
+            <span class="skill-chip">Sensors</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="projects/Tetris_CIS_Project/tetris.html">
+        <div class="project-row-meta">
+          <span>Software / Game</span>
+          <span>CIS Course Project</span>
+          <div class="project-mini-tetris" aria-hidden="true">
+            <span class="tetris-block cyan" style="--x: 4; --y: 1;"></span>
+            <span class="tetris-block cyan" style="--x: 4; --y: 2;"></span>
+            <span class="tetris-block cyan" style="--x: 4; --y: 3;"></span>
+            <span class="tetris-block purple" style="--x: 2; --y: 7;"></span>
+            <span class="tetris-block purple" style="--x: 3; --y: 7;"></span>
+            <span class="tetris-block purple" style="--x: 4; --y: 7;"></span>
+            <span class="tetris-block purple" style="--x: 3; --y: 6;"></span>
+            <span class="tetris-block yellow" style="--x: 0; --y: 8;"></span>
+            <span class="tetris-block yellow" style="--x: 1; --y: 8;"></span>
+            <span class="tetris-block yellow" style="--x: 0; --y: 9;"></span>
+            <span class="tetris-block yellow" style="--x: 1; --y: 9;"></span>
+            <span class="tetris-block green" style="--x: 4; --y: 9;"></span>
+            <span class="tetris-block green" style="--x: 5; --y: 9;"></span>
+            <span class="tetris-block green" style="--x: 3; --y: 10;"></span>
+            <span class="tetris-block green" style="--x: 4; --y: 10;"></span>
+            <span class="tetris-block red" style="--x: 6; --y: 9;"></span>
+            <span class="tetris-block red" style="--x: 7; --y: 9;"></span>
+            <span class="tetris-block red" style="--x: 7; --y: 10;"></span>
+            <span class="tetris-block red" style="--x: 8; --y: 10;"></span>
+          </div>
+        </div>
+        <div class="project-row-body">
+          <h2>Tetris</h2>
+          <p>A Java Swing Tetris game with custom board logic, keyboard input handling, scoring, undo support, and file-based save/load behavior.</p>
+          <div class="chip-row">
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">Swing</span>
+            <span class="skill-chip">Maven</span>
+            <span class="skill-chip">JUnit</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row project-row-muted" href="projects/Analog_Synthesizer/analog_synth.html">
+        <div class="project-row-meta">
+          <span>Analog Audio</span>
+          <span>In progress</span>
+          <div class="placeholder-thumb" aria-hidden="true">Audio</div>
+        </div>
+        <div class="project-row-body">
+          <h2>Analog Synthesizer</h2>
+          <p>In-progress analog audio build currently covering circuit architecture, component selection, signal generation, and filter planning.</p>
+          <div class="chip-row">
+            <span class="skill-chip">LTSpice</span>
+            <span class="skill-chip">Analog Design</span>
+            <span class="skill-chip">Audio Circuits</span>
+            <span class="skill-chip">PCB Planning</span>
+          </div>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact Me</p>
+      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
+      <a href="tel:+12155267626">+1 (215) 526-7626</a>
+      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
+  </footer>
+
+  <script src="scroll-animations.js"></script>
+</body>
+</html>

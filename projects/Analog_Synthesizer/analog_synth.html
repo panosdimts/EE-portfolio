@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="In-progress analog synthesizer project by Panagiotis Dimtsoudis, covering circuit architecture, component selection, simulation, and early build planning." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Analog_Synthesizer/analog_synth.html" />
+  <meta property="og:title" content="Analog Synthesizer - Panos Dimtsoudis" />
+  <meta property="og:description" content="In-progress analog synthesizer architecture, simulation, component selection, and build planning." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Analog_Synthesizer/analog_synth.html" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <script src="../../site.js"></script>
+  <title>Analog Synthesizer - Panos Dimtsoudis</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../about.html" class="nav-link">About</a></li>
+        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="project-detail" tabindex="-1">
+    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <p class="project-detail-tag">Analog Electronics &middot; Audio Circuits</p>
+        <h1 class="project-detail-title">Analog Synthesizer</h1>
+        <p class="project-detail-sub">
+          An in-progress analog synthesizer project covering circuit architecture,
+          component selection, signal generation, filtering, and early validation planning.
+        </p>
+        <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Status</span>
+            <span class="project-meta-value">In Development</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Focus</span>
+            <span class="project-meta-value">Oscillators, Filters, Audio Signal Paths</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Tools</span>
+            <span class="project-meta-value">LTSpice, Breadboarding, PCB Planning</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Goal</span>
+            <span class="project-meta-value">Validated audio signal path</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-detail-cover analog-visual" role="img" aria-label="Stylized analog synthesizer signal path with oscillator, filter, control, and output blocks">
+        <div class="signal-path" aria-hidden="true">
+          <span>VCO</span>
+          <i></i>
+          <span>VCF</span>
+          <i></i>
+          <span>VCA</span>
+          <i></i>
+          <span>OUT</span>
+        </div>
+        <p>Architecture in progress</p>
+      </div>
+    </section>
+
+    <div class="project-content-grid">
+      <aside class="project-sidebar">
+        <div class="project-info-card">
+          <h2>Project Snapshot</h2>
+          <p>
+            An analog audio project currently moving through architecture,
+            simulation, component selection, and early build planning.
+          </p>
+        </div>
+        <div class="project-info-card">
+          <h2>Skills</h2>
+          <div class="project-chip-row">
+            <span class="skill-chip">Analog Design</span>
+            <span class="skill-chip">LTSpice</span>
+            <span class="skill-chip">Audio Circuits</span>
+            <span class="skill-chip">PCB Planning</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-detail-body">
+        <section class="project-panel">
+          <h2>Overview</h2>
+          <p>
+            The analog synthesizer is in the architecture and planning stage. Current work
+            centers on selecting circuit blocks, choosing components, and preparing simulations
+            and breadboard tests before committing the design to a permanent build.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Planned Subsystems</h2>
+          <ul class="project-list">
+            <li>Oscillator stage for generating the core waveform sources.</li>
+            <li>Filter and shaping stages for tone control and sound design.</li>
+            <li>Control interface for pitch, tuning, and playable parameters.</li>
+            <li>Output stage suitable for speaker or line-level audio testing.</li>
+            <li>PCB layout once the breadboarded architecture is validated.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Next Steps</h2>
+          <p>
+            Next steps are simulation cleanup, first-pass breadboard testing, signal-level and
+            noise measurements, and a compact PCB layout after the major circuit blocks are stable.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis &middot; Built with HTML & CSS &middot; Hosted on GitHub Pages</p>
+  </footer>
+  <script src="../../scroll-animations.js"></script>
+</body>
+</html>

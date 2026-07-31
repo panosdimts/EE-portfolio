@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ATmega328PB-based Guitar Hero synthesizer project with bare-metal C firmware, PWM audio synthesis, controller inputs, and pitch controls." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html" />
+  <meta property="og:title" content="Guitar Hero Synthesizer - Panos Dimtsoudis" />
+  <meta property="og:description" content="Bare-metal C synthesizer built from a Guitar Hero controller using ATmega328PB firmware and PWM audio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <script src="../../site.js"></script>
+  <title>Guitar Hero Synthesizer - Panos Dimtsoudis</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../about.html" class="nav-link">About</a></li>
+        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="project-detail" tabindex="-1">
+    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <p class="project-detail-tag">Embedded Systems &middot; Microcontrollers &middot; Audio</p>
+        <h1 class="project-detail-title">Guitar Hero Synthesizer</h1>
+        <p class="project-detail-sub">
+          A repurposed Guitar Hero controller converted into an electronic synthesizer using an
+          ATmega328PB microcontroller, PWM audio, and custom hardware interfaces.
+        </p>
+        <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Course</span>
+            <span class="project-meta-value">
+              ESE 3500: Embedded Systems Microlaboratory
+            </span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Platform</span>
+            <span class="project-meta-value">ATmega328PB Microcontroller</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Focus</span>
+            <span class="project-meta-value">PWM Audio Synthesis & Hardware Interfacing</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Purpose</span>
+            <span class="project-meta-value">Interactive Music-Learning Instrument</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-detail-cover project-detail-cover-contain image-switcher image-switcher-hero" data-gallery="guitar">
+        <div class="image-switcher-count" data-gallery-count>1/4</div>
+        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero Synthesizer image">&lsaquo;</button>
+        <img src="images/Guitar Hero Synth.jpeg" alt="Completed Guitar Hero controller converted into an electronic synthesizer" data-gallery-image>
+        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero Synthesizer image">&rsaquo;</button>
+        <div class="image-switcher-info">
+          <div class="image-switcher-caption" data-gallery-caption>Completed Guitar Hero synthesizer</div>
+          <div class="image-switcher-dots" data-gallery-dots aria-label="Guitar Hero Synthesizer image position">
+            <button class="image-switcher-dot is-active" type="button" aria-label="Show exterior view"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show inside view 1"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show inside view 2"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show inside view 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-content-grid">
+      <aside class="project-sidebar">
+        <div class="project-info-card">
+          <h2>Project Snapshot</h2>
+          <p>
+            An embedded-system retrofit that maps the original guitar controls to a playable,
+            self-contained electronic instrument.
+          </p>
+        </div>
+        <div class="project-info-card">
+          <h2>Skills</h2>
+          <div class="project-chip-row">
+            <span class="skill-chip">ATmega328PB</span>
+            <span class="skill-chip">Embedded C</span>
+            <span class="skill-chip">PWM Audio</span>
+            <span class="skill-chip">I2C & ADC</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-detail-body">
+        <section class="project-panel">
+          <h2>Overview</h2>
+          <p>
+            This project converts a Guitar Hero controller into a low-cost instrument for playing notes,
+            chords, and pitch variations. An ATmega328PB reads the controller inputs, synthesizes notes
+            through PWM, and drives a speaker through a custom audio-output stage. The fret buttons select
+            notes, the strum bar triggers a decaying tone, the whammy stick adds vibrato, and the LCD-and-joystick
+            interface displays and adjusts each button's pitch mapping.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Key Features</h2>
+          <ul class="project-list">
+            <li>Read the fret buttons, strum bar, mute control, joystick, and whammy input with responsive embedded firmware.</li>
+            <li>Generate mapped musical notes using PWM audio and a decay envelope that emulates a guitar strum.</li>
+            <li>Convert the whammy stick's analog position through the ADC to add real-time vibrato and pitch variation.</li>
+            <li>Use an I2C-connected LCD and joystick interface to display and adjust the pitch assigned to each fret button.</li>
+            <li>Integrate regulated battery power, signal buffering, audio amplification, and speaker output inside the original enclosure.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Controller Design Sketch</h2>
+          <figure class="design-sketch-figure">
+            <img src="Design Sketch.png" alt="Annotated Guitar Hero controller design sketch showing display, strum, pitch buttons, mute button, whammy, and joystick placement">
+            <figcaption>
+              Early controller layout sketch showing how the physical guitar interface maps gameplay controls
+              onto the display, strum bar, pitch buttons, mute button, whammy control, and joystick.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="project-panel">
+          <h2>Links</h2>
+          <p>
+            Full project documentation, requirements validation, development notes, and source code are linked below.
+          </p>
+          <div class="project-actions">
+            <a href="https://upenn-embedded.github.io/guitar-hero-reversal.github.io/" target="_blank" rel="noopener noreferrer" class="btn-outline">Project Website</a>
+            <a href="https://github.com/upenn-embedded/guitar-hero-reversal.github.io" target="_blank" rel="noopener noreferrer" class="btn-outline btn-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.204.085 1.838 1.236 1.838 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+              Repo
+            </a>
+          </div>
+        </section>
+
+        <section class="project-panel">
+          <h2>Video Gallery</h2>
+          <div class="image-switcher video-switcher" data-video-gallery="guitar-videos">
+            <div class="image-switcher-count" data-video-count>1/4</div>
+            <div class="video-switcher-frame">
+              <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero video">&lsaquo;</button>
+              <video controls data-video-player>
+                <source src="Live Demo.mp4" type="video/mp4" data-video-source>
+                Your browser does not support the video tag.
+              </video>
+              <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero video">&rsaquo;</button>
+            </div>
+            <div class="image-switcher-info video-switcher-info">
+              <h3 data-video-title>Live Demo</h3>
+              <p data-video-description>
+                Demo Day footage of the completed instrument, showing the physical controls, LCD interface,
+                synthesized audio, and speaker output operating together in real time.
+              </p>
+              <div class="image-switcher-dots" data-video-dots aria-label="Guitar Hero video position">
+                <button class="image-switcher-dot is-active" type="button" aria-label="Show Live Demo"></button>
+                <button class="image-switcher-dot" type="button" aria-label="Show Full Feature Demo"></button>
+                <button class="image-switcher-dot" type="button" aria-label="Show Guitar Demo"></button>
+                <button class="image-switcher-dot" type="button" aria-label="Show Screen Functionality Demo"></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis &middot; Built with HTML & CSS &middot; Hosted on GitHub Pages</p>
+  </footer>
+  <script src="../../scroll-animations.js"></script>
+</body>
+</html>

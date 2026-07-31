@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Electrical engineering portfolio of Panagiotis Dimtsoudis, with projects in PCB design, embedded systems, device characterization, fabrication, and testing." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/" />
+  <meta property="og:title" content="Panagiotis Dimtsoudis | Electrical Engineering Portfolio" />
+  <meta property="og:description" content="Electrical engineering projects in PCB design, embedded systems, device characterization, fabrication, and testing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/AlScN_Ferroelectric_Diode/images/Cross%20Section%20View.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <script src="site.js"></script>
+  <title>Panagiotis Dimtsoudis | Electrical Engineering Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar" aria-label="Primary navigation">
+    <a class="brand-link" href="index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Penn Electrical Engineering</p>
+        <h1>Panagiotis Dimtsoudis</h1>
+        <p class="hero-lede">
+          I am an electrical engineering student at Penn working on PCB design, embedded systems, signal conditioning, device characterization, and fabrication.
+        </p>
+        <p>
+          Most of my work connects design decisions to bench results through circuit builds, measurement data, firmware, reports, and hardware debugging.
+        </p>
+        <div class="button-row">
+          <a class="btn-primary" href="projects.html">View Projects</a>
+          <a class="btn-outline" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
+      </div>
+
+      <aside class="current-panel" aria-label="Current engineering focus">
+        <div class="panel-kicker">Current Work</div>
+        <img src="projects/AlScN_Ferroelectric_Diode/images/Cross Section View.png" alt="Cross-section view of an AlN/AlScN/AlN ferroelectric junction stack" />
+        <dl>
+          <div>
+            <dt>Research</dt>
+            <dd>AlScN ferroelectric junction characterization</dd>
+          </div>
+          <div>
+            <dt>Building</dt>
+            <dd>Analog synthesizer architecture and early validation</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>PCB design, embedded systems, fabrication, and device testing</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section compact-section" aria-labelledby="currently-heading">
+      <div class="section-heading">
+        <p class="eyebrow">At Penn / Currently</p>
+        <h2 id="currently-heading">Current academic and technical work.</h2>
+      </div>
+      <div class="stat-grid">
+        <article>
+          <span>Research</span>
+          <p>Undergraduate Research Assistant in Penn's Device Research and Engineering Laboratory.</p>
+        </article>
+        <article>
+          <span>Education</span>
+          <p>B.S.E. Electrical Engineering at the University of Pennsylvania, Class of 2028.</p>
+        </article>
+        <article>
+          <span>Direction</span>
+          <p>Compact PCB layout, embedded firmware, fabrication, and measurement-driven hardware development.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Selected Projects</p>
+          <h2 id="projects-heading">Selected technical work.</h2>
+        </div>
+        <a class="text-link" href="projects.html">All projects</a>
+      </div>
+
+      <div class="selected-projects">
+        <a class="project-card" href="projects/AlScN_Ferroelectric_Diode/alscn.html">
+          <figure class="project-thumb project-thumb-contain">
+            <img src="projects/AlScN_Ferroelectric_Diode/images/Cross Section View.png" alt="AlScN ferroelectric junction cross-section view" />
+          </figure>
+          <div class="project-info">
+            <p class="project-meta-line"><span>Device Research</span><span>2026</span></p>
+            <h3>AlScN Ferroelectric Junctions</h3>
+            <p>Contributor work on temperature-dependent characterization and analysis of ultrathin all-nitride ferroelectric junctions.</p>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/Metal_Detector_ESE319/metal-detector.html">
+          <figure class="project-thumb project-thumb-contain">
+            <img src="projects/Metal_Detector_ESE319/images/PCB_MD.png" alt="3D view of the metal detector PCB" />
+          </figure>
+          <div class="project-info">
+            <p class="project-meta-line"><span>Analog PCB</span><span>2026</span></p>
+            <h3>Metal Detector PCB</h3>
+            <p>Custom oscillator-based detector PCB taken through layout, fabrication, assembly, report writing, and bench testing.</p>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html">
+          <figure class="project-thumb">
+            <img src="projects/Guitar_Hero_Synth_ESE3500/images/Guitar Hero Synth.jpeg" alt="Guitar Hero controller converted into an embedded synthesizer" />
+          </figure>
+          <div class="project-info">
+            <p class="project-meta-line"><span>Embedded Audio</span><span>2026</span></p>
+            <h3>Guitar Hero Synthesizer</h3>
+            <p>ATmega328PB-based bare-metal C synthesizer with real-time PWM audio, controller inputs, and pitch-mapping controls.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Experience</p>
+        <h2 id="experience-heading">Current work and recent roles.</h2>
+      </div>
+      <div class="timeline-list">
+        <article class="timeline-entry">
+          <div class="timeline-date">May 2026 - Present</div>
+          <div>
+            <h3>Undergraduate Research Assistant</h3>
+            <p class="muted">Device Research and Engineering Laboratory, Penn Engineering</p>
+            <p>Collecting, organizing, and analyzing electrical characterization data for AlScN ferroelectric junctions across temperature.</p>
+            <div class="chip-row">
+              <span class="skill-chip">Device Characterization</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Ferroelectrics</span>
+            </div>
+          </div>
+        </article>
+        <article class="timeline-entry">
+          <div class="timeline-date">Jan 2025 - Present</div>
+          <div>
+            <h3>Technology Support Specialist</h3>
+            <p class="muted">University of Pennsylvania, Philadelphia, PA</p>
+            <p>Supporting students with hardware, software, ticketing, technical troubleshooting, documentation, and equipment loan operations.</p>
+            <div class="chip-row">
+              <span class="skill-chip">Troubleshooting</span>
+              <span class="skill-chip">Hardware Support</span>
+              <span class="skill-chip">Documentation</span>
+            </div>
+          </div>
+        </article>
+        <article class="timeline-entry">
+          <div class="timeline-date">Summer 2024</div>
+          <div>
+            <h3>Computer Engineering Intern</h3>
+            <p class="muted">AS Hellas, Thessaloniki, Greece</p>
+            <p>Updated control-panel documentation, supported OT/IT infrastructure, and developed C/Python utilities for commissioning checks and log analysis.</p>
+            <div class="chip-row">
+              <span class="skill-chip">C</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Control Panels</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact Me</p>
+      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
+      <a href="tel:+12155267626">+1 (215) 526-7626</a>
+      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis. Built with vanilla HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script src="scroll-animations.js"></script>
+</body>
+</html>

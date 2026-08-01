@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Metal_Detector_ESE319/metal-detector.html" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-  <script src="../../site.js"></script>
+  <script src="../../site.js" defer></script>
   <title>Metal Detector PCB - Panos Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -69,7 +69,7 @@
 
       <div class="project-detail-cover project-detail-cover-contain project-detail-cover-light image-switcher image-switcher-hero pcb-gallery" data-gallery="pcb">
         <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous PCB view">&lsaquo;</button>
-        <img src="images/PCB_MD.png" alt="Metal Detector PCB 3D view" data-gallery-image>
+        <img src="images/PCB_MD.png" alt="Metal Detector PCB 3D view" width="608" height="516" data-gallery-image>
         <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next PCB view">&rsaquo;</button>
         <div class="image-switcher-info">
           <div class="image-switcher-caption" data-gallery-caption>PCB 3D View</div>
@@ -127,7 +127,7 @@
           <h2>Completed Detector</h2>
           <div class="image-switcher" data-gallery="detector">
             <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous metal detector image">&lsaquo;</button>
-            <img src="images/Metal Detector no BG.png" alt="Completed metal detector assembly" data-gallery-image>
+            <img src="images/metal-detector-no-bg.png" alt="Completed metal detector assembly" width="1086" height="1448" data-gallery-image>
             <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next metal detector image">&rsaquo;</button>
             <div class="image-switcher-info">
               <div class="image-switcher-caption" data-gallery-caption>Completed metal detector assembly</div>
@@ -156,9 +156,20 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis &middot; Built with HTML & CSS &middot; Hosted on GitHub Pages</p>
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact Me</p>
+      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
+      <a href="tel:+12155267626">+1 (215) 526-7626</a>
+      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
-  <script src="../../scroll-animations.js"></script>
+  <script src="../../scroll-animations.js" defer></script>
 </body>
 </html>

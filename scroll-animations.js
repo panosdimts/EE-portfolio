@@ -23,24 +23,24 @@
 
   const imageGalleries = {
     pcb: [
-      { src: 'images/PCB_MD.png', alt: 'Metal Detector PCB 3D view', caption: 'PCB 3D view' },
-      { src: 'images/PCB_Top_View.png', alt: 'Metal Detector PCB top view', caption: 'PCB top view' },
-      { src: 'images/PCB_Bottom_View.png', alt: 'Metal Detector PCB bottom view', caption: 'PCB bottom view' }
+      { src: 'images/PCB_MD.png', alt: 'Metal Detector PCB 3D view', caption: 'PCB 3D view', width: 608, height: 516 },
+      { src: 'images/PCB_Top_View.png', alt: 'Metal Detector PCB top view', caption: 'PCB top view', width: 725, height: 593 },
+      { src: 'images/PCB_Bottom_View.png', alt: 'Metal Detector PCB bottom view', caption: 'PCB bottom view', width: 719, height: 563 }
     ],
     detector: [
-      { src: 'images/Metal Detector no BG.png', alt: 'Completed metal detector assembly', caption: 'Completed metal detector assembly' },
-      { src: 'images/Metal Detector.jpeg', alt: 'Completed metal detector shown in the test setup', caption: 'Completed metal detector in the test setup' }
+      { src: 'images/metal-detector-no-bg.png', alt: 'Completed metal detector assembly', caption: 'Completed metal detector assembly', width: 1086, height: 1448 },
+      { src: 'images/metal-detector.jpeg', alt: 'Completed metal detector shown in the test setup', caption: 'Completed metal detector in the test setup', width: 768, height: 1024 }
     ],
     ecg: [
-      { src: 'images/Circuit 1.jpeg', alt: 'Wireless ECG monitor breadboard circuit', caption: 'Wireless ECG monitor breadboard circuit' },
-      { src: 'images/Circuit 2.jpeg', alt: 'Alternate view of the wireless ECG monitor breadboard circuit', caption: 'Alternate breadboard view' },
-      { src: 'images/Circuit 3.png', alt: 'Wireless ECG monitor breadboard and Feather test setup', caption: 'Wireless ECG monitor test setup' }
+      { src: 'images/circuit-1.jpeg', alt: 'Wireless ECG monitor breadboard circuit', caption: 'Wireless ECG monitor breadboard circuit', width: 1200, height: 1600 },
+      { src: 'images/circuit-2.jpeg', alt: 'Alternate view of the wireless ECG monitor breadboard circuit', caption: 'Alternate breadboard view', width: 1200, height: 1600 },
+      { src: 'images/circuit-3.png', alt: 'Wireless ECG monitor breadboard and Feather test setup', caption: 'Wireless ECG monitor test setup', width: 569, height: 756 }
     ],
     guitar: [
-      { src: 'images/Guitar Hero Synth.jpeg', alt: 'Completed Guitar Hero controller converted into an electronic synthesizer', caption: 'Completed Guitar Hero synthesizer' },
-      { src: 'images/Guitar Hero Synth Inside 1.jpeg', alt: 'Internal wiring and control electronics inside the Guitar Hero synthesizer', caption: 'Internal wiring and control electronics' },
-      { src: 'images/Guitar Hero Synth Inside 2.jpeg', alt: 'ATmega328PB control and audio circuitry inside the Guitar Hero synthesizer', caption: 'Microcontroller and audio circuitry' },
-      { src: 'images/Guitar Hero Synth Inside 3.jpeg', alt: 'Power, display, and speaker connections inside the Guitar Hero synthesizer', caption: 'Power, display, and speaker connections' }
+      { src: 'images/guitar-hero-synth.jpeg', alt: 'Completed Guitar Hero controller converted into an electronic synthesizer', caption: 'Completed Guitar Hero synthesizer', width: 1200, height: 1600 },
+      { src: 'images/guitar-hero-synth-inside-1.jpeg', alt: 'Internal wiring and control electronics inside the Guitar Hero synthesizer', caption: 'Internal wiring and control electronics', width: 1200, height: 1600 },
+      { src: 'images/guitar-hero-synth-inside-2.jpeg', alt: 'ATmega328PB control and audio circuitry inside the Guitar Hero synthesizer', caption: 'Microcontroller and audio circuitry', width: 1200, height: 1600 },
+      { src: 'images/guitar-hero-synth-inside-3.jpeg', alt: 'Power, display, and speaker connections inside the Guitar Hero synthesizer', caption: 'Power, display, and speaker connections', width: 1200, height: 1600 }
     ]
   };
 
@@ -129,6 +129,8 @@
         activeIndex = (nextIndex + images.length) % images.length;
         image.src = images[activeIndex].src;
         image.alt = images[activeIndex].alt;
+        image.width = images[activeIndex].width;
+        image.height = images[activeIndex].height;
 
         if (caption) {
           caption.textContent = images[activeIndex].caption;

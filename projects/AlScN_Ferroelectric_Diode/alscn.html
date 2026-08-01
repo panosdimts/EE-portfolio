@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/AlScN_Ferroelectric_Diode/alscn.html" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-  <script src="../../site.js"></script>
+  <script src="../../site.js" defer></script>
   <title>AlScN Ferroelectric Junctions - Panos Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,7 +74,7 @@
       </div>
 
       <div class="project-detail-cover project-detail-cover-contain">
-        <img src="images/Cross Section View.png" alt="Cross-section view of the AlN/AlScN/AlN ferroelectric junction stack">
+        <img src="images/cross-section-view.png" alt="Cross-section view of the AlN/AlScN/AlN ferroelectric junction stack" width="1943" height="1200">
       </div>
     </section>
 
@@ -159,17 +159,17 @@
           <h2>Gallery</h2>
           <div class="media-grid">
             <figure class="media-figure">
-              <img class="media-contain" src="images/Cross Section View.png" alt="Cross-section view of the AlN/AlScN/AlN ferroelectric junction stack">
+              <img class="media-contain" src="images/cross-section-view.png" alt="Cross-section view of the AlN/AlScN/AlN ferroelectric junction stack" width="1943" height="1200" loading="lazy">
               <figcaption>Cross-section view of the ultrathin all-nitride AlN/AlScN/AlN ferroelectric junction.</figcaption>
             </figure>
 
             <figure class="media-figure">
-              <img class="media-contain" src="images/image1.png" alt="Paper figure page showing device architecture, fabrication flow, and cryogenic ferroelectric measurements">
+              <img class="media-contain" src="images/image1.png" alt="Paper figure page showing device architecture, fabrication flow, and cryogenic ferroelectric measurements" width="1876" height="2428" loading="lazy">
               <figcaption>Device architecture, fabrication flow, and temperature-dependent ferroelectric characterization from the manuscript figures.</figcaption>
             </figure>
 
             <figure class="media-figure">
-              <img class="media-contain" src="images/image2.png" alt="Paper figure page showing reliability, transport mechanism, and vector-matrix multiplication results">
+              <img class="media-contain" src="images/image2.png" alt="Paper figure page showing reliability, transport mechanism, and vector-matrix multiplication results" width="1870" height="2420" loading="lazy">
               <figcaption>Reliability, local trap-assisted tunneling transport, multilevel conductance, and VMM decoding results.</figcaption>
             </figure>
           </div>
@@ -202,10 +202,21 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis &middot; Built with HTML & CSS &middot; Hosted on GitHub Pages</p>
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact Me</p>
+      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
+      <a href="tel:+12155267626">+1 (215) 526-7626</a>
+      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
-  <script src="../../scroll-animations.js"></script>
+  <script src="../../scroll-animations.js" defer></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-  <script src="../../site.js"></script>
+  <script src="../../site.js" defer></script>
   <title>Guitar Hero Synthesizer - Panos Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,7 +72,7 @@
       <div class="project-detail-cover project-detail-cover-contain image-switcher image-switcher-hero" data-gallery="guitar">
         <div class="image-switcher-count" data-gallery-count>1/4</div>
         <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero Synthesizer image">&lsaquo;</button>
-        <img src="images/Guitar Hero Synth.jpeg" alt="Completed Guitar Hero controller converted into an electronic synthesizer" data-gallery-image>
+        <img src="images/guitar-hero-synth.jpeg" alt="Completed Guitar Hero controller converted into an electronic synthesizer" width="1200" height="1600" data-gallery-image>
         <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero Synthesizer image">&rsaquo;</button>
         <div class="image-switcher-info">
           <div class="image-switcher-caption" data-gallery-caption>Completed Guitar Hero synthesizer</div>
@@ -132,7 +132,7 @@
         <section class="project-panel">
           <h2>Controller Design Sketch</h2>
           <figure class="design-sketch-figure">
-            <img src="Design Sketch.png" alt="Annotated Guitar Hero controller design sketch showing display, strum, pitch buttons, mute button, whammy, and joystick placement">
+            <img src="design-sketch.png" alt="Annotated Guitar Hero controller design sketch showing display, strum, pitch buttons, mute button, whammy, and joystick placement" width="810" height="317" loading="lazy">
             <figcaption>
               Early controller layout sketch showing how the physical guitar interface maps gameplay controls
               onto the display, strum bar, pitch buttons, mute button, whammy control, and joystick.
@@ -187,9 +187,20 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis &middot; Built with HTML & CSS &middot; Hosted on GitHub Pages</p>
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact Me</p>
+      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
+      <a href="tel:+12155267626">+1 (215) 526-7626</a>
+      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
-  <script src="../../scroll-animations.js"></script>
+  <script src="../../scroll-animations.js" defer></script>
 </body>
 </html>

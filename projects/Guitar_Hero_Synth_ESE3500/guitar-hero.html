@@ -44,8 +44,7 @@
         <p class="project-detail-tag">Embedded Systems &middot; Microcontrollers &middot; Audio</p>
         <h1 class="project-detail-title">Guitar Hero Synthesizer</h1>
         <p class="project-detail-sub">
-          A repurposed Guitar Hero controller converted into an electronic synthesizer using an
-          ATmega328PB microcontroller, PWM audio, and custom hardware interfaces.
+          A Guitar Hero controller converted into an ATmega328PB synthesizer. The firmware reads the original controls, generates PWM audio, and lets the player remap fret-button notes on the LCD.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -91,8 +90,7 @@
         <div class="project-info-card">
           <h2>Project Snapshot</h2>
           <p>
-            An embedded-system retrofit that maps the original guitar controls to a playable,
-            self-contained electronic instrument.
+            The original guitar controls now drive a playable embedded instrument. The demo videos show the LCD interface, synthesized audio, and speaker output working together.
           </p>
         </div>
         <div class="project-info-card">
@@ -111,10 +109,10 @@
           <h2>Overview</h2>
           <p>
             This project converts a Guitar Hero controller into a low-cost instrument for playing notes,
-            chords, and pitch variations. An ATmega328PB reads the controller inputs, synthesizes notes
-            through PWM, and drives a speaker through a custom audio-output stage. The fret buttons select
+            chords, and pitch variations. An ATmega328PB reads the controller inputs and synthesizes notes
+            through PWM before driving a speaker through a custom audio-output stage. The fret buttons select
             notes, the strum bar triggers a decaying tone, the whammy stick adds vibrato, and the LCD-and-joystick
-            interface displays and adjusts each button's pitch mapping.
+            interface changes each button's pitch mapping.
           </p>
         </section>
 

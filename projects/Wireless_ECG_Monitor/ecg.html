@@ -44,8 +44,7 @@
         <p class="project-detail-tag">Bioelectronics &middot; Analog Signal Conditioning &middot; Wireless</p>
         <h1 class="project-detail-title">Wireless ECG Monitor</h1>
         <p class="project-detail-sub">
-          An ESE 2150 final project that conditions a low-amplitude ECG signal, digitizes it with a Feather microcontroller,
-          transmits samples wirelessly, and estimates heart rate from detected R-peaks.
+          An ESE 2150 ECG front end that conditions a low-amplitude heartbeat signal for wireless capture. Stage tests reached about 61 dB maximum gain with a 3 dB drop-off near 190.5 Hz.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -88,7 +87,7 @@
         <div class="project-info-card">
           <h2>Project Snapshot</h2>
           <p>
-            A class final project combining analog ECG amplification and filtering with microcontroller ADC sampling, wireless data transfer, and Python-based heart-rate estimation.
+            The circuit amplified and filtered ECG simulator signals before Feather-based wireless capture. Python then estimated heart rate from detected R-peaks.
           </p>
         </div>
         <div class="project-info-card">
@@ -110,9 +109,8 @@
           <h2>Overview</h2>
           <p>
             The project captured a low-amplitude ECG waveform and passed it through a multi-stage analog front end
-            before wireless acquisition. The signal chain used an instrumentation amplifier, virtual ground,
-            low-pass filtering near 160 Hz, high-pass filtering near 0.5 Hz, and buffering/noise-reduction
-            capacitors to produce an ADC-readable signal.
+            before wireless acquisition. The signal chain used an instrumentation amplifier and a virtual ground.
+            Filtering near 160 Hz and 0.5 Hz kept the signal in range for the Feather ADC.
           </p>
         </section>
 

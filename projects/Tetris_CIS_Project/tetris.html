@@ -46,7 +46,7 @@
         <p class="project-detail-tag">Software Systems &middot; Java &middot; Event-Driven Design</p>
         <h1 class="project-detail-title">Java Tetris</h1>
         <p class="project-detail-sub">
-          A Java Swing desktop implementation of Tetris with custom board and piece logic, keyboard input, scoring, state management, undo support, file-based persistence, and separated interface and game logic.
+          A playable Java Swing Tetris implementation for CIS 1200. The game uses a 20 by 18 board, explicit game states, file-based save/load, JUnit tests, and Easy-mode undo.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -104,7 +104,7 @@
         <div class="project-info-card">
           <h2>Why It Belongs Here</h2>
           <p>
-            This is a software project, not a hardware build. It is included because event-driven input, deterministic state transitions, modular structure, data structures, testing, and debugging are useful foundations for embedded firmware.
+            This is a software project, not a hardware build. It is included because the state-machine, input, and testing problems are close to the way embedded firmware has to behave.
           </p>
         </div>
         <div class="project-info-card">
@@ -123,14 +123,14 @@
         <section class="project-panel">
           <h2>Objective</h2>
           <p>
-            The project implements a desktop Tetris game in Java for CIS 1200. The goal was to build an interactive application with object-oriented structure, persistent state, testable logic, and a responsive Swing interface.
+            The project implements a desktop Tetris game in Java for CIS 1200. The finished application has menu states, scoring, pause behavior, save/load, high-score display, and undo in Easy mode.
           </p>
         </section>
 
         <section class="project-panel">
           <h2>Software Architecture</h2>
           <p>
-            The implementation separates the model, rendering, input, and persistence responsibilities. <code>TetrisGame</code> manages gameplay state and timers, <code>GamePanel</code> renders the Swing interface, <code>InputHandler</code> maps keyboard events to state-aware actions, and <code>SaveManager</code> handles file I/O.
+            The implementation separates model, rendering, input, and persistence responsibilities. <code>TetrisGame</code> manages gameplay state and timers. <code>GamePanel</code> renders the Swing interface, <code>InputHandler</code> maps keys to state-aware actions, and <code>SaveManager</code> handles file I/O.
           </p>
           <div class="architecture-grid">
             <div>

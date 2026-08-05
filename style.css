@@ -461,15 +461,17 @@ dd {
 .projects-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
+  gap: 0;
   border: 1px solid var(--line);
-  background: var(--line);
+  background: var(--bg);
 }
 
 .project-card {
   display: grid;
   grid-template-rows: auto 1fr;
   min-width: 0;
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
   background: var(--bg);
 }
 

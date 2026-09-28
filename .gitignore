@@ -1,1 +1,8 @@
 projects/Guitar_Hero_Synth_ESE3500/Full Feature Overview.mkv
+
+# Local scratch renders
+tmp/
+
+# Local manuscript drafts
+projects/AlScN_Ferroelectric_Diode/*.docx
+projects/AlScN_Ferroelectric_Diode/*.pdf

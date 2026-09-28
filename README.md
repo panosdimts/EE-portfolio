@@ -49,4 +49,4 @@ EE-portfolio/
 
 All project content and final site decisions are mine.
 
-This website was designed and developed with assistance from AI tools, including OpenAI Codex, for code generation, debugging, refactoring, and design iteration. All content, engineering work, project descriptions, and final implementation decisions were reviewed and directed by Panagiotis Dimtsoudis.
+This website was designed and developed with assistance from AI tools, including OpenAI Codex and Anthropic's Claude Code, for code generation, debugging, refactoring, and design iteration. All content, engineering work, project descriptions, and final implementation decisions were reviewed and directed by Panagiotis Dimtsoudis.

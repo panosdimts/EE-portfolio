@@ -53,6 +53,12 @@
         description: 'Demo Day footage of the completed instrument, showing the physical controls, LCD interface, synthesized audio, and speaker output operating together in real time.'
       },
       {
+        src: 'Full Feature Overview.mp4',
+        type: 'video/mp4',
+        title: 'Full Feature Demo',
+        description: 'A full walkthrough of the finished embedded instrument, including note selection, strumming, pitch control, display interaction, audio response, and hardware integration.'
+      },
+      {
         src: 'Guitar Demo.mp4',
         type: 'video/mp4',
         title: 'Guitar Demo',

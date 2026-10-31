@@ -29,9 +29,13 @@
       { src: 'images/macro-schematic.png', alt: 'Schematic of the 16 by 4 SRAM macro with decoder, precharge, write drivers and read path', caption: '16 \u00d7 4 macro: decoder, precharge, write and read columns', width: 928, height: 1001 },
       { src: 'images/decoder-waveforms.png', alt: 'Wordline waveforms for every row of the predecoded decoder', caption: 'Predecoded row decoder: 129 ps from address to wordline', width: 2361, height: 1016 },
       { src: 'images/macro-read-after-write.png', alt: 'Macro transient waveforms reading a word back after writing it', caption: 'Macro read after write, 440 ps access time', width: 1486, height: 1225 },
-      { src: 'images/mac-block-diagram.png', alt: 'Block diagram of the MAC with three pipeline stages and three supply domains marked', caption: 'MAC block diagram: three pipeline stages, three supply domains', width: 1516, height: 770 },
+      { src: 'images/mac-block-sketch.png', alt: 'Hand-drawn block diagram of the MAC: address mux, two SRAM macros, operand registers, multiplier, adder, accumulator and sequencer, split into three pipeline stages and three supply domains', caption: 'Hand-drawn MAC block diagram: three pipeline stages, three supply domains', width: 3505, height: 1792 },
+      { src: 'images/mac-block-diagram.png', alt: 'Block diagram of the MAC with three pipeline stages and three supply domains marked', caption: 'MAC block diagram, redrawn', width: 1516, height: 770 },
+      { src: 'images/sequencer-state-sketch.png', alt: 'Hand-drawn state diagram of the sequencer with IDLE, COMPUTE, DRAIN and DONE states', caption: 'Hand-drawn sequencer states: IDLE, COMPUTE (16 cycles), DRAIN (3), DONE', width: 1497, height: 837 },
       { src: 'images/diffr-flipflop.png', alt: 'Schematic of the transmission-gate leader-follower flip-flop with synchronous reset', caption: 'Custom flip-flop: 94 ps clock-to-Q, 1.8 fJ per clock', width: 1518, height: 706 },
+      { src: 'images/dot-product-timing.png', alt: 'Cycle-level timing diagram of one dot product showing the counter, latched address, operand registers, product register and accumulator at every clock edge', caption: 'One dot product, edge by edge: DONE rises at E19', width: 1416, height: 760 },
       { src: 'images/mac-test-a.png', alt: 'Accumulator waveform climbing in steps to 845 with the done signal rising', caption: 'Test A: accumulator reaches 845, done after 19 cycles', width: 1463, height: 809 },
+      { src: 'images/mac-0p8ns-failure.png', alt: 'Accumulator at a 0.8 ns clock against the correct running sum, with errors of 16, 32 and 16 in three cycles', caption: 'At 0.8 ns: three late bits, 909 instead of 845', width: 1341, height: 832 },
       { src: 'images/mac-energy.png', alt: 'Bar chart of energy per dot product split across the memory, MAC and clock supplies', caption: 'Energy per dot product by supply domain', width: 1223, height: 634 }
     ],
     pcb: [
@@ -270,6 +274,62 @@
     });
   }
 
+  // Report links marked data-report-target load their PDF into that embedded
+  // viewer instead of leaving the page. They keep a real href, so without JS,
+  // on a modified click, and on phones - where most browsers cannot show a PDF
+  // inside an iframe - they still open the PDF itself.
+  function setupReportViewers() {
+    const links = Array.from(document.querySelectorAll('[data-report-target]'));
+    const wideScreen = window.matchMedia('(min-width: 701px)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function markCurrent(viewerId, href) {
+      links.forEach((link) => {
+        if (link.dataset.reportTarget !== viewerId) {
+          return;
+        }
+        if (link.getAttribute('href') === href) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    links.forEach((link) => {
+      const viewer = document.getElementById(link.dataset.reportTarget);
+
+      if (!viewer) {
+        return;
+      }
+
+      markCurrent(viewer.id, viewer.getAttribute('src'));
+
+      link.addEventListener('click', (event) => {
+        if (!wideScreen.matches || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+          return;
+        }
+
+        event.preventDefault();
+        const current = document.getElementById(link.dataset.reportTarget);
+        const href = link.getAttribute('href');
+
+        // Swap in a fresh iframe rather than changing src: a src change adds a
+        // history entry, so Back would step through reports instead of leaving.
+        if (current.getAttribute('src') !== href) {
+          const next = current.cloneNode(false);
+          next.src = href;
+          next.title = link.dataset.reportTitle || current.title;
+          current.replaceWith(next);
+        }
+
+        markCurrent(current.id, href);
+        document.getElementById(current.id).closest('.pdf-viewer')
+          ?.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+  }
+
   function setupImageLightbox() {
     const images = Array.from(document.querySelectorAll('main.project-detail img'))
       .filter((image) => !image.closest('a'));
@@ -361,6 +421,7 @@
     setupImageGalleries();
     setupVideoGalleries();
     setupTogglePanels();
+    setupReportViewers();
     setupImageLightbox();
   }
 

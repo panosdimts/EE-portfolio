@@ -74,9 +74,9 @@
           </div>
         </div>
         <div class="button-row">
-          <a class="btn-primary" href="ESE5700_Part3_Report.pdf" target="_blank" rel="noopener noreferrer">Part 3 Report</a>
-          <a class="btn-outline" href="ESE5700_Part2_Report.pdf" target="_blank" rel="noopener noreferrer">Part 2 Report</a>
-          <a class="btn-outline" href="ESE5700_Part1_Report.pdf" target="_blank" rel="noopener noreferrer">Part 1 Report</a>
+          <a class="btn-primary" href="ESE5700_Part3_Report.pdf" target="_blank" rel="noopener noreferrer" data-report-target="report-viewer" data-report-title="ESE 5700 Project 1, Part 3 report">Part 3 Report</a>
+          <a class="btn-outline" href="ESE5700_Part2_Report.pdf" target="_blank" rel="noopener noreferrer" data-report-target="report-viewer" data-report-title="ESE 5700 Project 1, Part 2 report">Part 2 Report</a>
+          <a class="btn-outline" href="ESE5700_Part1_Report.pdf" target="_blank" rel="noopener noreferrer" data-report-target="report-viewer" data-report-title="ESE 5700 Project 1, Part 1 report">Part 1 Report</a>
         </div>
       </div>
 
@@ -86,7 +86,7 @@
         <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next figure">&rsaquo;</button>
         <div class="image-switcher-info">
           <div class="image-switcher-caption" data-gallery-caption>6T bitcell layout, DRC and LVS clean</div>
-          <div class="image-switcher-count" data-gallery-count>1/12</div>
+          <div class="image-switcher-count" data-gallery-count>1/16</div>
           <div class="image-switcher-dots" data-gallery-dots aria-label="Figure position">
             <button class="image-switcher-dot is-active" type="button" aria-label="Show bitcell layout"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show read butterfly"></button>
@@ -96,9 +96,13 @@
             <button class="image-switcher-dot" type="button" aria-label="Show macro schematic"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show decoder waveforms"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show macro read after write"></button>
-            <button class="image-switcher-dot" type="button" aria-label="Show MAC block diagram"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show hand-drawn MAC block diagram"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show redrawn MAC block diagram"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show hand-drawn sequencer state diagram"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show flip-flop schematic"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show dot-product timing diagram"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show MAC test A waveform"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show 0.8 ns failure plot"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show MAC energy breakdown"></button>
           </div>
         </div>
@@ -116,10 +120,10 @@
         <div class="project-info-card">
           <h2>Contributions</h2>
           <p>
-            <strong>Panagiotis:</strong> hand analysis of &beta; and &gamma;, the bitcell layout with DRC and LVS, and the functional check in Part 1; the array layout, bitline and wordline extraction, the row decoder and wordline timing, and macro verification in Part 2.
+            <strong>Panagiotis:</strong> hand analysis of &beta; and &gamma;, the bitcell layout with DRC and LVS, and the functional check in Part 1; the array layout, bitline and wordline extraction, the row decoder and wordline timing, and macro verification in Part 2; the flip-flop and its setup, hold and power benches, the datapath (full adder, multiplier, accumulator) and its unit tests, the sequencer logic and its tests, and the energy and area analysis in Part 3.
           </p>
           <p>
-            <strong>Dhruva:</strong> the schematic &beta; sweep, parasitic extraction, and stability characterization in Part 1; the column circuits, the controller, and the metrics and FOM in Part 2.
+            <strong>Dhruva:</strong> the schematic &beta; sweep, parasitic extraction, and stability characterization in Part 1; the column circuits, the controller, and the metrics and FOM in Part 2; the top-level MAC and its full testbench, the minimum-clock sweep, the clock driver and hold analysis, and system tests A, B and C in Part 3.
           </p>
           <p>We wrote the reports together, and both of us reviewed the whole design.</p>
         </div>
@@ -195,9 +199,10 @@
           </p>
           <ul class="project-list">
             <li><strong>Register.</strong> A transmission-gate leader-follower flip-flop with synchronous active-low reset, built from a NAND2 input stage. 24 transistors and 2.9 &micro;m&sup2; per bit, 94 ps clock-to-Q, 87 ps setup, and 1.8 fJ per clock when the data is held. The MAC uses 37 of them.</li>
+            <li><strong>Sequencer.</strong> Four states: IDLE; COMPUTE for 16 cycles while the counter walks addresses 0 to 15; DRAIN for 3 cycles while the last products move through the pipeline; and DONE, which holds the result until the next start. DRAIN is not a separate flop &mdash; it is a three-flop valid chain emptying. Nine flip-flops in total.</li>
             <li><strong>Datapath.</strong> A mirrored full adder carries in 67 ps per bit. The 4 &times; 4 multiplier settles in 890 ps and the 12-bit accumulator ripples in 880 ps, against logical-effort estimates of 760 and 870 ps.</li>
             <li><strong>Timing.</strong> Closed at a 0.90 ns minimum clock period, below the 1.1 ns hand estimate, with 90 ps of hold margin on the counter-to-address path.</li>
-            <li><strong>Energy.</strong> Three separate supply domains let the memory, the MAC and the clock be measured apart: 6.2 pJ per dot product from the MAC supplies, 8.1 pJ with the clock included, which is 0.39 pJ per multiply-accumulate with the memory reads and 0.19 pJ without.</li>
+            <li><strong>Energy.</strong> Three separate supply domains let the memory, the datapath and the sequencer be measured apart: 6.2 pJ per dot product, or 0.39 pJ per multiply-accumulate with the memory reads and 0.19 pJ without. The memories take about half of it. The clock chain adds 2.0 pJ, for 8.1 pJ in total, or 0.51 pJ per multiply-accumulate.</li>
           </ul>
         </section>
 
@@ -209,7 +214,7 @@
           <ul class="project-list">
             <li><strong>Multiplier, exhaustively.</strong> All 256 input pairs produce the correct product. The slowest vector settles in 957 ps.</li>
             <li><strong>System tests.</strong> The three vectors from the specification all pass: a mixed case summing to 845, a full-scale case at 3600, and an alternating case at 800 that toggles every memory output and multiplier input on every cycle.</li>
-            <li><strong>The edge.</strong> All three pass at 0.90 ns and fail at 0.80 ns, where the mixed case returns 909 instead of 845. That is how the minimum clock period was pinned down rather than estimated.</li>
+            <li><strong>The edge.</strong> All three pass at 0.90 ns and fail at 0.80 ns, where the mixed case returns 909 instead of 845. That is how the minimum clock period was pinned down rather than estimated. Each of the three errors is a single extra power of two (16, 32, 16): one adder or multiplier bit that had not settled by the capturing edge. No misread memory word could produce those values, so the limit is the datapath, as the hand estimate predicted.</li>
             <li><strong>Cycle count.</strong> The done flag rises 19.06 to 19.09 cycles after the start pulse in every run, matching the 19-cycle model plus one clock-to-Q.</li>
           </ul>
         </section>
@@ -217,15 +222,15 @@
         <section class="project-panel">
           <h2>Reports</h2>
           <p>
-            The Part 3 report is embedded below; the Part 1 and Part 2 reports are linked beneath it. There is no repository for this one &mdash; the design lives in a Cadence library rather than in source control, so the reports are the record.
+            The Part 3 report is open below; the buttons under it switch the viewer to the Part 2 or Part 1 report. There is no repository for this one &mdash; the design lives in a Cadence library rather than in source control, so the reports are the record.
           </p>
           <div class="pdf-viewer">
-            <iframe src="ESE5700_Part3_Report.pdf" title="ESE 5700 Project 1, Part 3 report"></iframe>
+            <iframe id="report-viewer" src="ESE5700_Part3_Report.pdf" title="ESE 5700 Project 1, Part 3 report"></iframe>
           </div>
           <div class="project-actions">
-            <a href="ESE5700_Part3_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Part 3 Report</a>
-            <a href="ESE5700_Part2_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Part 2 Report</a>
-            <a href="ESE5700_Part1_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Part 1 Report</a>
+            <a href="ESE5700_Part3_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline" data-report-target="report-viewer" data-report-title="ESE 5700 Project 1, Part 3 report">Part 3 Report</a>
+            <a href="ESE5700_Part2_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline" data-report-target="report-viewer" data-report-title="ESE 5700 Project 1, Part 2 report">Part 2 Report</a>
+            <a href="ESE5700_Part1_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline" data-report-target="report-viewer" data-report-title="ESE 5700 Project 1, Part 1 report">Part 1 Report</a>
           </div>
         </section>
       </div>

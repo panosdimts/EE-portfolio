@@ -1,25 +1,30 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Panagiotis Dimtsoudis, an electrical engineering student working on PCB design, embedded systems, fabrication, and device testing." />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="About Panagiotis Dimtsoudis, an electrical engineering student at Penn working on transistor-level IC design and layout, analog PCB hardware, and ferroelectric device characterization." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/about.html" />
   <meta property="og:title" content="About | Panagiotis Dimtsoudis" />
-  <meta property="og:description" content="Electrical engineering background, interests, skills, and current direction." />
+  <meta property="og:description" content="Transistor-level IC design and custom layout, analog PCB hardware, embedded firmware, and ferroelectric device characterization." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/about.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/headshot.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <script src="site.js" defer></script>
   <title>About | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar" aria-label="Primary navigation">
+  <header class="topbar">
     <a class="brand-link" href="index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -34,84 +39,183 @@
         <li><a href="projects.html" class="nav-link">Projects</a></li>
         <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" tabindex="-1">
-    <section class="page-hero">
-      <p class="eyebrow">About</p>
-      <h1>Hardware, circuits, and measured systems.</h1>
-      <p>
-        I am Panagiotis Dimtsoudis, an Electrical Engineering student at Penn Engineering. I grew up on a farm in northeastern Greece, where repairing equipment and working with physical systems were part of daily life. That background still shapes how I approach circuits, boards, instruments, and embedded projects.
-      </p>
+    <section class="page-hero about-hero">
+      <div class="about-hero-text">
+        <p class="eyebrow">About</p>
+        <h1>Panagiotis (Panos) Dimtsoudis</h1>
+        <p>
+          Electrical engineering student at the University of Pennsylvania, submatriculating into the M.S.E. alongside the B.S.E. My focus is transistor-level IC design and custom layout, plus the hardware around it: analog boards, embedded firmware, and device measurement.
+        </p>
+        <p>
+          I grew up in northeastern Greece, repairing equipment with my grandfather. That is where the hardware started.
+        </p>
+      </div>
+      <img class="about-portrait" src="headshot.webp" alt="Portrait of Panagiotis Dimtsoudis" width="640" height="960" />
     </section>
 
     <section class="section about-layout" aria-labelledby="interests-heading">
       <div class="section-heading sticky-heading">
-        <p class="eyebrow">Engineering Interests</p>
-        <h2 id="interests-heading">Main technical interests.</h2>
+        <p class="eyebrow">What I Work On</p>
+        <h2 id="interests-heading">Digital IC design, analog hardware, device characterization.</h2>
       </div>
       <div class="content-stack">
         <article>
-          <h3>PCB and embedded hardware</h3>
-          <p>I like projects where the circuit has to survive assembly, wiring, measurement noise, and debugging. That usually means finding the problem with a scope, not only fixing it in a schematic.</p>
+          <h3>Digital IC design and VLSI</h3>
+          <p>Transistor-level design in Cadence Virtuoso: sizing from hand analysis and logical effort, custom layout that passes DRC and LVS, Quantus extraction, and post-layout simulation in Spectre. Most recently a 6T SRAM bitcell, a 16 &times; 4 macro, and the pipelined MAC datapath built around them.</p>
         </article>
         <article>
-          <h3>Device characterization and fabrication</h3>
-          <p>At Penn's Device Research and Engineering Laboratory, I help organize and analyze measurements from AlScN ferroelectric junctions. I also make device visualizations for the project.</p>
+          <h3>Analog and PCB hardware</h3>
+          <p>Schematic capture and board layout in Altium, simulation in LTspice, then assembly and bench work. I route the board, solder it, and debug it stage by stage on a scope. Oscillators, instrumentation front ends, filters, and audio circuits.</p>
         </article>
         <article>
-          <h3>Current direction</h3>
-          <p>I want to keep moving toward compact electronics, IC design, fabrication, and measurement-driven development. Clear testing matters.</p>
+          <h3>Device characterization</h3>
+          <p>Research in Penn's Device Research and Engineering Laboratory, measuring ferroelectric junctions from 14 to 400 K on cryogenic and high-temperature probe stations &mdash; J&ndash;V, C&ndash;V, PUND, breakdown and endurance. I write the measurement sequences, the Python that extracts device parameters from the exports, and the 3D models of the device stack.</p>
         </article>
       </div>
     </section>
 
     <section class="section about-layout" aria-labelledby="skills-heading">
       <div class="section-heading sticky-heading">
-        <p class="eyebrow">Technical Skills</p>
-        <h2 id="skills-heading">Tools and areas I have used.</h2>
+        <h2 id="skills-heading">Technical skills</h2>
       </div>
       <div class="skills-matrix">
         <article>
-          <h3>Hardware</h3>
+          <h3>IC Design</h3>
           <div class="chip-row">
-            <span class="skill-chip">PCB Design</span>
-            <span class="skill-chip">Analog Circuits</span>
-            <span class="skill-chip">Soldering</span>
-            <span class="skill-chip">Oscilloscope Testing</span>
-            <span class="skill-chip">Device Characterization</span>
+            <span class="skill-chip">Cadence Virtuoso</span>
+            <span class="skill-chip">Spectre / ADE</span>
+            <span class="skill-chip">Custom Layout</span>
+            <span class="skill-chip">Pegasus DRC / LVS</span>
+            <span class="skill-chip">Quantus Extraction</span>
+            <span class="skill-chip">Logical Effort</span>
+            <span class="skill-chip">Static Timing Analysis</span>
           </div>
         </article>
         <article>
-          <h3>Software</h3>
+          <h3>Hardware</h3>
+          <div class="chip-row">
+            <span class="skill-chip">Altium Designer</span>
+            <span class="skill-chip">PCB Layout</span>
+            <span class="skill-chip">LTspice</span>
+            <span class="skill-chip">Analog Circuit Design</span>
+            <span class="skill-chip">Soldering</span>
+            <span class="skill-chip">Circuit Debugging</span>
+          </div>
+        </article>
+        <article>
+          <h3>Test &amp; Characterization</h3>
+          <div class="chip-row">
+            <span class="skill-chip">Oscilloscopes</span>
+            <span class="skill-chip">Cryogenic Probe Stations</span>
+            <span class="skill-chip">J&ndash;V / C&ndash;V</span>
+            <span class="skill-chip">PUND</span>
+            <span class="skill-chip">Endurance Testing</span>
+          </div>
+          <p class="muted">Measurement work is from the research role: DC and AC J&ndash;V, C&ndash;V, PUND, breakdown and endurance sweeps on cryogenic and high-temperature probe stations, with Python extracting the device parameters from the exports.</p>
+        </article>
+        <article>
+          <h3>Programming</h3>
           <div class="chip-row">
             <span class="skill-chip">C / C++</span>
             <span class="skill-chip">Python</span>
             <span class="skill-chip">MATLAB</span>
             <span class="skill-chip">Java</span>
             <span class="skill-chip">Assembly</span>
-            <span class="skill-chip">CircuitPython</span>
+            <span class="skill-chip">OCaml</span>
           </div>
         </article>
         <article>
-          <h3>Tools</h3>
+          <h3>Embedded</h3>
           <div class="chip-row">
-            <span class="skill-chip">Altium</span>
-            <span class="skill-chip">LTspice</span>
+            <span class="skill-chip">ATmega328PB</span>
+            <span class="skill-chip">Bare-Metal C</span>
+            <span class="skill-chip">UART</span>
+            <span class="skill-chip">I2C</span>
+            <span class="skill-chip">ADC</span>
+            <span class="skill-chip">PWM</span>
+            <span class="skill-chip">BLE</span>
+            <span class="skill-chip">Arduino</span>
+          </div>
+        </article>
+        <article>
+          <h3>Mechanical</h3>
+          <div class="chip-row">
             <span class="skill-chip">SolidWorks</span>
             <span class="skill-chip">Fusion 360</span>
-            <span class="skill-chip">Arduino</span>
           </div>
         </article>
       </div>
     </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="section-heading">
+        <h2 id="contact-heading">Contact</h2>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-card">
+          <h3>Contact Information</h3>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon" aria-hidden="true">&#9679;</span>
+              <span>Philadelphia, PA</span>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">&#9993;</span>
+              <span>
+                <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+                <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy</button>
+              </span>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">&#9742;</span>
+              <span><a href="tel:+12155267626">+1 (215) 526-7626</a></span>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">&#8599;</span>
+              <span><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></span>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">&#8599;</span>
+              <span><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></span>
+            </li>
+          </ul>
+          <p class="contact-note">
+            I am looking for Summer 2027 internships and research work in IC design, analog hardware, and device characterization.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Details</h3>
+          <dl class="contact-details">
+            <dt>Current Roles</dt>
+            <dd>Undergraduate Research Assistant, Device Research and Engineering Laboratory &middot; Teaching Assistant, ESE 2180</dd>
+            <dt>Education</dt>
+            <dd>B.S.E. and M.S.E. in Electrical Engineering, University of Pennsylvania &middot; expected May 2028</dd>
+            <dt>Focus</dt>
+            <dd>Digital IC design and VLSI, analog and PCB hardware, device characterization</dd>
+            <dt>Relevant Coursework</dt>
+            <dd>ESE 5700 Digital Integrated Circuits and VLSI Fundamentals &middot; ESE 3190 Fundamentals of Solid-State Circuits &middot; ESE 3500 Embedded Systems Microlaboratory &middot; ESE 2180 Electronic, Photonic, and Electromechanical Devices &middot; ESE 2150 &middot; CIS 1200</dd>
+            <dt>Languages</dt>
+            <dd>Greek, English, German, Japanese</dd>
+          </dl>
+        </div>
+      </div>
+
+    </section>
   </main>
-  <footer class="site-footer" id="contact">
+  <!-- build:footer -->
+  <footer class="site-footer">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -124,5 +228,6 @@
   </footer>
 
   <script src="scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

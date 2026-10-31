@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="In-progress analog synthesizer project by Panagiotis Dimtsoudis, covering circuit architecture, component selection, simulation, and early build planning." />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="In-progress analog synthesizer by Panagiotis Dimtsoudis: an eleven-sheet Altium project with the VCO block drawn and simulating, and no hardware built yet." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Analog_Synthesizer/analog_synth.html" />
-  <meta property="og:title" content="Analog Synthesizer - Panos Dimtsoudis" />
-  <meta property="og:description" content="In-progress analog synthesizer architecture, simulation, component selection, and build planning." />
+  <meta property="og:title" content="Analog Synthesizer | Panagiotis Dimtsoudis" />
+  <meta property="og:description" content="An eleven-sheet Altium project for an analog synthesizer, with the VCO block drawn and simulating and no hardware built yet." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Analog_Synthesizer/analog_synth.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/headshot.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
-  <title>Analog Synthesizer - Panos Dimtsoudis</title>
+  <title>Analog Synthesizer | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
     <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -29,12 +36,14 @@
     <nav class="topbar-nav-wrap" aria-label="Primary">
       <ul class="topbar-nav" id="primary-nav">
         <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
         <li><a href="../../about.html" class="nav-link">About</a></li>
         <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
     <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
@@ -44,12 +53,12 @@
         <p class="project-detail-tag">Analog Electronics &middot; Audio Circuits</p>
         <h1 class="project-detail-title">Analog Synthesizer</h1>
         <p class="project-detail-sub">
-          An in-progress analog synthesizer build still in the architecture stage. Current work is deciding the oscillator, filter, control, and output blocks before breadboard validation.
+          An analog synthesizer, in progress. The Altium project is set up with eleven sheets; the VCO is the one that is drawn and simulating. Nothing has been built yet.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
             <span class="project-meta-label">Status</span>
-            <span class="project-meta-value">In Development</span>
+            <span class="project-meta-value">In progress &mdash; VCO simulated, no hardware</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
@@ -57,11 +66,7 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Tools</span>
-            <span class="project-meta-value">LTspice, Breadboarding, PCB Planning</span>
-          </div>
-          <div class="project-meta-item">
-            <span class="project-meta-label">Goal</span>
-            <span class="project-meta-value">Validated audio signal path</span>
+            <span class="project-meta-value">Altium Designer, LTspice</span>
           </div>
         </div>
       </div>
@@ -85,16 +90,16 @@
         <div class="project-info-card">
           <h2>Project Snapshot</h2>
           <p>
-            The project is not a finished instrument yet. It is currently a circuit-planning and validation workflow for an analog audio path.
+            One VCO sheet drawn and simulating in an eleven-sheet Altium project. No boards, no bench measurements yet.
           </p>
         </div>
         <div class="project-info-card">
           <h2>Skills</h2>
           <div class="project-chip-row">
-            <span class="skill-chip">Analog Design</span>
+            <span class="skill-chip">Altium Designer</span>
             <span class="skill-chip">LTspice</span>
+            <span class="skill-chip">Analog Design</span>
             <span class="skill-chip">Audio Circuits</span>
-            <span class="skill-chip">PCB Planning</span>
           </div>
         </div>
       </aside>
@@ -103,7 +108,7 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            The analog synthesizer is in the architecture and planning stage. I am choosing circuit blocks and preparing simulations before breadboard tests. Hardware measurements come next.
+            The VCO block is drawn and simulating. The remaining sheets &mdash; filter, amplifier, control and output &mdash; are stubs. Hardware comes after they simulate.
           </p>
         </section>
 
@@ -127,12 +132,20 @@
         </section>
       </div>
     </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-prev" href="../../projects/EcoBeam/ecobeam.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">EcoBeam</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Tetris_CIS_Project/tetris.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Java Tetris</span></a>
+    </nav>
+    <!-- /build:projectnav -->
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -143,6 +156,8 @@
     </div>
     <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
+
   <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

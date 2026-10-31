@@ -34,7 +34,7 @@
       });
 
       window.addEventListener('resize', () => {
-        if (window.matchMedia('(min-width: 641px)').matches) {
+        if (window.matchMedia('(min-width: 701px)').matches) {
           setOpen(false);
         }
       });
@@ -43,22 +43,20 @@
 
   function setupEmailCopy() {
     document.querySelectorAll('[data-copy-email]').forEach((button) => {
-      const status = button.closest('.email-wrap')?.querySelector('[data-copy-status]');
+      const label = button.textContent;
+
+      // There is no status element anywhere on the site, so the button says it.
+      function report(message, holdFor) {
+        button.textContent = message;
+        window.setTimeout(() => { button.textContent = label; }, holdFor);
+      }
 
       button.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(button.dataset.copyEmail || EMAIL);
-          if (status) {
-            status.textContent = 'Email copied';
-            status.classList.add('show');
-            window.setTimeout(() => status.classList.remove('show'), 2200);
-          }
+          report('Copied', 2200);
         } catch (error) {
-          if (status) {
-            status.textContent = 'Copy failed. Use the email link.';
-            status.classList.add('show');
-            window.setTimeout(() => status.classList.remove('show'), 2800);
-          }
+          report('Copy failed', 2800);
         }
       });
     });

@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101216" />
   <meta name="description" content="Completed Java Swing Tetris desktop application by Panagiotis Dimtsoudis, covering event-driven design, state management, persistence, and testing." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Tetris_CIS_Project/tetris.html" />
-  <meta property="og:title" content="Java Tetris | Panos Dimtsoudis" />
+  <meta property="og:title" content="Java Tetris | Panagiotis Dimtsoudis" />
   <meta property="og:description" content="CIS 1200 Java Swing Tetris project with event-driven input, game-state management, persistence, and tests." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Tetris_CIS_Project/tetris.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/headshot.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
   <title>Java Tetris | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar" aria-label="Primary navigation">
+  <header class="topbar">
     <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -31,12 +36,14 @@
     <nav class="topbar-nav-wrap" aria-label="Primary">
       <ul class="topbar-nav" id="primary-nav">
         <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
         <li><a href="../../about.html" class="nav-link">About</a></li>
         <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
     <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
@@ -46,7 +53,7 @@
         <p class="project-detail-tag">Software Systems &middot; Java &middot; Event-Driven Design</p>
         <h1 class="project-detail-title">Java Tetris</h1>
         <p class="project-detail-sub">
-          A playable Java Swing Tetris implementation for CIS 1200. The game uses a 20 by 18 board, explicit game states, file-based save/load, JUnit tests, and Easy-mode undo.
+          A playable Java Swing Tetris I wrote solo for CIS 1200, with a 20 by 18 board, explicit game states, file-based save/load, JUnit tests, and Easy-mode undo.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -95,20 +102,14 @@
           <span class="tetris-block red" style="--x: 7; --y: 17;"></span>
           <span class="tetris-block red" style="--x: 8; --y: 17;"></span>
         </div>
-        <figcaption>Project visual based on the game's grid, piece, and state-management architecture.</figcaption>
+        <figcaption>A few tetrominoes, rendered in CSS.</figcaption>
       </figure>
     </section>
 
     <div class="project-content-grid">
       <aside class="project-sidebar">
         <div class="project-info-card">
-          <h2>Why It Belongs Here</h2>
-          <p>
-            This is a software project, not a hardware build. It is included because the state-machine, input, and testing problems are close to the way embedded firmware has to behave.
-          </p>
-        </div>
-        <div class="project-info-card">
-          <h2>Verified Files</h2>
+          <h2>Key Source Files</h2>
           <div class="project-chip-row">
             <span class="skill-chip">GameBoard.java</span>
             <span class="skill-chip">TetrisGame.java</span>
@@ -123,14 +124,14 @@
         <section class="project-panel">
           <h2>Objective</h2>
           <p>
-            The project implements a desktop Tetris game in Java for CIS 1200. The finished application has menu states, scoring, pause behavior, save/load, high-score display, and undo in Easy mode.
+            I wrote a desktop Tetris game in Java for CIS 1200, on my own. The finished application has menu states, scoring, pause behavior, save/load, high-score display, and undo in Easy mode.
           </p>
         </section>
 
         <section class="project-panel">
           <h2>Software Architecture</h2>
           <p>
-            The implementation separates model, rendering, input, and persistence responsibilities. <code>TetrisGame</code> manages gameplay state and timers. <code>GamePanel</code> renders the Swing interface, <code>InputHandler</code> maps keys to state-aware actions, and <code>SaveManager</code> handles file I/O.
+            I split it into model, rendering, input, and persistence so each piece could be tested on its own. <code>TetrisGame</code> manages gameplay state and timers. <code>GamePanel</code> renders the Swing interface, <code>InputHandler</code> maps keys to state-aware actions, and <code>SaveManager</code> handles file I/O.
           </p>
           <div class="architecture-grid">
             <div>
@@ -192,34 +193,19 @@
         <section class="project-panel">
           <h2>Testing and Debugging</h2>
           <p>
-            The repository includes JUnit tests for core logic in <code>TetrisTest.java</code>, including row clearing, score updates, tetromino rotation, and factory output validation. A course-provided compilation test remains in the cleaned source package.
+            The repository includes JUnit tests for core logic in <code>TetrisTest.java</code>, including row clearing, score updates, tetromino rotation, and factory output validation.
           </p>
         </section>
 
         <section class="project-panel">
-          <h2>Final Result</h2>
+          <h2>Run Locally</h2>
           <p>
-            The final application is a playable Java Swing Tetris desktop game with menu states, countdown start, active and next-piece rendering, high-score display, scoring, pause behavior, save/load, and Easy-mode undo.
-          </p>
-        </section>
-
-        <section class="project-panel">
-          <h2>Run Locally / Source Code</h2>
-          <p>
-            The downloadable archive is <code>tetris-cis1200-source.zip</code>. It extracts to <code>Tetris Full Project</code> and uses Maven's exec plugin to run <code>org.cis1200.Game</code>. Java 17 is required by the Maven configuration.
+            The project builds with Maven and uses the exec plugin to run <code>org.cis1200.Game</code>. Java 17 is required by the Maven configuration.
           </p>
           <div class="project-actions">
-            <a href="game/tetris-cis1200-source.zip" download class="btn-primary">Download Source ZIP</a>
             <button class="btn-outline" type="button" data-toggle-panel="tetris-readme">View Formatted README</button>
           </div>
-          <pre class="code-block"><code># From this repository
-cd "projects/Tetris_CIS_Project/Tetris Full Project"
-mvn compile
-mvn exec:java
-
-# From the downloaded ZIP
-Expand-Archive .\tetris-cis1200-source.zip
-cd ".\Tetris Full Project"
+          <pre class="code-block"><code>cd "Tetris Full Project"
 mvn compile
 mvn exec:java</code></pre>
         </section>
@@ -229,7 +215,7 @@ mvn exec:java</code></pre>
             <p class="project-detail-tag">Formatted Project README</p>
             <h2>CIS 1200 Game Project Notes</h2>
             <p>
-              A cleaned presentation of the project README with the implementation details most relevant to the finished application.
+              A formatted version of my project README, with the implementation details most relevant to the finished application.
             </p>
           </div>
 
@@ -307,44 +293,36 @@ mvn exec:java</code></pre>
               The hardest feature was undo. Restoring a previous move required more than replacing the board grid: the current piece, next piece, and score also had to return to a consistent state, especially after row clears.
             </p>
             <p>
-              File I/O was another debugging-heavy part of the project because the save format had to be read back in the exact order it was written. The README also notes that <code>GamePanel</code> took repeated refinement because the Swing rendering, overlays, and state-dependent text all needed to work together.
+              File I/O was another debugging-heavy part of the project because the save format had to be read back in the exact order it was written. I also had to refine <code>GamePanel</code> repeatedly because the Swing rendering, overlays, and state-dependent text all needed to work together.
             </p>
           </div>
 
           <div class="readme-section">
             <h3>Design Reflection</h3>
             <p>
-              The final design separates responsibilities across the game model, rendering panel, input handler, persistence layer, scoring, board representation, and piece hierarchy. If revisited, the README identifies <code>GamePanel</code> as a candidate for further modularization and suggests adding levels so the game increases speed and difficulty as score grows.
-            </p>
-          </div>
-
-          <div class="readme-section">
-            <h3>External Resources</h3>
-            <p>
-              The project README states that no external resources were used; the implementation was treated as a Java and game-design challenge.
+              The final design separates responsibilities across the game model, rendering panel, input handler, persistence layer, scoring, board representation, and piece hierarchy. If I revisited it, I would modularize <code>GamePanel</code> further and add levels so the game increases speed and difficulty as score grows.
             </p>
           </div>
 
           <div class="project-actions readme-close-actions">
             <button class="btn-outline" type="button" data-close-panel="tetris-readme">Hide README</button>
-            <a href="Tetris Full Project/README.txt" class="text-link">Open raw README.txt</a>
           </div>
-        </section>
-
-        <section class="project-panel">
-          <h2>Lessons Learned</h2>
-          <p>
-            The project README describes undo and file I/O as the most difficult parts of the implementation. Restoring a previous board state while keeping the active piece, next piece, and score consistent required careful snapshot design, and loading structured save data required keeping the file format and read order synchronized.
-          </p>
         </section>
       </div>
     </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-prev" href="../../projects/Analog_Synthesizer/analog_synth.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Analog Synthesizer</span></a>
+    </nav>
+    <!-- /build:projectnav -->
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -355,6 +333,8 @@ mvn exec:java</code></pre>
     </div>
     <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
+
   <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

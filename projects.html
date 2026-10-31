@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Project index for Panagiotis Dimtsoudis, including device research, PCB design, bioelectronics, embedded audio, sustainable embedded systems, software, and analog audio work." />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="Project index for Panagiotis Dimtsoudis: a 6T SRAM bitcell and 4-bit MAC accelerator in Cadence, an analog metal-detector PCB, a wireless ECG front end, an ATmega328PB synthesizer, and a solar-powered sensor node." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects.html" />
   <meta property="og:title" content="Projects | Panagiotis Dimtsoudis" />
-  <meta property="og:description" content="Electrical engineering and software project index with device, PCB, embedded, signal-conditioning, and Java work." />
+  <meta property="og:description" content="A 6T SRAM bitcell and 4-bit MAC accelerator in Cadence, an analog metal-detector PCB, a wireless ECG front end, an ATmega328PB synthesizer, and a solar-powered sensor node." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects.html" />
-  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/AlScN_Ferroelectric_Diode/images/cross-section-view.png" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/Metal_Detector_ESE319/images/PCB_MD.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <script src="site.js" defer></script>
   <title>Projects | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar" aria-label="Primary navigation">
+  <header class="topbar">
     <a class="brand-link" href="index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -35,32 +39,34 @@
         <li><a href="projects.html" class="nav-link active" aria-current="page">Projects</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" tabindex="-1">
     <section class="page-hero">
       <p class="eyebrow">Projects</p>
-      <h1>Projects, reports, galleries, and build notes.</h1>
-      <p>Each row links to a project page with images, reports, demos, and technical context.</p>
+      <h1>Projects</h1>
+      <p>Each row opens a full write-up with the schematics, measurements, and reports.</p>
     </section>
 
     <section class="project-index" aria-label="All projects">
-      <a class="project-row" href="projects/AlScN_Ferroelectric_Diode/alscn.html">
+      <a class="project-row" href="projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html">
         <div class="project-row-meta">
-          <span>Device Research</span>
+          <span>Digital IC Design</span>
           <span>2026</span>
-          <img src="projects/AlScN_Ferroelectric_Diode/images/cross-section-view.png" alt="AlScN ferroelectric junction cross-section view" width="1943" height="1200" loading="lazy" />
+          <img src="projects/SRAM_MAC_Accelerator_ESE5700/images/bitcell-layout-thumb.webp" alt="Layout of the 6T SRAM bitcell" width="480" height="667" loading="lazy" />
         </div>
         <div class="project-row-body">
-          <h2>AlScN Ferroelectric Junctions</h2>
-          <p>Studied scaled AlN/AlScN/AlN junction behavior from 400 K to 14 K; manuscript results show ON/OFF ratio above 2 across temperature.</p>
+          <h2>SRAM-Based 4-bit MAC Accelerator</h2>
+          <p>A custom 6T SRAM bitcell, DRC/LVS clean and characterized post-layout, tiled into a 16 &times; 4 macro and built into a pipelined 4-bit MAC that closes at 0.90 ns at 0.39 pJ per multiply-accumulate. ESE 5700, with Dhruva Jindal.</p>
           <div class="chip-row">
-            <span class="skill-chip">AlScN</span>
-            <span class="skill-chip">Cryogenic Testing</span>
-            <span class="skill-chip">Device Physics</span>
-            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Cadence Virtuoso</span>
+            <span class="skill-chip">Custom Layout</span>
+            <span class="skill-chip">SRAM</span>
+            <span class="skill-chip">Spectre</span>
           </div>
         </div>
       </a>
@@ -69,11 +75,11 @@
         <div class="project-row-meta">
           <span>Analog PCB</span>
           <span>2026</span>
-          <img src="projects/Metal_Detector_ESE319/images/PCB_MD.png" alt="3D render of the metal detector PCB" width="608" height="516" loading="lazy" />
+          <img src="projects/Metal_Detector_ESE319/images/PCB_MD-thumb.webp" alt="3D render of the metal detector PCB" width="608" height="516" loading="lazy" />
         </div>
         <div class="project-row-body">
           <h2>Metal Detector PCB</h2>
-          <p>Built an oscillator-based detector PCB for ESE 3190 and validated the assembled board during bench testing.</p>
+          <p>An LC-oscillator detector for ESE 3190, routed as a two-layer board, soldered by hand, then debugged stage by stage: the oscillator landed at 50.2 kHz against 50.27 kHz in LTspice.</p>
           <div class="chip-row">
             <span class="skill-chip">PCB Layout</span>
             <span class="skill-chip">Analog Circuits</span>
@@ -87,11 +93,11 @@
         <div class="project-row-meta">
           <span>Bioelectronics</span>
           <span>2026</span>
-          <img src="projects/Wireless_ECG_Monitor/images/circuit-1.jpeg" alt="Wireless ECG monitor breadboard circuit" width="1200" height="1600" loading="lazy" />
+          <img src="projects/Wireless_ECG_Monitor/images/circuit-1-thumb.webp" alt="Wireless ECG monitor breadboard circuit" width="700" height="933" loading="lazy" />
         </div>
         <div class="project-row-body">
           <h2>Wireless ECG Monitor</h2>
-          <p>Conditioned a low-amplitude ECG signal for wireless capture; stage tests measured about 61 dB maximum gain with roll-off near 190.5 Hz.</p>
+          <p>A multi-stage analog front end for ESE 2150 &mdash; AD623 instrumentation amp, virtual ground, 0.5 Hz high-pass and 160 Hz low-pass &mdash; sampled by a Feather and streamed over BLE, with Python finding R-peaks on the receiving end. Measured 61 dB maximum gain and a &minus;3 dB corner at 190.5 Hz.</p>
           <div class="chip-row">
             <span class="skill-chip">ECG</span>
             <span class="skill-chip">Analog Filters</span>
@@ -105,11 +111,11 @@
         <div class="project-row-meta">
           <span>Embedded Audio</span>
           <span>2026</span>
-          <img src="projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth.jpeg" alt="Guitar Hero controller converted into a synthesizer" width="1200" height="1600" loading="lazy" />
+          <img src="projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth-thumb.webp" alt="Guitar Hero controller converted into a synthesizer" width="700" height="933" loading="lazy" />
         </div>
         <div class="project-row-body">
           <h2>Guitar Hero Synthesizer</h2>
-          <p>Converted a Guitar Hero controller into an ATmega328PB synthesizer with PWM audio, fret-button note mapping, vibrato, and LCD controls.</p>
+          <p>A three-person ESE 3500 build: a Guitar Hero controller rebuilt around an ATmega328PB, with bare-metal C firmware driving PWM audio, an I2C LCD for remapping fret notes, and a 12 V pack split across two 5 V LDOs after the speaker kept shutting the board down.</p>
           <div class="chip-row">
             <span class="skill-chip">ATmega328PB</span>
             <span class="skill-chip">Bare-Metal C</span>
@@ -123,11 +129,11 @@
         <div class="project-row-meta">
           <span>Embedded Systems</span>
           <span>2024</span>
-          <img src="projects/EcoBeam/images/ecobeam-prototype.webp" alt="EcoBeam prototype mounted outdoors" width="1200" height="1600" loading="lazy" />
+          <img src="projects/EcoBeam/images/ecobeam-prototype-thumb.webp" alt="EcoBeam prototype mounted outdoors" width="700" height="933" loading="lazy" />
         </div>
         <div class="project-row-body">
           <h2>EcoBeam</h2>
-          <p>Co-developed a solar-powered trail-node prototype with an 8x8 LED matrix, environmental sensing, and a distress button.</p>
+          <p>A three-person ESE 1110 prototype: a trail-mounted node with an 8 &times; 8 LED matrix, temperature and CO&#8322; sensing, a distress button, XBee links that meshed in testing, and a solar supply, inside a CAD enclosure I designed.</p>
           <div class="chip-row">
             <span class="skill-chip">Arduino</span>
             <span class="skill-chip">Mesh Networking</span>
@@ -137,10 +143,28 @@
         </div>
       </a>
 
+      <a class="project-row" href="projects/Analog_Synthesizer/analog_synth.html">
+        <div class="project-row-meta">
+          <span>Analog Hardware</span>
+          <span>In progress</span>
+          <div class="project-row-placeholder" aria-hidden="true">VCO &middot; VCF &middot; VCA</div>
+        </div>
+        <div class="project-row-body">
+          <h2>Analog Synthesizer</h2>
+          <p>An eleven-sheet Altium project for a VCO&ndash;VCF&ndash;VCA synthesizer. The VCO sheet is drawn and simulating; the other sheets are stubs, and nothing has been built yet.</p>
+          <div class="chip-row">
+            <span class="skill-chip">Altium Designer</span>
+            <span class="skill-chip">LTspice</span>
+            <span class="skill-chip">Analog Design</span>
+            <span class="skill-chip">Audio Circuits</span>
+          </div>
+        </div>
+      </a>
+
       <a class="project-row" href="projects/Tetris_CIS_Project/tetris.html">
         <div class="project-row-meta">
           <span>Software / Game</span>
-          <span>CIS Course Project</span>
+          <span>Spring 2025</span>
           <div class="project-mini-tetris" aria-hidden="true">
             <span class="tetris-block cyan" style="--x: 4; --y: 1;"></span>
             <span class="tetris-block cyan" style="--x: 4; --y: 2;"></span>
@@ -174,31 +198,14 @@
           </div>
         </div>
       </a>
-
-      <a class="project-row project-row-muted" href="projects/Analog_Synthesizer/analog_synth.html">
-        <div class="project-row-meta">
-          <span>Analog Audio</span>
-          <span>In progress</span>
-          <div class="placeholder-thumb" aria-hidden="true">Audio</div>
-        </div>
-        <div class="project-row-body">
-          <h2>Analog Synthesizer</h2>
-          <p>In-progress analog audio build. Current work is selecting oscillator and filter blocks before breadboard validation.</p>
-          <div class="chip-row">
-            <span class="skill-chip">LTspice</span>
-            <span class="skill-chip">Analog Design</span>
-            <span class="skill-chip">Audio Circuits</span>
-            <span class="skill-chip">PCB Planning</span>
-          </div>
-        </div>
-      </a>
     </section>
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -211,5 +218,6 @@
   </footer>
 
   <script src="scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

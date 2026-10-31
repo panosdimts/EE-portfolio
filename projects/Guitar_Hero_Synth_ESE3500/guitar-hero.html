@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101216" />
   <meta name="description" content="ATmega328PB-based Guitar Hero synthesizer project with bare-metal C firmware, PWM audio synthesis, controller inputs, and pitch controls." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html" />
-  <meta property="og:title" content="Guitar Hero Synthesizer - Panos Dimtsoudis" />
+  <meta property="og:title" content="Guitar Hero Synthesizer | Panagiotis Dimtsoudis" />
   <meta property="og:description" content="Bare-metal C synthesizer built from a Guitar Hero controller using ATmega328PB firmware and PWM audio." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
-  <title>Guitar Hero Synthesizer - Panos Dimtsoudis</title>
+  <title>Guitar Hero Synthesizer | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
     <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -29,12 +36,14 @@
     <nav class="topbar-nav-wrap" aria-label="Primary">
       <ul class="topbar-nav" id="primary-nav">
         <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
         <li><a href="../../about.html" class="nav-link">About</a></li>
         <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
     <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
@@ -59,11 +68,11 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">PWM Audio Synthesis & Hardware Interfacing</span>
+            <span class="project-meta-value">PWM Audio Synthesis &amp; Hardware Interfacing</span>
           </div>
           <div class="project-meta-item">
-            <span class="project-meta-label">Purpose</span>
-            <span class="project-meta-value">Interactive Music-Learning Instrument</span>
+            <span class="project-meta-label">Team</span>
+            <span class="project-meta-value">Three-person team, ESE 3500</span>
           </div>
         </div>
       </div>
@@ -90,7 +99,7 @@
         <div class="project-info-card">
           <h2>Project Snapshot</h2>
           <p>
-            The original guitar controls now drive a playable embedded instrument. The demo videos show the LCD interface, synthesized audio, and speaker output working together.
+            The original guitar controls now drive a playable embedded instrument. I built it with a three-person team for ESE 3500; the demo videos are at the bottom of the page.
           </p>
         </div>
         <div class="project-info-card">
@@ -99,7 +108,7 @@
             <span class="skill-chip">ATmega328PB</span>
             <span class="skill-chip">Embedded C</span>
             <span class="skill-chip">PWM Audio</span>
-            <span class="skill-chip">I2C & ADC</span>
+            <span class="skill-chip">I2C &amp; ADC</span>
           </div>
         </div>
       </aside>
@@ -108,23 +117,32 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            This project converts a Guitar Hero controller into a low-cost instrument for playing notes,
-            chords, and pitch variations. An ATmega328PB reads the controller inputs and synthesizes notes
+            This project converts a Guitar Hero controller into a playable monophonic synthesizer.
+            An ATmega328PB reads the controller inputs and synthesizes notes
             through PWM before driving a speaker through a custom audio-output stage. The fret buttons select
             notes, the strum bar triggers a decaying tone, the whammy stick adds vibrato, and the LCD-and-joystick
-            interface changes each button's pitch mapping.
+            interface changes each button's pitch mapping. One note sounds at a time, and the notes land close to
+            true pitch &mdash; fine-tuning the frequency table was the thing the deadline took.
           </p>
         </section>
 
         <section class="project-panel">
           <h2>Key Features</h2>
           <ul class="project-list">
-            <li>Read the fret buttons, strum bar, mute control, joystick, and whammy input with responsive embedded firmware.</li>
-            <li>Generate mapped musical notes using PWM audio and a decay envelope that emulates a guitar strum.</li>
-            <li>Convert the whammy stick's analog position through the ADC to add real-time vibrato and pitch variation.</li>
-            <li>Use an I2C-connected LCD and joystick interface to display and adjust the pitch assigned to each fret button.</li>
-            <li>Integrate regulated battery power, signal buffering, audio amplification, and speaker output inside the original enclosure.</li>
+            <li>Polled the fret buttons, strum bar, mute control and joystick, and sampled the whammy position through the ADC, in bare-metal C.</li>
+            <li>Generated mapped musical notes using PWM audio and a decay envelope that emulates a guitar strum.</li>
+            <li>Converted the whammy stick's analog position through the ADC to add real-time vibrato and pitch variation.</li>
+            <li>Used an I2C-connected LCD and joystick interface to display and adjust the pitch assigned to each fret button.</li>
+            <li>Integrated regulated battery power, signal buffering, audio amplification, and speaker output inside the original enclosure.</li>
           </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>What Went Wrong</h2>
+          <p>
+            The first build shut itself down whenever the speaker drew current, and there was noise riding on the
+            audio. I moved it to a 12 V battery pack with two 5 V LDO regulators, which fixed both.
+          </p>
         </section>
 
         <section class="project-panel">
@@ -136,6 +154,15 @@
               onto the display, strum bar, pitch buttons, mute button, whammy control, and joystick.
             </figcaption>
           </figure>
+        </section>
+
+        <section class="project-panel">
+          <h2>My Contribution</h2>
+          <ul class="project-list">
+            <li>Did the electronics integration and soldered everything into the original controller enclosure.</li>
+            <li>Wrote most of the bare-metal C firmware.</li>
+            <li>Organized the project for our three-person team.</li>
+          </ul>
         </section>
 
         <section class="project-panel">
@@ -183,12 +210,20 @@
         </section>
       </div>
     </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-prev" href="../../projects/Wireless_ECG_Monitor/ecg.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Wireless ECG Monitor</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/EcoBeam/ecobeam.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">EcoBeam</span></a>
+    </nav>
+    <!-- /build:projectnav -->
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -199,6 +234,8 @@
     </div>
     <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
+
   <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

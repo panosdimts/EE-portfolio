@@ -1,9 +1,8 @@
 (function () {
   const animatedSelectors = [
     '.hero-text',
-    '.current-panel',
+    '.hero-headshot',
     '.section-heading',
-    '.stat-grid > *',
     '.project-card',
     '.project-row',
     '.timeline-entry',
@@ -16,25 +15,38 @@
     '.project-meta-item',
     '.project-info-card',
     '.project-panel',
-    '.media-grid > *',
-    '.contact-panel',
+    '.contact-layout > *',
     '.site-footer'
   ];
 
   const imageGalleries = {
+    sram: [
+      { src: 'images/bitcell-layout.png', alt: 'Layout of the 6T SRAM bitcell with VDD, VSS, wordline and bitlines labeled', caption: '6T bitcell layout, DRC and LVS clean', width: 601, height: 835 },
+      { src: 'images/read-butterfly.png', alt: 'Post-layout read butterfly curves with the inscribed SNM squares', caption: 'Post-layout read butterfly: SNM 0.13 V', width: 662, height: 676 },
+      { src: 'images/write-margin.png', alt: 'Storage-node voltages against the swept bitline voltage, flipping at 0.27 V', caption: 'Post-layout write-margin sweep: trip at 0.27 V', width: 690, height: 547 },
+      { src: 'images/functional-check.png', alt: 'Transient waveforms of a write 0, read, write 1, read sequence on a loaded bitline', caption: 'Write 0, read, write 1, read on a 16-cell bitline', width: 1423, height: 1009 },
+      { src: 'images/macro-array-corner.png', alt: 'Corner of the 16 by 4 array layout showing mirrored rows and shared supply rails', caption: 'Array corner: mirrored rows share VDD and VSS rails', width: 657, height: 424 },
+      { src: 'images/macro-schematic.png', alt: 'Schematic of the 16 by 4 SRAM macro with decoder, precharge, write drivers and read path', caption: '16 \u00d7 4 macro: decoder, precharge, write and read columns', width: 928, height: 1001 },
+      { src: 'images/decoder-waveforms.png', alt: 'Wordline waveforms for every row of the predecoded decoder', caption: 'Predecoded row decoder: 129 ps from address to wordline', width: 2361, height: 1016 },
+      { src: 'images/macro-read-after-write.png', alt: 'Macro transient waveforms reading a word back after writing it', caption: 'Macro read after write, 440 ps access time', width: 1486, height: 1225 },
+      { src: 'images/mac-block-diagram.png', alt: 'Block diagram of the MAC with three pipeline stages and three supply domains marked', caption: 'MAC block diagram: three pipeline stages, three supply domains', width: 1516, height: 770 },
+      { src: 'images/diffr-flipflop.png', alt: 'Schematic of the transmission-gate leader-follower flip-flop with synchronous reset', caption: 'Custom flip-flop: 94 ps clock-to-Q, 1.8 fJ per clock', width: 1518, height: 706 },
+      { src: 'images/mac-test-a.png', alt: 'Accumulator waveform climbing in steps to 845 with the done signal rising', caption: 'Test A: accumulator reaches 845, done after 19 cycles', width: 1463, height: 809 },
+      { src: 'images/mac-energy.png', alt: 'Bar chart of energy per dot product split across the memory, MAC and clock supplies', caption: 'Energy per dot product by supply domain', width: 1223, height: 634 }
+    ],
     pcb: [
       { src: 'images/PCB_MD.png', alt: 'Metal Detector PCB 3D view', caption: 'PCB 3D view', width: 608, height: 516 },
       { src: 'images/PCB_Top_View.png', alt: 'Metal Detector PCB top view', caption: 'PCB top view', width: 725, height: 593 },
       { src: 'images/PCB_Bottom_View.png', alt: 'Metal Detector PCB bottom view', caption: 'PCB bottom view', width: 719, height: 563 }
     ],
     detector: [
-      { src: 'images/metal-detector-no-bg.png', alt: 'Completed metal detector assembly', caption: 'Completed metal detector assembly', width: 1086, height: 1448 },
+      { src: 'images/metal-detector-no-bg.webp', alt: 'Completed metal detector assembly', caption: 'Completed metal detector assembly', width: 1086, height: 1448 },
       { src: 'images/metal-detector.jpeg', alt: 'Completed metal detector shown in the test setup', caption: 'Completed metal detector in the test setup', width: 768, height: 1024 }
     ],
     ecg: [
       { src: 'images/circuit-1.jpeg', alt: 'Wireless ECG monitor breadboard circuit', caption: 'Wireless ECG monitor breadboard circuit', width: 1200, height: 1600 },
       { src: 'images/circuit-2.jpeg', alt: 'Alternate view of the wireless ECG monitor breadboard circuit', caption: 'Alternate breadboard view', width: 1200, height: 1600 },
-      { src: 'images/circuit-3.png', alt: 'Wireless ECG monitor breadboard and Feather test setup', caption: 'Wireless ECG monitor test setup', width: 569, height: 756 }
+      { src: 'images/circuit-3.webp', alt: 'Wireless ECG monitor breadboard and Feather test setup', caption: 'Wireless ECG monitor test setup', width: 569, height: 756 }
     ],
     guitar: [
       { src: 'images/guitar-hero-synth.jpeg', alt: 'Completed Guitar Hero controller converted into an electronic synthesizer', caption: 'Completed Guitar Hero synthesizer', width: 1200, height: 1600 },
@@ -72,6 +84,14 @@
       }
     ]
   };
+
+  // The lightbox gives every project image role="button", which makes
+  // aria-label - not alt - its accessible name. So the galleries have to
+  // rewrite the label on every step too, or figures 2..n keep announcing the
+  // first figure's description.
+  function fullscreenLabel(alt) {
+    return `Open fullscreen view: ${alt || 'project image'}`;
+  }
 
   function setupScrollAnimations() {
     const elements = Array.from(document.querySelectorAll(animatedSelectors.join(',')));
@@ -131,6 +151,10 @@
         image.alt = images[activeIndex].alt;
         image.width = images[activeIndex].width;
         image.height = images[activeIndex].height;
+
+        if (image.dataset.fullscreenImage === 'true') {
+          image.setAttribute('aria-label', fullscreenLabel(image.alt));
+        }
 
         if (caption) {
           caption.textContent = images[activeIndex].caption;
@@ -296,7 +320,7 @@
       image.dataset.fullscreenImage = 'true';
       image.tabIndex = 0;
       image.setAttribute('role', 'button');
-      image.setAttribute('aria-label', `Open fullscreen view: ${image.alt || 'project image'}`);
+      image.setAttribute('aria-label', fullscreenLabel(image.alt));
       image.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();

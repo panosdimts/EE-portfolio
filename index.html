@@ -1,26 +1,30 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Electrical engineering portfolio of Panagiotis Dimtsoudis, with projects in PCB design, embedded systems, device characterization, fabrication, and testing." />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="Electrical engineering portfolio of Panagiotis Dimtsoudis: transistor-level IC design and custom layout in Cadence, analog PCB design, embedded firmware, and ferroelectric device characterization." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/" />
   <meta property="og:title" content="Panagiotis Dimtsoudis | Electrical Engineering Portfolio" />
-  <meta property="og:description" content="Electrical engineering projects in PCB design, embedded systems, device characterization, fabrication, and testing." />
+  <meta property="og:description" content="Transistor-level IC design and custom layout in Cadence, analog PCB design, embedded firmware, and ferroelectric device characterization." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/" />
-  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/AlScN_Ferroelectric_Diode/images/cross-section-view.png" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/SRAM_MAC_Accelerator_ESE5700/images/bitcell-layout.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <script src="site.js" defer></script>
   <title>Panagiotis Dimtsoudis | Electrical Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar" aria-label="Primary navigation">
+  <header class="topbar">
     <a class="brand-link" href="index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -35,130 +39,98 @@
         <li><a href="projects.html" class="nav-link">Projects</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" tabindex="-1">
     <section class="hero">
       <div class="hero-text">
         <p class="eyebrow">Penn Electrical Engineering</p>
-        <h1>Panagiotis Dimtsoudis</h1>
+        <h1>Panagiotis (Panos) Dimtsoudis</h1>
         <p class="hero-lede">
-          I am an electrical engineering student at Penn working across PCB design, embedded systems, signal conditioning, device characterization, and fabrication.
+          Electrical engineering student at Penn, from Greece. I work at the transistor level in Cadence, on analog boards in Altium and LTspice, and on probe stations characterizing ferroelectric junctions from 14 to 400 K.
         </p>
         <p>
-          Recent work includes temperature-dependent AlScN device measurements, a fabricated oscillator-based metal detector PCB, and embedded audio firmware running on an ATmega328PB. I like when the hardware can be measured.
+          Right now: a 4-bit MAC accelerator built on a 6T SRAM bitcell I laid out and characterized, an analog synthesizer in Altium with the VCO block simulated so far, and ferroelectric junctions on the probe station.
         </p>
+        <p class="hero-meta">B.S.E. and M.S.E. in Electrical Engineering, University of Pennsylvania &middot; expected May 2028</p>
+        <p class="hero-meta">Undergraduate researcher, Device Research and Engineering Laboratory &middot; Teaching assistant, ESE 2180</p>
         <div class="button-row">
           <a class="btn-primary" href="projects.html">View Projects</a>
           <a class="btn-outline" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </div>
       </div>
 
-      <aside class="current-panel" aria-label="Current engineering focus">
-        <div class="panel-kicker">Current Work</div>
-        <img src="projects/AlScN_Ferroelectric_Diode/images/cross-section-view.png" alt="Cross-section view of an AlN/AlScN/AlN ferroelectric junction stack" width="1943" height="1200" />
-        <dl>
-          <div>
-            <dt>Research</dt>
-            <dd>Measuring scaled AlN/AlScN/AlN junctions from 400 K down to 14 K</dd>
-          </div>
-          <div>
-            <dt>Building</dt>
-            <dd>Choosing oscillator and filter blocks before first breadboard tests</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Turning lab measurements and build notes into clear project documentation</dd>
-          </div>
-        </dl>
-      </aside>
-    </section>
-
-    <section class="section compact-section" aria-labelledby="currently-heading">
-      <div class="section-heading">
-        <p class="eyebrow">At Penn / Currently</p>
-        <h2 id="currently-heading">Current academic and technical work.</h2>
-      </div>
-      <div class="stat-grid">
-        <article>
-          <span>Research</span>
-          <p>Undergraduate Research Assistant in Penn's Device Research and Engineering Laboratory.</p>
-        </article>
-        <article>
-          <span>Education</span>
-          <p>B.S.E. Electrical Engineering at the University of Pennsylvania, Class of 2028.</p>
-        </article>
-        <article>
-          <span>Direction</span>
-          <p>I want my next projects to make the path from schematic, measurement, and debugging easier to explain.</p>
-        </article>
-      </div>
+      <figure class="hero-headshot">
+        <img src="headshot.webp" alt="Portrait of Panagiotis Dimtsoudis" width="640" height="960" decoding="async" fetchpriority="high" />
+      </figure>
     </section>
 
     <section class="section" id="projects" aria-labelledby="projects-heading">
       <div class="section-heading split-heading">
         <div>
           <p class="eyebrow">Selected Projects</p>
-          <h2 id="projects-heading">Selected technical work.</h2>
+          <h2 id="projects-heading">Five projects, from a 6T bitcell to a solar-powered trail node.</h2>
         </div>
         <a class="text-link" href="projects.html">All projects</a>
       </div>
 
       <div class="selected-projects">
-        <a class="project-card" href="projects/AlScN_Ferroelectric_Diode/alscn.html">
+        <a class="project-card" href="projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html">
           <figure class="project-thumb project-thumb-contain">
-            <img src="projects/AlScN_Ferroelectric_Diode/images/cross-section-view.png" alt="AlScN ferroelectric junction cross-section view" width="1943" height="1200" />
+            <img src="projects/SRAM_MAC_Accelerator_ESE5700/images/bitcell-layout-thumb.webp" alt="Layout of the 6T SRAM bitcell" width="480" height="667" loading="lazy" decoding="async" />
           </figure>
           <div class="project-info">
-            <p class="project-meta-line"><span>Device Research</span><span>2026</span></p>
-            <h3>AlScN Ferroelectric Junctions</h3>
-            <p>Studied scaled AlN/AlScN/AlN junction behavior from 400 K to 14 K; manuscript results show ON/OFF ratio above 2 across temperature.</p>
+            <p class="project-meta-line"><span>Digital IC Design</span><span>2026</span></p>
+            <h3>SRAM-Based 4-bit MAC Accelerator</h3>
+            <p>A 0.53 &micro;m&sup2; 6T SRAM bitcell with 0.13 V post-layout read SNM, tiled into a 16 &times; 4 macro and built into a pipelined 4-bit MAC that closes at 0.90 ns and costs 0.39 pJ per multiply-accumulate. ESE 5700, with Dhruva Jindal.</p>
           </div>
         </a>
 
         <a class="project-card" href="projects/Metal_Detector_ESE319/metal-detector.html">
           <figure class="project-thumb project-thumb-contain">
-            <img src="projects/Metal_Detector_ESE319/images/PCB_MD.png" alt="3D view of the metal detector PCB" width="608" height="516" />
+            <img src="projects/Metal_Detector_ESE319/images/PCB_MD-thumb.webp" alt="3D view of the metal detector PCB" width="608" height="516" loading="lazy" decoding="async" />
           </figure>
           <div class="project-info">
             <p class="project-meta-line"><span>Analog PCB</span><span>2026</span></p>
             <h3>Metal Detector PCB</h3>
-            <p>Turned an oscillator metal-detection circuit into a fabricated PCB, then assembled and tested the completed detector.</p>
+            <p>A variable-inductance LC-oscillator detector: schematic, two-layer layout, fabricated board, hand-soldered and debugged stage by stage. The oscillator came in at 50.2 kHz against 50.27 kHz in LTspice.</p>
           </div>
         </a>
 
         <a class="project-card" href="projects/Wireless_ECG_Monitor/ecg.html">
           <figure class="project-thumb">
-            <img src="projects/Wireless_ECG_Monitor/images/circuit-1.jpeg" alt="Wireless ECG monitor breadboard circuit" width="1200" height="1600" />
+            <img src="projects/Wireless_ECG_Monitor/images/circuit-1-thumb.webp" alt="Wireless ECG monitor breadboard circuit" width="700" height="933" loading="lazy" decoding="async" />
           </figure>
           <div class="project-info">
             <p class="project-meta-line"><span>Bioelectronics</span><span>2026</span></p>
             <h3>Wireless ECG Monitor</h3>
-            <p>Conditioned a low-amplitude ECG signal for wireless capture; stage tests measured about 61 dB maximum gain with roll-off near 190.5 Hz.</p>
+            <p>An ECG front end: AD623 instrumentation amp, 0.5 Hz high-pass and 160 Hz low-pass, streamed over BLE at 200 Hz. Measured 61 dB maximum gain, with the &minus;3 dB corner at 190.5 Hz against that 160 Hz target.</p>
           </div>
         </a>
 
         <a class="project-card" href="projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html">
           <figure class="project-thumb">
-            <img src="projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth.jpeg" alt="Guitar Hero controller converted into an embedded synthesizer" width="1200" height="1600" />
+            <img src="projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth-thumb.webp" alt="Guitar Hero controller converted into an embedded synthesizer" width="700" height="933" loading="lazy" decoding="async" />
           </figure>
           <div class="project-info">
             <p class="project-meta-line"><span>Embedded Audio</span><span>2026</span></p>
             <h3>Guitar Hero Synthesizer</h3>
-            <p>Converted a Guitar Hero controller into an ATmega328PB synthesizer with PWM audio, fret-button note mapping, vibrato, and LCD controls.</p>
+            <p>A Guitar Hero controller rebuilt into an ATmega328PB synthesizer: bare-metal C, PWM audio with a decay envelope, whammy-position vibrato read through the ADC, and an I2C LCD for remapping fret notes.</p>
           </div>
         </a>
 
         <a class="project-card" href="projects/EcoBeam/ecobeam.html">
           <figure class="project-thumb">
-            <img src="projects/EcoBeam/images/ecobeam-prototype.webp" alt="EcoBeam prototype mounted outdoors" width="1200" height="1600" />
+            <img src="projects/EcoBeam/images/ecobeam-prototype-thumb.webp" alt="EcoBeam prototype mounted outdoors" width="700" height="933" loading="lazy" decoding="async" />
           </figure>
           <div class="project-info">
             <p class="project-meta-line"><span>Embedded Systems</span><span>2024</span></p>
             <h3>EcoBeam</h3>
-            <p>Co-developed a solar-powered trail-node prototype with an 8x8 LED matrix, environmental sensing, and a distress button.</p>
+            <p>A solar-powered trail node, three-person team: 8 &times; 8 LED matrix, temperature and CO&#8322; sensing, a distress button, and XBee radios that meshed between nodes in testing.</p>
           </div>
         </a>
       </div>
@@ -167,28 +139,15 @@
     <section class="section" id="experience" aria-labelledby="experience-heading">
       <div class="section-heading">
         <p class="eyebrow">Experience</p>
-        <h2 id="experience-heading">Current work and recent roles.</h2>
+        <h2 id="experience-heading">Research, teaching, and one summer in industry.</h2>
       </div>
       <div class="timeline-list">
-        <article class="timeline-entry">
-          <div class="timeline-date">May 2026 - Present</div>
-          <div>
-            <h3>Undergraduate Research Assistant</h3>
-            <p class="muted">Device Research and Engineering Laboratory, Penn Engineering</p>
-            <p>Collecting, organizing, and analyzing electrical characterization data for AlScN ferroelectric junctions across temperature.</p>
-            <div class="chip-row">
-              <span class="skill-chip">Device Characterization</span>
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">Ferroelectrics</span>
-            </div>
-          </div>
-        </article>
         <article class="timeline-entry">
           <div class="timeline-date">Aug 2026 - Present</div>
           <div>
             <h3>Teaching Assistant</h3>
             <p class="muted">ESE 2180: Electronic, Photonic, and Electromechanical Devices, Penn Engineering</p>
-            <p>Developing homework, lab worksheets, and exams for an 80+ student device physics course, and teaching hands-on labs.</p>
+            <p>Teaching assistant for an 80+ student device physics course. Develop homework assignments, lab worksheets, and exam problems; set up equipment and teach hands-on labs that connect device physics to measurement; hold weekly office hours on transistors, LEDs, and photovoltaics; grade and write technical feedback.</p>
             <div class="chip-row">
               <span class="skill-chip">Device Physics</span>
               <span class="skill-chip">Lab Instruction</span>
@@ -197,11 +156,25 @@
           </div>
         </article>
         <article class="timeline-entry">
+          <div class="timeline-date">May 2026 - Present</div>
+          <div>
+            <h3>Undergraduate Research Assistant</h3>
+            <p class="muted">Device Research and Engineering Laboratory, Penn Engineering</p>
+            <p>Characterize 6 nm AlN/AlScN/AlN ferroelectric junctions from 14 to 400 K on cryogenic and high-temperature probe stations using DC/AC J–V, C–V, PUND, breakdown, and endurance measurements. Develop Python scripts to extract device parameters and compare switching, retention, and endurance across devices and temperature.</p>
+            <p>Contributed measurements and analysis to a manuscript in preparation on cryogenic all-nitride ferroelectric memory. Built 3D CAD models of the device stack and an 8×8 crossbar array for compute-in-memory work.</p>
+            <div class="chip-row">
+              <span class="skill-chip">Device Characterization</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Ferroelectrics</span>
+            </div>
+          </div>
+        </article>
+        <article class="timeline-entry">
           <div class="timeline-date">Jan 2025 - Present</div>
           <div>
             <h3>Technology Support Specialist</h3>
             <p class="muted">University of Pennsylvania, Philadelphia, PA</p>
-            <p>Supporting students with hardware, software, ticketing, technical troubleshooting, documentation, and equipment loan operations.</p>
+            <p>Resolve hardware and software issues for Penn students in person and through a ticketing system; document fixes, coordinate escalations, and manage equipment loans.</p>
             <div class="chip-row">
               <span class="skill-chip">Troubleshooting</span>
               <span class="skill-chip">Hardware Support</span>
@@ -214,7 +187,7 @@
           <div>
             <h3>Computer Engineering Intern</h3>
             <p class="muted">Automation Systems Hellas, Thessaloniki, Greece</p>
-            <p>Updated control-panel documentation, supported OT/IT infrastructure, and developed C/Python utilities for commissioning checks and log analysis.</p>
+            <p>Developed C and Python utilities for log parsing and configuration checks used during industrial-automation commissioning. Updated control-panel wiring and I/O documentation, imaged PCs and HMIs, and monitored servers and network devices.</p>
             <div class="chip-row">
               <span class="skill-chip">C</span>
               <span class="skill-chip">Python</span>
@@ -226,10 +199,11 @@
     </section>
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -242,5 +216,6 @@
   </footer>
 
   <script src="scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

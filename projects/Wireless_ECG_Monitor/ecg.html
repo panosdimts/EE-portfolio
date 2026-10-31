@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ESE 2150 wireless ECG monitor project with analog signal conditioning, Feather ADC sampling, wireless capture, Python analysis, and a technical report." />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="ESE 2150 wireless ECG monitor project with analog signal conditioning, Feather ADC sampling, BLE streaming at about 200 Hz, Python analysis, and a technical report." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Wireless_ECG_Monitor/ecg.html" />
-  <meta property="og:title" content="Wireless ECG Monitor - Panos Dimtsoudis" />
-  <meta property="og:description" content="Wireless ECG monitor class project with analog filtering, Feather sampling, wireless capture, and R-peak heart-rate estimation." />
+  <meta property="og:title" content="Wireless ECG Monitor | Panagiotis Dimtsoudis" />
+  <meta property="og:description" content="Wireless ECG monitor class project with analog filtering, Feather sampling, BLE streaming at about 200 Hz, and R-peak heart-rate estimation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Wireless_ECG_Monitor/ecg.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/Wireless_ECG_Monitor/images/circuit-1.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
-  <title>Wireless ECG Monitor - Panos Dimtsoudis</title>
+  <title>Wireless ECG Monitor | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
     <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -29,12 +36,14 @@
     <nav class="topbar-nav-wrap" aria-label="Primary">
       <ul class="topbar-nav" id="primary-nav">
         <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
         <li><a href="../../about.html" class="nav-link">About</a></li>
         <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
     <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
@@ -44,7 +53,7 @@
         <p class="project-detail-tag">Bioelectronics &middot; Analog Signal Conditioning &middot; Wireless</p>
         <h1 class="project-detail-title">Wireless ECG Monitor</h1>
         <p class="project-detail-sub">
-          An ESE 2150 ECG front end that conditions a low-amplitude heartbeat signal for wireless capture. Stage tests reached about 61 dB maximum gain with a 3 dB drop-off near 190.5 Hz.
+          An ECG front end for ESE 2150: AD623 instrumentation amp, virtual ground, 0.5 Hz high-pass and 160 Hz low-pass, feeding a Feather ADC that streams over BLE at 200 Hz. 61 dB maximum gain, &minus;3 dB at 190.5 Hz.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -61,7 +70,7 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Role</span>
-            <span class="project-meta-value">Analog Design, Testing, Data Analysis</span>
+            <span class="project-meta-value">Solo project &middot; Analog Design, Testing, Data Analysis</span>
           </div>
         </div>
       </div>
@@ -87,7 +96,7 @@
         <div class="project-info-card">
           <h2>Project Snapshot</h2>
           <p>
-            The circuit amplified and filtered ECG simulator signals before Feather-based wireless capture. Python then estimated heart rate from detected R-peaks.
+            I amplified and filtered ECG simulator signals, then captured them wirelessly on a Feather. Python estimated heart rate from the detected R-peaks.
           </p>
         </div>
         <div class="project-info-card">
@@ -108,9 +117,11 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            The project captured a low-amplitude ECG waveform and passed it through a multi-stage analog front end
-            before wireless acquisition. The signal chain used an instrumentation amplifier and a virtual ground.
-            Filtering near 160 Hz and 0.5 Hz kept the signal in range for the Feather ADC.
+            A QRS complex is a few hundred microvolts spread over roughly 0.5 to 150 Hz, sitting on electrode drift
+            and 60 Hz pickup that are both larger than the signal itself, so the front end is mostly about rejecting
+            things bigger than what you want. I built a multi-stage analog front end to pull that waveform up to
+            something the Feather's ADC could digitize: an instrumentation amplifier, a virtual ground, and 160 Hz
+            and 0.5 Hz filtering to keep the signal in range.
           </p>
         </section>
 
@@ -128,39 +139,39 @@
         <section class="project-panel">
           <h2>Signal Chain</h2>
           <ul class="project-list">
-            <li>Built an AD623 instrumentation-amplifier input stage to amplify the differential ECG signal.</li>
-            <li>Created a virtual ground so the AC heartbeat waveform could be represented within a single-supply circuit.</li>
-            <li>Designed a low-pass stage around 160 Hz to suppress high-frequency noise outside the ECG band.</li>
-            <li>Designed a high-pass stage around 0.5 Hz to remove low-frequency drift while preserving the ECG waveform.</li>
-            <li>Sent the conditioned output to a Feather ADC for wireless transmission and computer-side analysis.</li>
+            <li>An AD623 instrumentation amplifier on the input, so the electrode pair is read differentially and the 60 Hz riding on both leads cancels instead of amplifying.</li>
+            <li>A virtual ground at half the supply, because the heartbeat swings both ways and the circuit only has one rail to put it on.</li>
+            <li>A 0.5 Hz high-pass to drop electrode drift, which is slower than the signal and much larger.</li>
+            <li>A 160 Hz low-pass above the QRS band, measured at 190.5 Hz once the resistor and capacitor tolerances landed.</li>
+            <li>The conditioned output into a Feather ADC, streamed over BLE at 200 Hz, with R-peak detection done in Python on the receiving end.</li>
           </ul>
         </section>
 
         <section class="project-panel">
           <h2>Measured Results</h2>
           <p>
-            Stage testing showed the expected amplification behavior: the first stage measured about 50 V/V,
-            or roughly 34 dB, while the second stage reached about 1025 V/V, or 60.2 dB. The measured maximum
-            gain across later testing was approximately 61 dB, with a 3 dB drop-off near 190.5 Hz.
+            The first stage measured 50 V/V (34 dB) and the second brought it to 1025 V/V (60.2 dB), 61 dB at the peak.
+            The &minus;3 dB corner landed at 190.5 Hz against a 160 Hz design target, which comes down to resistor and
+            capacitor tolerances.
           </p>
           <p>
-            ECG simulator tests used both normal and fast heart-rate signals, including 80 BPM and 240 BPM cases.
-            The measured ECG gains were about 560 to 580 V/V, lower than the ideal 1000 V/V because the filtered
-            waveform clipped or attenuated portions of the total signal amplitude.
+            I ran the simulator at both normal and fast heart rates, including 80 BPM and 240 BPM. Against a
+            1000 V/V design target, the measured ECG gain came in at 560&ndash;580 V/V, with the filtered waveform
+            losing part of the signal amplitude.
           </p>
         </section>
 
         <section class="project-panel">
-          <h2>Wireless Capture & Heart Rate</h2>
+          <h2>Wireless Capture &amp; Heart Rate</h2>
           <p>
-            The final setup used a peripheral Feather to collect ECG samples and a central Feather/computer workflow
-            to receive and analyze the data. A Python script read serial samples, applied a light median filter,
-            estimated a dynamic threshold, detected R-peaks, and computed heart rate from the first detected beats.
+            A peripheral Feather collected ECG samples and streamed them over BLE at 200 Hz to a central Feather and a
+            computer. I wrote a Python script that read the serial samples, applied a light median filter, estimated a
+            dynamic threshold, detected R-peaks, and computed heart rate from the first detected beats.
           </p>
           <p>
-            The report notes that the method worked best for clean ECG signals around normal heart-rate ranges,
-            while low-amplitude human electrode signals and very high or irregular rates required more careful
-            electrode placement, longer sampling windows, and improved peak detection.
+            The detector worked on clean simulator signals at normal rates. Low-amplitude signals from actual
+            electrodes, and very high or irregular rates, needed better electrode placement, longer sampling windows,
+            and a smarter peak detector than the one I wrote.
           </p>
         </section>
 
@@ -180,12 +191,20 @@
         </section>
       </div>
     </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-prev" href="../../projects/Metal_Detector_ESE319/metal-detector.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Metal Detector PCB</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Guitar Hero Synthesizer</span></a>
+    </nav>
+    <!-- /build:projectnav -->
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -196,6 +215,8 @@
     </div>
     <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
+
   <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

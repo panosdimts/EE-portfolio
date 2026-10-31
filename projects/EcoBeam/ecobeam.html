@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101216" />
   <meta name="description" content="EcoBeam, a co-developed ESE 1110 embedded-system prototype for trail guidance, environmental sensing, distress signaling, solar power, and radio communication." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/EcoBeam/ecobeam.html" />
-  <meta property="og:title" content="EcoBeam - Panos Dimtsoudis" />
+  <meta property="og:title" content="EcoBeam | Panagiotis Dimtsoudis" />
   <meta property="og:description" content="Co-developed trail-node prototype with LED display, sensors, solar power, and radio communication." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/EcoBeam/ecobeam.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/EcoBeam/images/ecobeam-prototype.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
-  <title>EcoBeam - Panos Dimtsoudis</title>
+  <title>EcoBeam | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
     <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -29,12 +36,14 @@
     <nav class="topbar-nav-wrap" aria-label="Primary">
       <ul class="topbar-nav" id="primary-nav">
         <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
         <li><a href="../../about.html" class="nav-link">About</a></li>
         <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
     <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
@@ -44,24 +53,24 @@
         <p class="project-detail-tag">Sustainable Embedded Systems &middot; Mesh Networking</p>
         <h1 class="project-detail-title">EcoBeam</h1>
         <p class="project-detail-sub">
-          A solar-powered trail node, co-developed by a three-person team, that shows direction locally, records environmental data, and sends status through radio-linked nodes. The prototype combines an 8x8 LED matrix, sensors, solar power, and a distress button.
+          A solar-powered trail node, co-developed by a three-person team, that shows direction locally, records environmental data, and sends status through radio-linked nodes. The prototype combines an 8 &times; 8 LED matrix, sensors, solar power, and a distress button.
         </p>
         <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Course</span>
+            <span class="project-meta-value">ESE 1110 Final Project, 2024</span>
+          </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Role</span>
             <span class="project-meta-value">Co-Developer (3-Person Team)</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">Trail Safety & Environmental Monitoring</span>
+            <span class="project-meta-value">Trail Safety &amp; Environmental Monitoring</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Subsystems</span>
             <span class="project-meta-value">Display, Sensors, Radio, Power</span>
-          </div>
-          <div class="project-meta-item">
-            <span class="project-meta-label">Course</span>
-            <span class="project-meta-value">ESE 1110 Final Project</span>
           </div>
         </div>
       </div>
@@ -80,7 +89,7 @@
           </p>
         </div>
         <div class="project-info-card">
-          <h2>Tools & Areas</h2>
+          <h2>Tools &amp; Areas</h2>
           <div class="project-chip-row">
             <span class="skill-chip">Arduino</span>
             <span class="skill-chip">XBee</span>
@@ -97,9 +106,10 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            EcoBeam is a modular outdoor device intended for trail mounting. Each node can point users with an
-            8x8 LED matrix, collect temperature and CO2 data, and send status information through a radio link.
-            A distress button gives the field node a direct emergency input.
+            A trail node has to work where there is no mains power and no network. Each EcoBeam carries its own solar
+            supply and links to its neighbours by radio rather than to infrastructure. A node points users with an
+            8 &times; 8 LED matrix, collects temperature and CO&#8322; data, and sends status information over that radio
+            link. A distress button gives the field node a direct emergency input.
           </p>
         </section>
 
@@ -108,8 +118,9 @@
           <figure class="design-sketch-figure">
             <img src="images/ecobeam-system-diagram.png" alt="EcoBeam system architecture diagram showing sensors, radio module, power system, distress button, mesh network, ground station, and database" width="601" height="881" loading="lazy">
             <figcaption>
-              System concept showing a single EcoBeam node and the broader mesh network, where multiple radio-linked
-              nodes can relay data toward a ground station, database, and web interface.
+              System diagram showing a single EcoBeam node and the broader mesh network. Mesh networking between the
+              radio-linked nodes worked in testing; relaying their data to a ground station, database, and web interface
+              is a concept.
             </figcaption>
           </figure>
         </section>
@@ -117,11 +128,11 @@
         <section class="project-panel">
           <h2>Core Features</h2>
           <ul class="project-list">
-            <li>Uses an 8x8 LED matrix to indicate trail direction or local status at the node.</li>
-            <li>Includes environmental sensing for climate parameters such as temperature and CO2 concentration.</li>
-            <li>Uses radio modules so EcoBeam nodes can communicate as part of a distributed mesh network.</li>
+            <li>Uses an 8 &times; 8 LED matrix to indicate trail direction or local status at the node.</li>
+            <li>Logs temperature and CO&#8322; from onboard sensors.</li>
+            <li>Uses radio modules so EcoBeam nodes communicate as a distributed mesh network; the mesh worked in testing.</li>
             <li>Includes a distress button to provide an emergency signal from the field node.</li>
-            <li>Targets autonomous operation through an integrated power-supply system and solar panel.</li>
+            <li>Runs off a solar panel and its onboard power supply, aiming at unattended operation.</li>
           </ul>
         </section>
 
@@ -149,12 +160,20 @@
         </section>
       </div>
     </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-prev" href="../../projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Guitar Hero Synthesizer</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Analog_Synthesizer/analog_synth.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Analog Synthesizer</span></a>
+    </nav>
+    <!-- /build:projectnav -->
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -165,6 +184,8 @@
     </div>
     <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
+
   <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

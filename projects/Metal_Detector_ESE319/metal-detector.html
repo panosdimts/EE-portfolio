@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ESE 3190 metal detector PCB project covering oscillator-based sensing, PCB layout, fabrication, assembly, testing, and reporting." />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="ESE 3190 metal detector PCB project covering oscillator-based sensing, PCB layout, assembly, testing, and reporting." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Metal_Detector_ESE319/metal-detector.html" />
-  <meta property="og:title" content="Metal Detector PCB - Panos Dimtsoudis" />
-  <meta property="og:description" content="Oscillator-based metal detector PCB designed, fabricated, assembled, tested, and documented for ESE 3190." />
+  <meta property="og:title" content="Metal Detector PCB | Panagiotis Dimtsoudis" />
+  <meta property="og:description" content="Oscillator-based metal detector PCB designed, assembled, tested, and documented for ESE 3190." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Metal_Detector_ESE319/metal-detector.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/Metal_Detector_ESE319/images/PCB_MD.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
-  <title>Metal Detector PCB - Panos Dimtsoudis</title>
+  <title>Metal Detector PCB | Panagiotis Dimtsoudis</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>  <header class="topbar" aria-label="Primary navigation">
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
     <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
       <span class="brand-mark" aria-hidden="true">PD</span>
       <span class="brand-name">Panagiotis Dimtsoudis</span>
@@ -29,12 +36,14 @@
     <nav class="topbar-nav-wrap" aria-label="Primary">
       <ul class="topbar-nav" id="primary-nav">
         <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
         <li><a href="../../about.html" class="nav-link">About</a></li>
         <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
     <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
@@ -44,7 +53,7 @@
         <p class="project-detail-tag">PCB Design &middot; Analog Circuits</p>
         <h1 class="project-detail-title">Metal Detector PCB</h1>
         <p class="project-detail-sub">
-          An oscillator-based metal detector circuit turned into a fabricated PCB. I assembled the board, debugged the hardware, and documented the build in an ESE 3190 technical report.
+          An oscillator-based metal detector circuit turned into a fabricated PCB, built from ALD1103 MOSFETs with two LC oscillators, a mixer, and an RC low-pass filter. I assembled the board and debugged it stage by stage; the fixed oscillator measured 50.2 kHz against 50.27 kHz in LTspice.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -53,15 +62,15 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">Analog PCB Design & Circuit Analysis</span>
+            <span class="project-meta-value">Analog PCB Design &amp; Circuit Analysis</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Deliverables</span>
-            <span class="project-meta-value">PCB Layout, Fabricated Detector, Technical Report</span>
+            <span class="project-meta-value">PCB Layout, Assembled Detector, Technical Report</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Role</span>
-            <span class="project-meta-value">Circuit Design, PCB Layout, Assembly & Testing</span>
+            <span class="project-meta-value">Solo project &middot; Circuit Design, PCB Layout, Assembly &amp; Testing</span>
           </div>
         </div>
       </div>
@@ -87,16 +96,18 @@
         <div class="project-info-card">
           <h2>Project Snapshot</h2>
           <p>
-            The board moved from schematic to PCB layout, then to soldering and bench testing. It worked as a completed detector.
+            Schematic to two-layer layout to a fabricated board, hand-soldered and debugged on a scope stage by stage. The finished detector drives an 8 &Omega; speaker with an audible beat note.
           </p>
         </div>
         <div class="project-info-card">
           <h2>Tools</h2>
           <div class="project-chip-row">
-            <span class="skill-chip">PCB Design</span>
-            <span class="skill-chip">Analog Circuits</span>
-            <span class="skill-chip">Soldering</span>
-            <span class="skill-chip">Hardware Debugging</span>
+            <span class="skill-chip">Altium Designer</span>
+            <span class="skill-chip">LTspice</span>
+            <span class="skill-chip">PCB Layout</span>
+            <span class="skill-chip">ALD1103 / MOSFET Analog</span>
+            <span class="skill-chip">Hand Soldering</span>
+            <span class="skill-chip">Oscilloscope Debugging</span>
           </div>
         </div>
       </aside>
@@ -105,19 +116,20 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            This project turned an oscillator-based metal-detection circuit into a fabricated PCB.
-            The build forced layout decisions to show up in hardware: component placement, signal routing,
-            soldering quality, and parasitic effects all affected the final detector behavior.
+            Two LC oscillators built from ALD1103 MOSFETs, one fixed and one tuned by the search coil, are mixed
+            down to an audio-rate beat note and low-pass filtered to drive a speaker. A nearby metal object pulls
+            the search coil's inductance, the beat frequency shifts, and the tone changes. This project took that
+            circuit all the way to a fabricated board.
           </p>
         </section>
 
         <section class="project-panel">
           <h2>Design Process</h2>
           <ul class="project-list">
-            <li>Converted the circuit schematic into a manufacturable PCB layout.</li>
-            <li>Placed and routed analog-sensitive sections to reduce interference and improve testability.</li>
-            <li>Assembled, soldered, inspected, and debugged the fabricated board before functional testing.</li>
-            <li>Documented the design methodology, testing procedure, and results in a technical report.</li>
+            <li>Took the schematic to a two-layer board in Altium, with test points left on each stage so the oscillators, the mixer and the filter could be probed separately.</li>
+            <li>Kept the two oscillators apart on the board, so the fixed one could not pull the search-coil one into lock and kill the beat note.</li>
+            <li>Hand-soldered and inspected the fabricated board, then brought it up stage by stage instead of powering the whole thing at once.</li>
+            <li>Probed each stage against LTspice: the fixed oscillator measured 50.2 kHz against 50.27 kHz simulated, 0.14% off.</li>
           </ul>
         </section>
 
@@ -125,7 +137,7 @@
           <h2>Completed Detector</h2>
           <div class="image-switcher" data-gallery="detector">
             <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous metal detector image">&lsaquo;</button>
-            <img src="images/metal-detector-no-bg.png" alt="Completed metal detector assembly" width="1086" height="1448" data-gallery-image>
+            <img src="images/metal-detector-no-bg.webp" alt="Completed metal detector assembly" width="1086" height="1448" data-gallery-image>
             <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next metal detector image">&rsaquo;</button>
             <div class="image-switcher-info">
               <div class="image-switcher-caption" data-gallery-caption>Completed metal detector assembly</div>
@@ -152,12 +164,20 @@
         </section>
       </div>
     </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-prev" href="../../projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">SRAM-Based 4-bit MAC Accelerator</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Wireless_ECG_Monitor/ecg.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Wireless ECG Monitor</span></a>
+    </nav>
+    <!-- /build:projectnav -->
   </main>
 
+  <!-- build:footer -->
   <footer class="site-footer" id="contact">
     <div>
       <p class="eyebrow">Contact Me</p>
-      <p>Open to hardware roles, research work, project collaborations, and conversations about PCB, embedded, and semiconductor-device work.</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
@@ -168,6 +188,8 @@
     </div>
     <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
+
   <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
 </body>
 </html>

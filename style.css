@@ -1,5 +1,27 @@
-:root {
+/* =========================================================================
+   Design tokens
+   -------------------------------------------------------------------------
+   Everything below this block is written in terms of these values. If a rule
+   needs a number that is not here, the number is probably wrong: add a token
+   or reuse the nearest one instead of inventing a one-off.
+
+   Space:  --space-1 .. --space-8 is a fixed 4/8/12/16/24/32/48/64 px ladder.
+           --space-section and --space-gutter are the two fluid values that
+           set the page rhythm; nothing else should use raw vw units.
+   Type:   --step--2 .. --step-6. One step per role, documented beside it.
+           Headings pick a step by ROLE, not by tag, so an <h2> in the project
+           sidebar and an <h2> that titles a page section are different sizes
+           on purpose and the same size as their peers on every other page.
+   Accent: --accent marks interaction (links, buttons, hover, focus) and the
+           single eyebrow/kicker that labels a section. Static data labels
+           (dt, meta labels, grid-cell labels) are --muted, never accent.
+           Diagrams may use accent as their one graphic colour.
+   ========================================================================= */
+
+:root{
   color-scheme: dark;
+
+  /* Colour */
   --bg: #101216;
   --surface: #171a20;
   --surface-soft: #20242c;
@@ -8,21 +30,74 @@
   --line: #303744;
   --accent: #8fb3ff;
   --accent-strong: #a7c2ff;
+  --accent-wash: color-mix(in srgb, var(--accent) 10%, transparent);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+
+  /* Space ladder */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Fluid rhythm. One value per job, so every page breathes identically. */
+  --space-section: clamp(3rem, 5.5vw, 5rem);   /* padding-block of a section */
+  --space-gutter: clamp(1.75rem, 4vw, 4rem);   /* gap between major columns */
+  --space-page: clamp(2.5rem, 4vw, 4rem);      /* top of <main> */
+
+  /* Type scale */
+  --step--2: 0.75rem;     /* uppercase micro-labels: eyebrows, dt, meta */
+  --step--1: 0.8125rem;   /* chips, captions, fine print */
+  --step-0: 0.9375rem;    /* interface text: nav, buttons */
+  --step-1: 1rem;         /* body copy */
+  --step-2: 1.125rem;     /* h3 and card titles */
+  --step-3: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);   /* lede paragraphs */
+  --step-4: clamp(1.25rem, 1.1rem + 0.55vw, 1.5rem);   /* in-article h2 */
+  --step-5: clamp(1.5rem, 1.15rem + 1.1vw, 2.125rem);  /* section h2 */
+  --step-6: clamp(2.5rem, 1.4rem + 4.6vw, 4.25rem);    /* page h1 */
+
+  /* Line heights */
+  --lh-display: 1;
+  --lh-heading: 1.2;
+  --lh-body: 1.6;
+
+  /* Weights. Inter is loaded at 400/500/600/700/800 only - anything else
+     silently snaps to one of these, so only these are used. */
+  --weight-ui: 600;
+  --weight-label: 700;
+
+  --ls-label: 0.1em;
+
+  /* Measure. Prose is capped in ch so the cap follows the font size. */
+  --measure: 68ch;
+  --measure-lede: 58ch;
+  --measure-heading: 30ch;
+  --measure-display: 20ch;
+
+  /* Component padding: two documented densities. */
+  --pad-cell: var(--space-4);  /* dense data cells in a 1px-rule grid */
+  --pad-card: var(--space-5);  /* content cards */
+
   --max: 1120px;
   --radius: 8px;
+  --radius-pill: 999px;
+  --sticky-top: 6rem;
+  --transition: 0.18s ease;
 }
 
-* {
+*{
   box-sizing: border-box;
 }
 
-html {
+html{
   scroll-behavior: smooth;
   overflow-x: clip;
 }
 
-body {
+body{
   margin: 0;
   min-width: 320px;
   background:
@@ -30,27 +105,32 @@ body {
     var(--bg);
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.6;
+  font-size: var(--step-1);
+  line-height: var(--lh-body);
   text-rendering: optimizeLegibility;
 }
 
-body.nav-open,
-body.lightbox-open {
+/* Lock scrolling on html, not body. html clips overflow-x, so overflow on
+   body no longer reaches the viewport: body turns into its own scroll box,
+   the sticky .topbar loses the viewport, and a menu opened mid-page lands
+   off-screen. */
+html:has(> body.nav-open),
+html:has(> body.lightbox-open){
   overflow: hidden;
 }
 
 img,
 video,
-iframe {
+iframe{
   max-width: 100%;
 }
 
-img {
+img{
   display: block;
   height: auto;
 }
 
-a {
+a{
   color: inherit;
   text-decoration: none;
 }
@@ -59,11 +139,13 @@ p,
 h1,
 h2,
 h3,
-dl {
+h4,
+dl,
+figure{
   margin: 0;
 }
 
-ul {
+ul{
   margin: 0;
   padding-left: 1.2rem;
 }
@@ -71,16 +153,16 @@ ul {
 button,
 input,
 select,
-textarea {
+textarea{
   font: inherit;
 }
 
-:focus-visible {
+:focus-visible{
   outline: 3px solid color-mix(in srgb, var(--accent) 70%, white);
   outline-offset: 4px;
 }
 
-.sr-only {
+.sr-only{
   position: absolute;
   width: 1px;
   height: 1px;
@@ -92,48 +174,64 @@ textarea {
   border: 0;
 }
 
-.skip-link {
+.skip-link{
   position: fixed;
-  top: 12px;
-  left: 12px;
+  top: var(--space-3);
+  left: var(--space-3);
   z-index: 1000;
-  padding: 0.7rem 0.95rem;
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius);
   background: var(--accent);
   color: #0b1020;
+  font-size: var(--step-0);
+  font-weight: var(--weight-ui);
   transform: translateY(-140%);
   transition: transform 0.2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus{
   transform: translateY(0);
 }
 
-.topbar {
+/* -------------------------------------------------------------------------
+   Header
+   ------------------------------------------------------------------------- */
+
+.topbar{
   position: sticky;
   top: 0;
   z-index: 100;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: var(--space-4) 0;
   border-bottom: 1px solid var(--line);
+  /* The bar is sticky, so it needs an opaque-enough backing of its own:
+     with only backdrop-filter the page text slid under it and smeared. */
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(18px);
 }
 
-.brand-link {
+/* Sticky header offset for in-page anchors (#contact, #projects). */
+main[id],
+main section[id],
+footer[id]{
+  scroll-margin-top: var(--sticky-top);
+}
+
+.brand-link{
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-3);
   width: fit-content;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   letter-spacing: 0;
 }
 
-.brand-mark {
+.brand-mark{
   display: grid;
   place-items: center;
   width: 2.35rem;
@@ -142,55 +240,61 @@ textarea {
   border-radius: 50%;
   color: var(--accent);
   background: color-mix(in srgb, var(--surface) 80%, transparent);
-  font-size: 0.78rem;
+  font-size: var(--step--1);
+  transition: border-color var(--transition), color var(--transition);
 }
 
-.brand-name {
-  font-size: 0.95rem;
+.brand-link:hover .brand-mark{
+  border-color: var(--accent);
 }
 
-.topbar-nav-wrap {
+.brand-name{
+  font-size: var(--step-0);
+}
+
+.topbar-nav-wrap{
   display: block;
 }
 
-.topbar-nav {
+.topbar-nav{
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: var(--space-1);
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.nav-link {
+.nav-link{
   display: inline-flex;
   align-items: center;
   min-height: 2.4rem;
-  padding: 0 0.75rem;
+  padding: 0 var(--space-3);
   border-radius: var(--radius);
   color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 650;
+  font-size: var(--step-0);
+  font-weight: var(--weight-ui);
+  transition: color var(--transition), background-color var(--transition);
 }
 
 .nav-link:hover,
-.nav-link.active {
+.nav-link.active{
   color: var(--text);
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  background: var(--accent-wash);
 }
 
 .nav-toggle,
 .copy-inline,
-.email-copy-button,
 .image-switcher-btn,
-.image-lightbox-close {
+.image-lightbox-close{
   border: 1px solid var(--line);
   color: var(--text);
   background: var(--surface);
   cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background-color var(--transition);
 }
 
-.nav-toggle {
+.nav-toggle{
   display: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -199,7 +303,7 @@ textarea {
 
 .nav-toggle span[aria-hidden="true"],
 .nav-toggle span[aria-hidden="true"]::before,
-.nav-toggle span[aria-hidden="true"]::after {
+.nav-toggle span[aria-hidden="true"]::after{
   display: block;
   width: 1.05rem;
   height: 2px;
@@ -208,241 +312,203 @@ textarea {
   content: "";
 }
 
-.nav-toggle span[aria-hidden="true"]::before {
+.nav-toggle span[aria-hidden="true"]::before{
   transform: translateY(-6px);
 }
 
-.nav-toggle span[aria-hidden="true"]::after {
+.nav-toggle span[aria-hidden="true"]::after{
   transform: translateY(4px);
 }
 
+/* -------------------------------------------------------------------------
+   Page frame and vertical rhythm
+   ------------------------------------------------------------------------- */
+
 main,
-.site-footer {
+.site-footer{
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
 }
 
-main {
-  padding: 4.5rem 0 2rem;
+main{
+  padding: var(--space-page) 0 var(--space-6);
 }
 
 .hero,
-.project-hero {
+.project-hero{
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
+  gap: var(--space-gutter);
   align-items: center;
-  padding: clamp(2rem, 5vw, 5rem) 0 clamp(3rem, 7vw, 6rem);
+  padding: var(--space-6) 0 var(--space-section);
   border-bottom: 1px solid var(--line);
 }
 
 .hero-text,
 .project-hero-copy,
-.page-hero {
+.page-hero{
   display: grid;
-  gap: 1.2rem;
+  gap: var(--space-5);
 }
 
-.eyebrow,
-.hero-eyebrow,
-.section-label,
-.project-detail-tag,
-.panel-kicker {
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-h1,
-.hero-name,
-.project-detail-title,
-.page-hero h1 {
-  max-width: 880px;
-  font-size: clamp(2.6rem, 7vw, 5.7rem);
-  line-height: 0.95;
-  letter-spacing: 0;
-}
-
-h2,
-.section-title {
-  font-size: clamp(1.55rem, 3vw, 2.5rem);
-  line-height: 1.08;
-  letter-spacing: 0;
-}
-
-h3 {
-  font-size: 1.05rem;
-  line-height: 1.25;
-}
-
-.hero p,
-.hero-lede,
-.hero-sub,
-.project-detail-sub,
-.page-hero p,
-.section-intro {
-  max-width: 720px;
-  color: var(--muted);
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
-}
-
-.button-row,
-.hero-cta,
-.project-actions,
-.section-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.btn-primary,
-.btn-outline,
-.text-link,
-.copy-inline,
-.email-copy-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.7rem;
-  border-radius: 999px;
-  padding: 0 1rem;
-  font-weight: 800;
-  font-size: 0.9rem;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #0b1020;
-}
-
-.btn-primary:hover {
-  background: var(--accent-strong);
-}
-
-.btn-outline,
-.copy-inline,
-.email-copy-button {
-  border: 1px solid var(--line);
-  color: var(--text);
-  background: transparent;
-}
-
-.btn-outline:hover,
-.copy-inline:hover,
-.email-copy-button:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.text-link {
-  color: var(--accent);
-  padding-inline: 0;
-}
-
-.current-panel,
-.project-detail-cover,
-.project-visual-placeholder {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface) 86%, transparent);
-  box-shadow: var(--shadow);
-}
-
-.current-panel {
-  display: grid;
-  gap: 1.1rem;
-  padding: 1rem;
-}
-
-.current-panel img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-  border-radius: calc(var(--radius) - 2px);
-  background: var(--surface-soft);
-}
-
-.current-panel dl {
-  display: grid;
-  gap: 0.9rem;
-}
-
-.current-panel dl > div {
-  display: grid;
-  grid-template-columns: 6.5rem 1fr;
-  gap: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--line);
-}
-
-dt,
-.project-meta-label {
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-dd {
-  margin: 0;
-  color: var(--text);
-  font-weight: 650;
-}
-
-.section {
-  padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+.section{
+  padding: var(--space-section) 0;
   border-bottom: 1px solid var(--line);
 }
 
-.compact-section {
-  padding-top: clamp(2.5rem, 5vw, 4rem);
+/* The footer draws its own top rule, so the last section must not draw a
+   second one a couple of rem above it. */
+main > .section:last-child{
+  border-bottom: 0;
 }
 
-.section-heading {
+.section-heading{
   display: grid;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
 }
 
-.split-heading {
+.split-heading{
   grid-template-columns: 1fr auto;
   align-items: end;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
-.stat-grid,
-.penn-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  border: 1px solid var(--line);
-  background: var(--line);
+.page-hero{
+  padding: var(--space-6) 0 var(--space-section);
+  border-bottom: 1px solid var(--line);
 }
 
-.stat-grid article,
-.penn-card {
-  display: grid;
-  gap: 0.75rem;
-  min-height: 12rem;
-  padding: 1.25rem;
-  background: var(--bg);
-}
+/* -------------------------------------------------------------------------
+   Typography
+   ------------------------------------------------------------------------- */
 
-.stat-grid span,
-.penn-card h3 {
-  color: var(--accent);
-  font-weight: 800;
-  letter-spacing: 0.1em;
+/* Micro-labels. One treatment, used wherever a short uppercase label sits
+   above or beside a value. Only .eyebrow / .section-label / .project-detail-tag
+   (the single section kicker) take the accent colour. */
+.eyebrow,
+.section-label,
+.project-detail-tag,
+dt,
+.project-meta-label,
+.project-meta-line,
+.timeline-date,
+.project-row-meta,
+.architecture-grid span,
+.readme-concept-grid span,
+.contact-details dt{
+  color: var(--muted);
+  font-size: var(--step--2);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--ls-label);
+  line-height: var(--lh-heading);
   text-transform: uppercase;
-  font-size: 0.78rem;
 }
 
-.stat-grid p,
-.penn-card p,
+.eyebrow,
+.section-label,
+.project-detail-tag{
+  color: var(--accent);
+}
+
+/* Headings balance their lines rather than leaving one orphan word on the
+   last line; prose avoids a single short last line. Both degrade to normal
+   wrapping where unsupported. */
+h1,
+h2,
+h3,
+h4{
+  text-wrap: balance;
+}
+
+p,
+li,
+dd{
+  text-wrap: pretty;
+}
+
+h1,
+.project-detail-title,
+.page-hero h1{
+  max-width: var(--measure-display);
+  font-size: var(--step-6);
+  line-height: var(--lh-display);
+  letter-spacing: -0.015em;
+}
+
+/* Section-level headings: the title of a whole page section. */
+h2{
+  max-width: var(--measure-heading);
+  font-size: var(--step-5);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+}
+
+/* In-article headings: the title of a block inside a page section. */
+.project-panel h2,
+.readme-showcase h2{
+  font-size: var(--step-4);
+}
+
+/* Sidebar card headings. Same tag, much narrower column: at the section-h2
+   size these wrapped to two or three lines inside a 270px rail. */
+.project-info-card h2{
+  font-size: var(--step-2);
+  letter-spacing: 0;
+}
+
+h3,
+.readme-section h3,
+.contact-card h3{
+  max-width: var(--measure-heading);
+  font-size: var(--step-2);
+  line-height: var(--lh-heading);
+  letter-spacing: 0;
+}
+
+h4{
+  font-size: var(--step-1);
+  line-height: var(--lh-heading);
+}
+
+/* :where() keeps this at element specificity so the micro-label rules above
+   still win for the .eyebrow and .hero-meta paragraphs that sit in the same
+   hero. Without it, `.hero p` outranked `.eyebrow` and the kicker rendered
+   muted at lede size. */
+:where(.hero, .page-hero) p,
+.hero-lede,
+.project-detail-sub{
+  max-width: var(--measure-lede);
+  color: var(--muted);
+  font-size: var(--step-3);
+}
+
+/* Prose measure. Caps running text at roughly 68 characters on every page. */
+.project-panel p,
+.project-panel li,
+.project-list,
+.timeline-entry p,
+.content-stack p,
+.project-row-body p,
+.project-info-card p,
+.readme-section p,
+.readme-showcase-header p,
+.contact-note,
+.footer-note,
+.site-footer > div p,
+.design-sketch-figure figcaption{
+  max-width: var(--measure);
+}
+
+/* The switcher caption sits inside a full-width band that draws a rule, so
+   the measure cap goes on the caption itself, not on the band. */
+.image-switcher-caption,
+.tetris-visual figcaption{
+  max-width: var(--measure);
+  justify-self: center;
+  margin-inline: auto;
+}
+
 .project-info p,
 .project-row-body p,
 .timeline-entry p,
@@ -450,160 +516,294 @@ dd {
 .skills-matrix p,
 .project-panel p,
 .project-info-card p,
-.media-figure figcaption,
 .design-sketch-figure figcaption,
-.professional-list dd,
-.footer-note {
+.footer-note{
   color: var(--muted);
 }
 
-.selected-projects,
-.projects-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  border: 1px solid var(--line);
-  background: var(--bg);
+dd{
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
 }
 
-.project-card {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  min-width: 0;
-  outline: 1px solid var(--line);
-  outline-offset: -1px;
-  background: var(--bg);
+.hero-meta{
+  color: var(--muted);
+  font-size: var(--step-0);
 }
 
-.project-card:hover h3,
-.project-row:hover h2,
-.project-detail-back:hover {
-  color: var(--accent);
+.muted{
+  color: var(--muted);
 }
 
-.project-thumb {
-  min-height: 220px;
-  background: var(--surface-soft);
-  overflow: hidden;
+code{
+  overflow-wrap: anywhere;
 }
 
-.project-thumb img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
+/* -------------------------------------------------------------------------
+   Buttons, links, chips
+   ------------------------------------------------------------------------- */
 
-.project-thumb-contain img,
-.project-row-meta img {
-  object-fit: contain;
-  padding: 0.8rem;
-  background: var(--surface-soft);
-}
-
-.project-info {
-  display: grid;
-  gap: 0.75rem;
-  padding: 1.25rem;
-}
-
-.project-meta-line {
+.button-row,
+.project-actions{
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
 }
 
-.project-tag,
-.project-arrow {
+.btn-primary,
+.btn-outline,
+.text-link,
+.copy-inline{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  border-radius: var(--radius-pill);
+  padding: 0 var(--space-4);
+  font-size: var(--step-0);
+  font-weight: var(--weight-label);
+  transition: color var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.btn-primary{
+  background: var(--accent);
+  color: #0b1020;
+}
+
+.btn-primary:hover{
+  background: var(--accent-strong);
+}
+
+.btn-outline,
+.copy-inline{
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn-outline:hover,
+.copy-inline:hover{
+  border-color: var(--accent);
   color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 800;
 }
 
-.timeline-list,
-.project-index,
-.content-stack,
-.skills-matrix,
-.experience-list,
-.education-list {
-  display: grid;
-  gap: 0;
+.text-link{
+  color: var(--accent);
+  padding-inline: 0;
 }
 
-.timeline-entry,
-.exp-entry,
-.education-entry,
-.project-row {
-  display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  padding: 1.6rem 0;
-  border-top: 1px solid var(--line);
+.text-link:hover{
+  color: var(--accent-strong);
 }
 
-.timeline-date,
-.exp-date,
-.project-row-meta {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.btn-icon{
+  gap: var(--space-2);
 }
 
-.timeline-entry > div:last-child,
-.exp-body,
-.education-body,
-.project-row-body {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.muted {
-  color: var(--muted);
+.btn-icon svg{
+  width: 1.15rem;
+  height: 1.15rem;
 }
 
 .chip-row,
-.skills-row,
-.project-chip-row,
-.exp-tags {
+.project-chip-row{
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: var(--space-2);
 }
 
-.skill-chip,
-.exp-badge {
+.skill-chip{
   display: inline-flex;
   align-items: center;
   width: fit-content;
   max-width: 100%;
   min-height: 2rem;
-  padding: 0 0.75rem;
+  padding: 0 var(--space-3);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--muted);
   background: color-mix(in srgb, var(--surface) 75%, transparent);
-  font-size: 0.82rem;
-  font-weight: 750;
+  font-size: var(--step--1);
+  font-weight: 500;
 }
 
-.project-row {
+/* -------------------------------------------------------------------------
+   Rule grids
+   One pattern for every "table" of cells: a 1px gap over a --line background
+   makes every interior and exterior rule exactly 1px wide.
+   ------------------------------------------------------------------------- */
+
+.project-meta-grid,
+.architecture-grid,
+.readme-concept-grid,
+.contact-layout{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.project-meta-item,
+.architecture-grid > div,
+.readme-concept-grid article{
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--pad-cell);
+  background: var(--bg);
+}
+
+/* An odd last cell would otherwise leave a --line-coloured hole in the grid. */
+.project-meta-grid > .project-meta-item:last-child:nth-child(odd){
+  grid-column: 1 / -1;
+}
+
+.architecture-grid,
+.readme-concept-grid{
+  margin-top: var(--space-4);
+}
+
+.architecture-grid p{
+  font-size: var(--step-0);
+}
+
+.project-meta-value{
+  font-weight: var(--weight-ui);
+}
+
+/* -------------------------------------------------------------------------
+   Home: selected projects
+   Cards draw their own right and bottom rule and the grid draws top and left,
+   so interior lines stay 1px instead of doubling where two cards meet, and
+   the unused cell in the last row reads as deliberate white space.
+   ------------------------------------------------------------------------- */
+
+.selected-projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.project-card{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.project-card:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--accent) 70%, white);
+  outline-offset: -3px;
+}
+
+.project-card h3,
+.project-row h2,
+.project-detail-back{
+  transition: color var(--transition);
+}
+
+.project-card:hover h3,
+.project-row:hover h2,
+.project-detail-back:hover{
+  color: var(--accent);
+}
+
+.project-thumb{
+  aspect-ratio: 4 / 3;
+  background: var(--surface-soft);
+  overflow: hidden;
+}
+
+.project-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-thumb img{
+  transform: scale(1.03);
+}
+
+.project-thumb-contain img,
+.project-row-meta img{
+  object-fit: contain;
+  padding: var(--space-3);
+  background: var(--surface-soft);
+}
+
+/* A contained thumbnail is artwork on a panel, not a photo bleeding to the
+   edge, so it must not creep when the card is hovered. */
+.project-card:hover .project-thumb-contain img{
+  transform: none;
+}
+
+.project-info{
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding: var(--pad-card);
+}
+
+.project-meta-line{
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* -------------------------------------------------------------------------
+   Rule-separated stacks: experience, project index, about columns, panels
+   ------------------------------------------------------------------------- */
+
+.timeline-list,
+.project-index,
+.content-stack,
+.skills-matrix,
+.project-sidebar,
+.project-detail-body{
+  display: grid;
+  gap: 0;
+  min-width: 0;
+}
+
+.timeline-entry,
+.project-row{
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: var(--space-gutter);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--line);
+}
+
+/* Close the list so it does not simply stop above the footer rule. */
+.project-index > :last-child{
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline-entry > div:last-child,
+.project-row-body{
+  display: grid;
+  gap: var(--space-3);
+}
+
+.project-row{
   align-items: start;
 }
 
-.project-row-meta {
+.project-row-meta{
   display: grid;
-  gap: 0.6rem;
+  gap: var(--space-2);
 }
 
-.project-row-meta img,
-.placeholder-thumb {
+.project-row-meta img{
   width: 100%;
   max-width: 220px;
   aspect-ratio: 16 / 10;
@@ -612,13 +812,7 @@ dd {
   background: var(--surface-soft);
 }
 
-.placeholder-thumb {
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-}
-
-.project-mini-tetris {
+.project-mini-tetris{
   position: relative;
   width: 100%;
   max-width: 220px;
@@ -633,211 +827,279 @@ dd {
   background-size: 10% calc(100% / 12), 10% calc(100% / 12);
 }
 
-.project-mini-tetris .tetris-block {
+.project-row-placeholder{
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--accent);
+  font-size: var(--step--2);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--ls-label);
+}
+
+.project-mini-tetris .tetris-block{
   top: calc(var(--y) * (100% / 12));
   height: calc(100% / 12);
-}
-
-.project-row-muted {
-  opacity: 0.78;
-}
-
-.page-hero {
-  padding: clamp(2rem, 5vw, 5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
-  border-bottom: 1px solid var(--line);
-}
-
-.about-layout,
-.project-content-grid {
-  display: grid;
-  grid-template-columns: 270px minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
-.sticky-heading,
-.project-sidebar {
-  align-self: start;
-  position: sticky;
-  top: 6rem;
 }
 
 .content-stack article,
 .skills-matrix article,
 .project-panel,
-.project-info-card {
-  padding: 1.5rem 0;
+.project-info-card{
+  padding: var(--space-5) 0;
   border-top: 1px solid var(--line);
 }
 
-.skills-matrix article {
+.content-stack article,
+.skills-matrix article{
   display: grid;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
-.site-footer {
+.about-layout,
+.project-content-grid{
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: var(--space-gutter);
+}
+
+.sticky-heading,
+.project-sidebar{
+  align-self: start;
+  position: sticky;
+  top: var(--sticky-top);
+}
+
+.project-content-grid > *,
+.project-panel,
+.project-info-card{
+  min-width: 0;
+}
+
+.project-panel h2,
+.project-info-card h2{
+  margin-bottom: var(--space-3);
+}
+
+.project-list{
+  display: grid;
+  gap: var(--space-2);
+  color: var(--muted);
+}
+
+/* -------------------------------------------------------------------------
+   Portraits
+   ------------------------------------------------------------------------- */
+
+.hero-headshot{
+  justify-self: center;
+  width: min(100%, 400px);
+}
+
+.hero-headshot img,
+.about-portrait{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.hero-headshot img{
+  object-position: 50% 20%;
+}
+
+.about-portrait{
+  object-position: 50% 15%;
+}
+
+.about-hero{
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 300px);
+  align-items: center;
+  gap: var(--space-gutter);
+}
+
+.about-hero-text{
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* -------------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------------- */
+
+.site-footer{
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 2rem;
-  padding: 2.5rem 0;
+  gap: var(--space-6);
+  padding: var(--space-7) 0;
   border-top: 1px solid var(--line);
 }
 
-.footer-links {
+.footer-links{
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem 1rem;
+  gap: var(--space-3) var(--space-4);
   align-items: center;
   max-width: 560px;
 }
 
 .footer-links a,
-.site-footer a {
+.site-footer a{
   color: var(--accent);
-  font-weight: 750;
+  font-weight: var(--weight-ui);
+  transition: color var(--transition);
 }
 
-.footer-note {
+.footer-links a:hover,
+.site-footer a:hover{
+  color: var(--accent-strong);
+}
+
+.footer-note{
   flex-basis: 100%;
-  font-size: 0.9rem;
+  font-size: var(--step-0);
 }
 
-.project-detail {
-  padding-top: 2rem;
+/* -------------------------------------------------------------------------
+   Project detail pages
+   ------------------------------------------------------------------------- */
+
+.project-detail{
+  padding-top: var(--space-6);
 }
 
-.project-detail-back {
+.project-detail-back{
   display: inline-flex;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  margin-bottom: var(--space-5);
   color: var(--muted);
-  font-weight: 800;
+  font-size: var(--step-0);
+  font-weight: var(--weight-ui);
 }
 
-.project-hero {
-  padding-top: 1rem;
+.project-hero{
+  padding-top: var(--space-4);
 }
 
-.project-meta-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  border: 1px solid var(--line);
-  background: var(--line);
-}
-
-.project-meta-item {
-  display: grid;
-  gap: 0.45rem;
-  min-width: 0;
-  padding: 1rem;
-  background: var(--bg);
-}
-
-.project-meta-value {
-  font-weight: 750;
-}
-
-.project-detail-cover {
+.project-detail-cover{
   display: grid;
   place-items: center;
   min-height: 360px;
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: var(--space-5);
   overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  box-shadow: var(--shadow);
 }
 
-.project-detail-cover img {
+.project-detail-cover img{
   width: 100%;
   max-height: 560px;
   object-fit: contain;
 }
 
-.project-detail-cover:not(.project-detail-cover-contain) img {
+.project-detail-cover:not(.project-detail-cover-contain) img{
   height: 100%;
   object-fit: cover;
 }
 
-.project-sidebar {
-  display: grid;
-  gap: 1rem;
-  min-width: 0;
-}
-
-.project-detail-body {
-  display: grid;
-  gap: 0.4rem;
-  min-width: 0;
-}
-
-.project-content-grid > *,
-.project-panel,
-.project-info-card {
-  min-width: 0;
-}
-
-code {
-  overflow-wrap: anywhere;
-}
-
-.project-panel h2,
-.project-info-card h2 {
-  margin-bottom: 0.75rem;
-}
-
-.project-list {
-  display: grid;
-  gap: 0.55rem;
-  color: var(--muted);
-}
-
-.code-block {
-  margin: 1rem 0 0;
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1rem;
-  background: var(--surface-soft);
-  color: var(--text);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-.architecture-grid {
+/* Prev / next pager at the foot of every project page. */
+.project-pager{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
-  margin-top: 1rem;
-  border: 1px solid var(--line);
+  margin-top: var(--space-section);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   background: var(--line);
 }
 
-.architecture-grid > div {
+.project-pager-link{
   display: grid;
-  gap: 0.55rem;
+  align-content: center;
+  gap: var(--space-2);
   min-width: 0;
-  padding: 1rem;
+  padding: var(--space-5) var(--pad-card);
   background: var(--bg);
+  transition: background-color var(--transition);
 }
 
-.architecture-grid span {
-  color: var(--accent);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+.project-pager-link:hover{
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg));
+}
+
+/* The links are flush grid cells, so the ring is drawn inside rather than
+   spilling over the 1px rule into the neighbouring cell. */
+.project-pager-link:focus-visible{
+  outline-offset: -3px;
+}
+
+/* The first and last pages in the order have only one link. The pager paints
+   --line behind its cells, so a lone link left half the band showing as a
+   solid grey block; span both columns instead. Must beat .project-pager-next
+   below, hence the two-class specificity. */
+.project-pager-link:only-child{
+  grid-column: 1 / -1;
+}
+
+.project-pager-next{
+  grid-column: 2;
+  justify-items: end;
+  text-align: right;
+}
+
+.project-pager-dir{
+  color: var(--muted);
+  font-size: var(--step--2);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--ls-label);
   text-transform: uppercase;
 }
 
-.architecture-grid p {
-  font-size: 0.92rem;
+.project-pager-title{
+  font-size: var(--step-2);
+  font-weight: var(--weight-ui);
+  line-height: var(--lh-heading);
+  transition: color var(--transition);
 }
 
-.tetris-visual {
-  gap: 1rem;
+.project-pager-link:hover .project-pager-title{
+  color: var(--accent);
+}
+
+.code-block{
+  margin: var(--space-4) 0 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  background: var(--surface-soft);
+  color: var(--text);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------
+   Project visuals
+   ------------------------------------------------------------------------- */
+
+.tetris-visual{
+  gap: var(--space-4);
   align-content: center;
 }
 
-.tetris-visual-window {
+.tetris-visual-window{
   position: relative;
   width: min(100%, 360px);
   aspect-ratio: 10 / 18;
@@ -851,7 +1113,7 @@ code {
   box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.03);
 }
 
-.tetris-block {
+.tetris-block{
   position: absolute;
   left: calc(var(--x) * 10%);
   top: calc(var(--y) * (100% / 18));
@@ -861,50 +1123,50 @@ code {
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.16);
 }
 
-.tetris-block.cyan {
+.tetris-block.cyan{
   background: #67e8f9;
 }
 
-.tetris-block.purple {
+.tetris-block.purple{
   background: #c084fc;
 }
 
-.tetris-block.blue {
+.tetris-block.blue{
   background: #60a5fa;
 }
 
-.tetris-block.yellow {
+.tetris-block.yellow{
   background: #fde047;
 }
 
-.tetris-block.green {
+.tetris-block.green{
   background: #86efac;
 }
 
-.tetris-block.red {
+.tetris-block.red{
   background: #f87171;
 }
 
-.tetris-visual figcaption {
+.tetris-visual figcaption{
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--step-0);
   text-align: center;
 }
 
-.analog-visual {
-  gap: 1.5rem;
+.analog-visual{
+  gap: var(--space-5);
   text-align: center;
 }
 
-.signal-path {
+.signal-path{
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: var(--space-3);
   align-items: center;
   width: min(100%, 520px);
 }
 
-.signal-path span {
+.signal-path span{
   display: grid;
   place-items: center;
   min-height: 4.4rem;
@@ -912,158 +1174,129 @@ code {
   border-radius: var(--radius);
   color: var(--accent);
   background: var(--surface-soft);
-  font-weight: 850;
-  letter-spacing: 0.08em;
+  font-weight: var(--weight-label);
+  letter-spacing: var(--ls-label);
 }
 
-.signal-path i {
+.signal-path i{
   display: none;
 }
 
-.analog-visual p {
+.analog-visual p{
   color: var(--muted);
 }
 
-.readme-showcase[hidden] {
+.design-sketch-figure{
+  display: grid;
+  gap: var(--space-3);
+}
+
+.design-sketch-figure img{
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  object-fit: contain;
+}
+
+/* -------------------------------------------------------------------------
+   README showcase (Tetris)
+   ------------------------------------------------------------------------- */
+
+.readme-showcase[hidden]{
   display: none;
 }
 
-.readme-showcase {
+.readme-showcase{
   display: grid;
-  gap: 1.7rem;
-  padding: 2rem 0;
+  gap: var(--space-5);
+  padding: var(--space-6) 0;
 }
 
-.readme-showcase-header {
+.readme-showcase-header{
   display: grid;
-  gap: 0.7rem;
-  max-width: 760px;
+  gap: var(--space-3);
+  max-width: var(--measure);
 }
 
-.readme-section {
+.readme-section{
   display: grid;
-  gap: 0.9rem;
-  padding-top: 1.4rem;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
   border-top: 1px solid var(--line);
 }
 
-.readme-section h3 {
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
-}
-
-.readme-concept-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  border: 1px solid var(--line);
-  background: var(--line);
-}
-
-.readme-concept-grid article {
-  display: grid;
-  gap: 0.55rem;
-  padding: 1rem;
-  background: var(--bg);
-}
-
-.readme-concept-grid span {
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.readme-concept-grid h4 {
+.readme-concept-grid h4{
   margin: 0;
 }
 
-.class-list {
+.class-list{
   display: grid;
   gap: 0;
   border-top: 1px solid var(--line);
 }
 
-.class-list > div {
+.class-list > div{
   display: grid;
   grid-template-columns: minmax(160px, 0.45fr) minmax(0, 1fr);
-  gap: 1rem;
-  padding: 0.85rem 0;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
   border-bottom: 1px solid var(--line);
 }
 
-.class-list dt {
+.class-list dt{
+  font-size: var(--step-1);
+  font-weight: var(--weight-ui);
   letter-spacing: 0;
   text-transform: none;
+  color: var(--text);
 }
 
-.readme-close-actions {
-  padding-top: 1rem;
+.readme-close-actions{
+  padding-top: var(--space-4);
   border-top: 1px solid var(--line);
 }
 
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
+/* -------------------------------------------------------------------------
+   Image and video switchers
+   ------------------------------------------------------------------------- */
 
-.media-figure,
-.design-sketch-figure {
-  display: grid;
-  gap: 0.75rem;
-  margin: 0;
-}
-
-.media-figure img,
-.design-sketch-figure img {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-soft);
-}
-
-.media-contain,
-.design-sketch-figure img {
-  object-fit: contain;
-}
-
-.image-switcher {
+.image-switcher{
   position: relative;
   display: grid;
-  gap: 1rem;
+  gap: var(--space-4);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-soft);
   overflow: hidden;
 }
 
-.project-detail-cover.image-switcher {
+.project-detail-cover.image-switcher{
   padding: clamp(1.25rem, 4vw, 2.6rem);
 }
 
-.image-switcher img {
+.image-switcher img{
   justify-self: center;
   width: 100%;
   max-height: 560px;
   object-fit: contain;
 }
 
-.image-switcher-count {
+.image-switcher-count{
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: var(--space-4);
+  right: var(--space-4);
   z-index: 2;
-  padding: 0.35rem 0.7rem;
+  padding: var(--space-1) var(--space-3);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--surface) 92%, transparent);
   color: var(--text);
-  font-size: 0.82rem;
-  font-weight: 850;
+  font-size: var(--step--1);
+  font-weight: var(--weight-label);
 }
 
-.image-switcher-btn {
+.image-switcher-btn{
   position: absolute;
   top: 50%;
   z-index: 3;
@@ -1076,56 +1309,83 @@ code {
   opacity: 0.92;
 }
 
-.image-switcher-prev {
-  left: 1rem;
+.image-switcher-btn:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+  opacity: 1;
 }
 
-.image-switcher-next {
-  right: 1rem;
+.image-switcher-prev{
+  left: var(--space-4);
 }
 
-.image-switcher-info {
+.image-switcher-next{
+  right: var(--space-4);
+}
+
+.image-switcher-info{
   display: grid;
-  gap: 0.7rem;
+  gap: var(--space-3);
   justify-items: center;
-  padding: 1rem;
+  padding: var(--space-4);
   border-top: 1px solid var(--line);
   color: var(--muted);
+  font-size: var(--step-0);
   text-align: center;
 }
 
-.image-switcher-dots {
+/* The 12-figure SRAM gallery is 288px of dots: wider than the caption column
+   on a phone, which pushed the whole info band past its track. Let it wrap. */
+.image-switcher-dots{
   display: flex;
-  gap: 0.45rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
 }
 
-.image-switcher-dot {
-  width: 0.65rem;
-  height: 0.65rem;
+/* The dot itself is drawn by ::before; the button stays 1.5rem so the tap
+   target clears 24px on a phone. */
+.image-switcher-dot{
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--line);
+  background: transparent;
   cursor: pointer;
 }
 
-.image-switcher-dot.is-active {
+.image-switcher-dot::before{
+  content: "";
+  position: absolute;
+  inset: 0.425rem;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background-color var(--transition);
+}
+
+.image-switcher-dot:hover::before{
+  background: var(--muted);
+}
+
+.image-switcher-dot.is-active::before{
   background: var(--text);
 }
 
-.video-switcher-frame {
+.video-switcher-frame{
   position: relative;
   display: grid;
   place-items: center;
   background: #030712;
 }
 
-.video-switcher video {
+.video-switcher video{
   width: 100%;
   max-height: 620px;
 }
 
-.pdf-viewer {
+.pdf-viewer{
   height: min(760px, 80vh);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1133,17 +1393,18 @@ code {
   background: var(--surface-soft);
 }
 
-.pdf-viewer iframe {
+.pdf-viewer iframe{
+  display: block;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-[data-fullscreen-image="true"] {
+[data-fullscreen-image="true"]{
   cursor: zoom-in;
 }
 
-.image-lightbox {
+.image-lightbox{
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -1153,11 +1414,11 @@ code {
   background: rgba(5, 8, 13, 0.88);
 }
 
-.image-lightbox.is-open {
+.image-lightbox.is-open{
   display: grid;
 }
 
-.image-lightbox img {
+.image-lightbox img{
   max-width: min(100%, 1180px);
   max-height: calc(100vh - 7rem);
   object-fit: contain;
@@ -1165,198 +1426,221 @@ code {
   background: var(--surface);
 }
 
-.image-lightbox-close {
+.image-lightbox-close{
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: var(--space-4);
+  right: var(--space-4);
   z-index: 2;
   min-height: 2.6rem;
-  padding: 0 1rem;
-  border-radius: 999px;
-  font-weight: 800;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--step-0);
+  font-weight: var(--weight-label);
 }
 
-.education-entry {
-  align-items: start;
+.image-lightbox-close:hover{
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-.education-mark img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
+/* -------------------------------------------------------------------------
+   Contact section (About page)
+   ------------------------------------------------------------------------- */
 
-.contact-grid {
+.contact-card{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  align-content: start;
+  gap: var(--space-4);
+  padding: var(--pad-card);
+  background: var(--bg);
 }
 
-.contact-panel {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
-}
-
-.contact-list,
-.professional-list {
+.contact-list{
   display: grid;
-  gap: 0.85rem;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.contact-row,
-.email-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.contact-list li{
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-2);
+  color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
-.contact-icon svg,
-.btn-icon svg {
-  width: 1.15rem;
-  height: 1.15rem;
+.contact-list a{
+  color: var(--accent);
+  transition: color var(--transition);
 }
 
-.copy-toast {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+.contact-list a:hover{
+  color: var(--accent-strong);
 }
 
-.copy-toast.show {
-  opacity: 1;
+.contact-icon{
+  color: var(--muted);
+  font-size: var(--step--1);
 }
 
-@media (max-width: 900px) {
+.contact-note{
+  margin: 0;
+  color: var(--muted);
+}
+
+.contact-details{
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.contact-details dd{
+  margin: 0 0 var(--space-3);
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------------- */
+
+@media (max-width: 900px){
   .hero,
   .project-hero,
   .about-layout,
   .project-content-grid,
   .timeline-entry,
-  .exp-entry,
-  .education-entry,
-  .project-row {
+  .project-row{
     grid-template-columns: 1fr;
   }
 
   .sticky-heading,
-  .project-sidebar {
+  .project-sidebar{
     position: static;
   }
 
-  .selected-projects,
-  .projects-list,
-  .stat-grid,
-  .penn-grid,
-  .contact-grid,
-  .media-grid {
+  .project-row-meta img,
+  .project-row-placeholder,
+  .project-mini-tetris{
+    max-width: none;
+  }
+
+  .about-hero{
     grid-template-columns: 1fr;
   }
 
-  .project-row-meta img,
-  .placeholder-thumb {
-    max-width: none;
+  .about-portrait{
+    max-width: 260px;
+  }
+
+  /* Stacked, the sidebar card rules would collide with the first body panel
+     rule directly below them. */
+  .project-sidebar{
+    margin-bottom: var(--space-4);
   }
 }
 
-@media (max-width: 700px) {
-  .topbar {
+@media (max-width: 700px){
+  .topbar{
     grid-template-columns: 1fr auto;
     width: min(var(--max), calc(100% - 24px));
   }
 
-  .brand-name {
+  .brand-name{
     display: none;
   }
 
-  .nav-toggle {
+  .nav-toggle{
     display: grid;
     place-items: center;
     order: 2;
   }
 
-  .topbar-nav-wrap {
+  .topbar-nav-wrap{
     grid-column: 1 / -1;
     order: 4;
   }
 
-  .topbar-nav {
+  .topbar-nav{
     display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.35rem;
-    padding: 0.75rem 0 0;
+    gap: var(--space-1);
+    padding: var(--space-3) 0 0;
   }
 
-  .topbar-nav.is-open {
+  .topbar-nav.is-open{
     display: flex;
   }
 
-  .nav-link {
+  .nav-link{
     width: 100%;
     justify-content: space-between;
     min-height: 2.75rem;
-    padding-inline: 0.9rem;
+    padding-inline: var(--space-3);
     border: 1px solid var(--line);
     background: var(--surface);
   }
 
   main,
-  .site-footer {
+  .site-footer{
     width: min(var(--max), calc(100% - 24px));
   }
 
-  main {
-    padding-top: 2.5rem;
+  main{
+    padding-top: var(--space-6);
   }
 
   .hero,
-  .project-hero {
-    padding-top: 1.5rem;
+  .project-hero{
+    padding-top: var(--space-4);
   }
 
-  h1,
-  .hero-name,
-  .project-detail-title,
-  .page-hero h1 {
-    font-size: clamp(2.35rem, 14vw, 4rem);
-  }
-
-  .split-heading {
+  .split-heading{
     grid-template-columns: 1fr;
   }
 
-  .current-panel dl > div,
-  .project-meta-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .project-meta-grid,
   .readme-concept-grid,
-  .class-list > div {
+  .contact-layout,
+  .architecture-grid,
+  .class-list > div,
+  .project-pager{
     grid-template-columns: 1fr;
   }
 
-  .project-detail-cover {
+  /* With one column the pager stacks, so "next" must not hold column 2. */
+  .project-pager-next{
+    grid-column: 1;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .project-detail-cover{
     min-height: 260px;
   }
 
-  .image-switcher-btn {
+  .image-switcher-btn{
     width: 2.35rem;
     height: 2.35rem;
   }
 
-  .image-switcher-prev {
-    left: 0.55rem;
+  .image-switcher-prev{
+    left: var(--space-2);
   }
 
-  .image-switcher-next {
-    right: 0.55rem;
+  .image-switcher-next{
+    right: var(--space-2);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
   *,
   *::before,
-  *::after {
+  *::after{
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
@@ -1364,10 +1648,13 @@ code {
   }
 }
 
+/* -------------------------------------------------------------------------
+   Scroll reveal
+   ------------------------------------------------------------------------- */
+
 .scroll-animations-ready .hero-text,
-.scroll-animations-ready .current-panel,
+.scroll-animations-ready .hero-headshot,
 .scroll-animations-ready .section-heading,
-.scroll-animations-ready .stat-grid > *,
 .scroll-animations-ready .project-card,
 .scroll-animations-ready .project-row,
 .scroll-animations-ready .timeline-entry,
@@ -1380,16 +1667,87 @@ code {
 .scroll-animations-ready .project-meta-item,
 .scroll-animations-ready .project-info-card,
 .scroll-animations-ready .project-panel,
-.scroll-animations-ready .media-grid > *,
-.scroll-animations-ready .contact-panel,
-.scroll-animations-ready .site-footer {
+.scroll-animations-ready .contact-layout > *,
+.scroll-animations-ready .site-footer{
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.55s ease, transform 0.55s ease;
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.scroll-animations-ready .is-visible {
+.scroll-animations-ready .is-visible{
   opacity: 1;
   transform: translateY(0);
+}
+
+/* -------------------------------------------------------------------------
+   Print
+   The page is a dark-theme website; printed, it has to be a readable white
+   document, and every link the reader cannot click has to show its target.
+   ------------------------------------------------------------------------- */
+
+@media print{
+  :root{
+    color-scheme: light;
+    --bg: #fff;
+    --surface: #fff;
+    --surface-soft: #fff;
+    --text: #000;
+    --muted: #333;
+    --line: #bbb;
+    --accent: #000;
+    --accent-strong: #000;
+    --shadow: none;
+  }
+
+  body{
+    background: #fff;
+    color: #000;
+  }
+
+  .skip-link,
+  .topbar,
+  .nav-toggle,
+  .image-switcher-btn,
+  .image-switcher-dots,
+  .image-switcher-count,
+  .copy-inline,
+  .image-lightbox,
+  .pdf-viewer,
+  .project-pager{
+    display: none !important;
+  }
+
+  main{
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .scroll-animations-ready .is-visible,
+  .scroll-animations-ready [class]{
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .project-detail-cover,
+  .image-switcher,
+  .project-card,
+  .timeline-entry,
+  .project-row,
+  .project-panel,
+  .readme-section{
+    break-inside: avoid;
+  }
+
+  /* Resume, reports and profiles are the links a printed copy most needs to
+     carry, so print their destination after the label. */
+  /* mailto: and tel: links already print their own address, so only http(s)
+     targets and the PDFs (resume, lab reports) need their URL spelled out. */
+  a[href^="http"]::after,
+  a[href$=".pdf"]::after{
+    content: " <" attr(href) ">";
+    font-size: 0.8em;
+    font-weight: 400;
+    word-break: break-all;
+  }
 }

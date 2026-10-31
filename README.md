@@ -34,9 +34,16 @@ EE-portfolio/
 |-- style.css
 |-- site.js
 |-- scroll-animations.js
+|-- build.py
+|-- sitemap.xml
+|-- robots.txt
 |-- resume.pdf
+|-- headshot.webp
+|-- _partials/
+|   |-- header.html
+|   `-- footer.html
 `-- projects/
-    |-- AlScN_Ferroelectric_Diode/
+    |-- SRAM_MAC_Accelerator_ESE5700/
     |-- Guitar_Hero_Synth_ESE3500/
     |-- Metal_Detector_ESE319/
     |-- Wireless_ECG_Monitor/
@@ -44,6 +51,24 @@ EE-portfolio/
     |-- Tetris_CIS_Project/
     `-- Analog_Synthesizer/
 ```
+
+## Shared header and footer
+
+The nav and the footer live in `_partials/`, not in each page. After editing
+either one, run:
+
+```bash
+python build.py
+```
+
+That writes them into every page between `<!-- build:header -->` and
+`<!-- build:footer -->` marker comments. Each page keeps its own relative paths
+and its own active nav link, which the script fills in. Everything outside the
+markers is untouched, so pages stay hand-editable, and running the script twice
+changes nothing.
+
+The deployed site is still plain static HTML: the build happens before commit,
+not in the browser.
 
 ## Credits
 

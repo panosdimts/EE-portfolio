@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101216" />
+  <meta name="description" content="ESE 5700 team project by Panagiotis Dimtsoudis and Dhruva Jindal: a transistor-level 4-bit multiply-accumulate unit fed by two custom SRAMs in Cadence Virtuoso, from the 6T bitcell up, closing at 0.90 ns and 0.39 pJ per multiply-accumulate." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html" />
+  <meta property="og:title" content="SRAM-Based 4-bit MAC Accelerator | Panagiotis Dimtsoudis" />
+  <meta property="og:description" content="Custom 6T SRAM bitcell, 16 &times; 4 SRAM macro, and pipelined 4-bit MAC unit designed at the transistor level in Cadence Virtuoso for ESE 5700, closing at 0.90 ns and 0.39 pJ per multiply-accumulate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html" />
+  <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/SRAM_MAC_Accelerator_ESE5700/images/bitcell-layout.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <script src="../../site.js" defer></script>
+  <title>SRAM-Based 4-bit MAC Accelerator | Panagiotis Dimtsoudis</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
+    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
+      <span class="brand-mark" aria-hidden="true">PD</span>
+      <span class="brand-name">Panagiotis Dimtsoudis</span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="topbar-nav-wrap" aria-label="Primary">
+      <ul class="topbar-nav" id="primary-nav">
+        <li><a href="../../index.html" class="nav-link">Home</a></li>
+        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+        <li><a href="../../about.html" class="nav-link">About</a></li>
+        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- /build:header -->
+
+  <main id="main-content" class="project-detail" tabindex="-1">
+    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <p class="project-detail-tag">Digital IC Design &middot; SRAM &middot; VLSI</p>
+        <h1 class="project-detail-title">SRAM-Based 4-bit MAC Accelerator</h1>
+        <p class="project-detail-sub">
+          A transistor-level multiply-accumulate unit fed by two custom SRAMs &mdash; the core operation of a neural-network accelerator &mdash; from the 6T bitcell up. It closes at a 0.90 ns clock and costs 0.39 pJ per multiply-accumulate including the memory reads. A two-person ESE 5700 project with Dhruva Jindal.
+        </p>
+        <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Status</span>
+            <span class="project-meta-value">Parts 1&ndash;3 complete</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Course</span>
+            <span class="project-meta-value">ESE 5700: Digital Integrated Circuits and VLSI Fundamentals</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Tools</span>
+            <span class="project-meta-value">Cadence Virtuoso, Spectre/ADE, Pegasus DRC/LVS, Quantus, Python</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Team</span>
+            <span class="project-meta-value">Panagiotis Dimtsoudis and Dhruva Jindal</span>
+          </div>
+        </div>
+        <div class="button-row">
+          <a class="btn-primary" href="ESE5700_Part3_Report.pdf" target="_blank" rel="noopener noreferrer">Part 3 Report</a>
+          <a class="btn-outline" href="ESE5700_Part2_Report.pdf" target="_blank" rel="noopener noreferrer">Part 2 Report</a>
+          <a class="btn-outline" href="ESE5700_Part1_Report.pdf" target="_blank" rel="noopener noreferrer">Part 1 Report</a>
+        </div>
+      </div>
+
+      <div class="project-detail-cover project-detail-cover-contain project-detail-cover-light image-switcher image-switcher-hero" data-gallery="sram">
+        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous figure">&lsaquo;</button>
+        <img src="images/bitcell-layout.png" alt="Layout of the 6T SRAM bitcell with VDD, VSS, wordline and bitlines labeled" width="601" height="835" data-gallery-image>
+        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next figure">&rsaquo;</button>
+        <div class="image-switcher-info">
+          <div class="image-switcher-caption" data-gallery-caption>6T bitcell layout, DRC and LVS clean</div>
+          <div class="image-switcher-count" data-gallery-count>1/12</div>
+          <div class="image-switcher-dots" data-gallery-dots aria-label="Figure position">
+            <button class="image-switcher-dot is-active" type="button" aria-label="Show bitcell layout"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show read butterfly"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show write-margin sweep"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show functional check"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show array corner layout"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show macro schematic"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show decoder waveforms"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show macro read after write"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show MAC block diagram"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show flip-flop schematic"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show MAC test A waveform"></button>
+            <button class="image-switcher-dot" type="button" aria-label="Show MAC energy breakdown"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-content-grid">
+      <aside class="project-sidebar">
+        <div class="project-info-card">
+          <h2>Project Snapshot</h2>
+          <p>
+            A two-person design project in three parts. Part 1 sized, laid out, extracted and characterized a 6T SRAM bitcell in a FinFET kit. Part 2 tiled it into a 16 &times; 4 macro. Part 3 built the pipelined MAC datapath around two of those macros.
+          </p>
+        </div>
+        <div class="project-info-card">
+          <h2>Contributions</h2>
+          <p>
+            <strong>Panagiotis:</strong> hand analysis of &beta; and &gamma;, the bitcell layout with DRC and LVS, and the functional check in Part 1; the array layout, bitline and wordline extraction, the row decoder and wordline timing, and macro verification in Part 2.
+          </p>
+          <p>
+            <strong>Dhruva:</strong> the schematic &beta; sweep, parasitic extraction, and stability characterization in Part 1; the column circuits, the controller, and the metrics and FOM in Part 2.
+          </p>
+          <p>We wrote the reports together, and both of us reviewed the whole design.</p>
+        </div>
+        <div class="project-info-card">
+          <h2>Skills</h2>
+          <div class="project-chip-row">
+            <span class="skill-chip">Cadence Virtuoso</span>
+            <span class="skill-chip">Spectre / ADE</span>
+            <span class="skill-chip">Custom Layout</span>
+            <span class="skill-chip">DRC / LVS</span>
+            <span class="skill-chip">Parasitic Extraction</span>
+            <span class="skill-chip">SRAM Design</span>
+            <span class="skill-chip">Logical Effort</span>
+            <span class="skill-chip">Static Timing Analysis</span>
+            <span class="skill-chip">Sequential Logic</span>
+            <span class="skill-chip">Python</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-detail-body">
+        <section class="project-panel">
+          <h2>Overview</h2>
+          <p>
+            Most of the arithmetic in a neural network is a dot product, and moving data from memory costs far more energy than the math. This project builds that operation from transistors up. Two 16-word &times; 4-bit SRAMs hold the weights and activations. Each cycle, a counter reads one word from each memory, a 4 &times; 4 multiplier forms the 8-bit product, and a 12-bit accumulator adds it in. After 16 cycles the accumulator holds the dot product, and 16 &times; 15 &times; 15 = 3600 fits in 12 bits, so it never overflows. Everything below is simulated in Cadence at 0.8 V, with the SRAM arrays Quantus-extracted from layout.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Results</h2>
+          <ul class="project-list">
+            <li><strong>Bitcell.</strong> 0.527 &micro;m&sup2;, read SNM 0.13 V, write margin 0.27 V, still functional down to 0.5 V.</li>
+            <li><strong>Macro.</strong> 110 &micro;m&sup2; with periphery, 440 ps access, 300 ps write, minimum clock 0.70 ns, 140 &micro;W write power.</li>
+            <li><strong>MAC.</strong> 505 &micro;m&sup2;, minimum clock 0.90 ns, 0.39 pJ per multiply-accumulate including the memory reads, 0.19 pJ without.</li>
+            <li><strong>Throughput.</strong> A 16-element dot product finishes in 19 cycles, or 17 ns at the minimum clock period.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Part 1: The 6T Bitcell</h2>
+          <p>
+            We sized the cell from hand analysis, using a threshold voltage and transconductance we extracted from single-fin device simulations, and checked the estimates with a schematic &beta; sweep. DRC does not allow one-fin devices in this kit, so we chose the smallest legal cell: two fins for every pull-up, pass gate and pull-down (&beta; = &gamma; = 1). It is 5.9&times; smaller than the 2/4/6-fin cell we laid out first. Its two-fin pull-up raises the switching point, so its read margin is better than that cell's, at the cost of a smaller write margin and read current.
+          </p>
+          <ul class="project-list">
+            <li><strong>Area:</strong> 0.578 &times; 0.912 &micro;m = 0.527 &micro;m&sup2; (5,271 F&sup2;), with shared diffusions and no dummy polys.</li>
+            <li><strong>Stability (post-layout, 0.8 V):</strong> hold SNM 0.29 V, read SNM 0.13 V (16% of V<sub>DD</sub>), write margin 0.27 V (34%).</li>
+            <li><strong>Loads:</strong> 0.27 fF of bitline and 0.78 fF of wordline capacitance per cell; 21.8 &micro;A read current.</li>
+            <li><strong>Low supply:</strong> the cell still reads and writes at 0.5 V, with 81 mV of read and 165 mV of write margin.</li>
+            <li><strong>Functional check:</strong> on a 16-cell bitline, writes settle in 131 ps and a 100 mV bitline split develops in 24&ndash;26 ps, without disturbing the stored value.</li>
+          </ul>
+          <p>
+            SNM and write margin come from exported Spectre sweeps processed in Python with the 45&deg; rotation method, cross-checked against a brute-force search.
+          </p>
+        </section>
+
+        <section class="project-panel">
+          <h2>Part 2: The 16 &times; 4 Macro</h2>
+          <p>
+            The cell tiles into a four-column, sixteen-row array. Columns keep one orientation; every odd row is flipped vertically so neighbouring rows share a VDD or VSS rail and the bitline contacts merge. The array is 2.312 &times; 14.592 &micro;m, which is 33.74 &micro;m&sup2;, exactly 64 copies of the cell with no tiling overhead. Moving the supply straps inside the array boundary saved the 0.202 &micro;m column that a first version wasted on the left.
+          </p>
+          <ul class="project-list">
+            <li><strong>Row decoder.</strong> A 2-2 predecoded decoder, sized with logical effort against a calibrated &tau; of 5.9 ps extracted from FO1 and FO4 inverter delays. It drives the wordline 129 ps after the address, against 204 ps for the flat decoder it replaced, and the logical-effort model predicted the winner correctly.</li>
+            <li><strong>Wordline pulse.</strong> The cell needs 180 ps to read and 135 ps to write inside the full macro. The controller provides 200 ps, so both have margin.</li>
+            <li><strong>Column circuits.</strong> Precharge, write drivers and the read path, each verified on its own bench before the macro was assembled.</li>
+            <li><strong>Macro results.</strong> 440 ps access time, 300 ps write time, a 0.70 ns minimum clock period, 140 &micro;W of write power, and 110 &micro;m&sup2; including periphery.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Part 3: The MAC Unit</h2>
+          <p>
+            Reading a word, multiplying and accumulating in one cycle would need about 2.3 ns, so the unit is pipelined in three stages: the SRAM read, the multiply, and the accumulate. Two macros hold the weights and the activations, a sequencer walks the address counter through all sixteen words, and a done flag rises when the dot product is complete.
+          </p>
+          <ul class="project-list">
+            <li><strong>Register.</strong> A transmission-gate leader-follower flip-flop with synchronous active-low reset, built from a NAND2 input stage. 24 transistors and 2.9 &micro;m&sup2; per bit, 94 ps clock-to-Q, 87 ps setup, and 1.8 fJ per clock when the data is held. The MAC uses 37 of them.</li>
+            <li><strong>Datapath.</strong> A mirrored full adder carries in 67 ps per bit. The 4 &times; 4 multiplier settles in 890 ps and the 12-bit accumulator ripples in 880 ps, against logical-effort estimates of 760 and 870 ps.</li>
+            <li><strong>Timing.</strong> Closed at a 0.90 ns minimum clock period, below the 1.1 ns hand estimate, with 90 ps of hold margin on the counter-to-address path.</li>
+            <li><strong>Energy.</strong> Three separate supply domains let the memory, the MAC and the clock be measured apart: 6.2 pJ per dot product from the MAC supplies, 8.1 pJ with the clock included, which is 0.39 pJ per multiply-accumulate with the memory reads and 0.19 pJ without.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Verification</h2>
+          <p>
+            Every block was unit tested before it went into the next level up, and the full MAC was run against the Quantus-extracted SRAM arrays rather than schematic memories.
+          </p>
+          <ul class="project-list">
+            <li><strong>Multiplier, exhaustively.</strong> All 256 input pairs produce the correct product. The slowest vector settles in 957 ps.</li>
+            <li><strong>System tests.</strong> The three vectors from the specification all pass: a mixed case summing to 845, a full-scale case at 3600, and an alternating case at 800 that toggles every memory output and multiplier input on every cycle.</li>
+            <li><strong>The edge.</strong> All three pass at 0.90 ns and fail at 0.80 ns, where the mixed case returns 909 instead of 845. That is how the minimum clock period was pinned down rather than estimated.</li>
+            <li><strong>Cycle count.</strong> The done flag rises 19.06 to 19.09 cycles after the start pulse in every run, matching the 19-cycle model plus one clock-to-Q.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel">
+          <h2>Reports</h2>
+          <p>
+            The Part 3 report is embedded below; the Part 1 and Part 2 reports are linked beneath it. There is no repository for this one &mdash; the design lives in a Cadence library rather than in source control, so the reports are the record.
+          </p>
+          <div class="pdf-viewer">
+            <iframe src="ESE5700_Part3_Report.pdf" title="ESE 5700 Project 1, Part 3 report"></iframe>
+          </div>
+          <div class="project-actions">
+            <a href="ESE5700_Part3_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Part 3 Report</a>
+            <a href="ESE5700_Part2_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Part 2 Report</a>
+            <a href="ESE5700_Part1_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Part 1 Report</a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-next" href="../../projects/Metal_Detector_ESE319/metal-detector.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Metal Detector PCB</span></a>
+    </nav>
+    <!-- /build:projectnav -->
+  </main>
+
+  <!-- build:footer -->
+  <footer class="site-footer" id="contact">
+    <div>
+      <p class="eyebrow">Contact Me</p>
+      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
+      <a href="tel:+12155267626">+1 (215) 526-7626</a>
+      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
+  </footer>
+
+  <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
+</body>
+</html>

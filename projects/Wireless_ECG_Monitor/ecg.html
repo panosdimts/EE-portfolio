@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101216" />
-  <meta name="description" content="ESE 2150 wireless ECG monitor project with analog signal conditioning, Feather ADC sampling, BLE streaming at about 200 Hz, Python analysis, and a technical report." />
+  <meta name="theme-color" content="#173a32" />
+  <meta name="description" content="ESE 2150 wireless ECG monitor, built with Damodar Pai, with analog signal conditioning, Feather ADC sampling, BLE streaming at 200 Hz, Python analysis, and a technical report." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Wireless_ECG_Monitor/ecg.html" />
   <meta property="og:title" content="Wireless ECG Monitor | Panagiotis Dimtsoudis" />
-  <meta property="og:description" content="Wireless ECG monitor class project with analog filtering, Feather sampling, BLE streaming at about 200 Hz, and R-peak heart-rate estimation." />
+  <meta property="og:description" content="Wireless ECG monitor class project with analog filtering, Feather sampling, BLE streaming at 200 Hz, and R-peak heart-rate estimation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Wireless_ECG_Monitor/ecg.html" />
   <meta property="og:image" content="https://panosdimts.github.io/EE-portfolio/projects/Wireless_ECG_Monitor/images/circuit-1.jpeg" />
@@ -15,45 +15,47 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
   <title>Wireless ECG Monitor | Panagiotis Dimtsoudis</title>
-  <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
   <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
-      <span class="brand-mark" aria-hidden="true">PD</span>
-      <span class="brand-name">Panagiotis Dimtsoudis</span>
-    </a>
-    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav class="topbar-nav-wrap" aria-label="Primary">
-      <ul class="topbar-nav" id="primary-nav">
-        <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
-        <li><a href="../../about.html" class="nav-link">About</a></li>
-        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="../../index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+          <li><a href="../../about.html" class="nav-link">About</a></li>
+          <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
-    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+    <a href="../../projects.html" class="project-detail-back">&larr; All projects</a>
 
     <section class="project-hero">
       <div class="project-hero-copy">
-        <p class="project-detail-tag">Bioelectronics &middot; Analog Signal Conditioning &middot; Wireless</p>
         <h1 class="project-detail-title">Wireless ECG Monitor</h1>
+        <p class="project-detail-tag">Bioelectronics &middot; analog signal conditioning &middot; wireless</p>
         <p class="project-detail-sub">
-          An ECG front end for ESE 2150: AD623 instrumentation amp, virtual ground, 0.5 Hz high-pass and 160 Hz low-pass, feeding a Feather ADC that streams over BLE at 200 Hz. 61 dB maximum gain, &minus;3 dB at 190.5 Hz.
+          An ECG front end for ESE 2150: AD623 instrumentation amp, virtual ground, 0.5&nbsp;Hz high-pass and 160&nbsp;Hz low-pass, feeding a Feather ADC that streams over BLE at 200 Hz. 61 dB maximum gain, &minus;3 dB at 190.5 Hz.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -62,27 +64,27 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">ECG Signal Conditioning</span>
+            <span class="project-meta-value">ECG signal conditioning</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Deliverables</span>
-            <span class="project-meta-value">Breadboarded Circuit, Wireless Capture, Technical Report</span>
+            <span class="project-meta-value">Breadboarded circuit, wireless capture, technical report</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Role</span>
-            <span class="project-meta-value">Solo project &middot; Analog Design, Testing, Data Analysis</span>
+            <span class="project-meta-value">Two-person lab with Damodar Pai &middot; analog design, testing, data analysis</span>
           </div>
         </div>
       </div>
 
       <div class="project-detail-cover project-detail-cover-contain project-detail-cover-light image-switcher image-switcher-hero ecg-gallery" data-gallery="ecg">
-        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous ECG project image">&lsaquo;</button>
+        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous ECG project image"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
         <img src="images/circuit-1.jpeg" alt="Wireless ECG monitor breadboard circuit" width="1200" height="1600" data-gallery-image>
-        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next ECG project image">&rsaquo;</button>
+        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next ECG project image"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
         <div class="image-switcher-info">
           <div class="image-switcher-caption" data-gallery-caption>Wireless ECG monitor breadboard circuit</div>
           <div class="image-switcher-count" data-gallery-count>1/3</div>
-          <div class="image-switcher-dots" data-gallery-dots aria-label="ECG project image position">
+          <div class="image-switcher-dots" role="group" data-gallery-dots aria-label="ECG project image position">
             <button class="image-switcher-dot is-active" type="button" aria-label="Show breadboard circuit view"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show alternate breadboard circuit view"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show wireless test setup"></button>
@@ -94,7 +96,7 @@
     <div class="project-content-grid">
       <aside class="project-sidebar">
         <div class="project-info-card">
-          <h2>Project Snapshot</h2>
+          <h2>Summary</h2>
           <p>
             I amplified and filtered ECG simulator signals, then captured them wirelessly on a Feather. Python estimated heart rate from the detected R-peaks.
           </p>
@@ -117,7 +119,7 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            A QRS complex is a few hundred microvolts spread over roughly 0.5 to 150 Hz, sitting on electrode drift
+            A QRS complex is about a millivolt spread over roughly 0.5 to 150&nbsp;Hz, sitting on electrode drift
             and 60 Hz pickup that are both larger than the signal itself, so the front end is mostly about rejecting
             things bigger than what you want. I built a multi-stage analog front end to pull that waveform up to
             something the Feather's ADC could digitize: an instrumentation amplifier, a virtual ground, and 160 Hz
@@ -126,7 +128,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Circuit Diagram</h2>
+          <h2>Circuit diagram</h2>
           <figure class="design-sketch-figure">
             <img src="images/circuit-diagram.png" alt="Wireless ECG monitor signal-conditioning circuit diagram" width="1287" height="801" loading="lazy">
             <figcaption>
@@ -137,7 +139,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Signal Chain</h2>
+          <h2>Signal chain</h2>
           <ul class="project-list">
             <li>An AD623 instrumentation amplifier on the input, so the electrode pair is read differentially and the 60 Hz riding on both leads cancels instead of amplifying.</li>
             <li>A virtual ground at half the supply, because the heartbeat swings both ways and the circuit only has one rail to put it on.</li>
@@ -148,21 +150,23 @@
         </section>
 
         <section class="project-panel">
-          <h2>Measured Results</h2>
-          <p>
-            The first stage measured 50 V/V (34 dB) and the second brought it to 1025 V/V (60.2 dB), 61 dB at the peak.
-            The &minus;3 dB corner landed at 190.5 Hz against a 160 Hz design target, which comes down to resistor and
-            capacitor tolerances.
-          </p>
-          <p>
-            I ran the simulator at both normal and fast heart rates, including 80 BPM and 240 BPM. Against a
-            1000 V/V design target, the measured ECG gain came in at 560&ndash;580 V/V, with the filtered waveform
-            losing part of the signal amplitude.
-          </p>
+          <h2>Measured results</h2>
+          <table class="readings">
+            <thead>
+              <tr><th scope="col">Quantity</th><th scope="col">Value</th><th scope="col">Condition</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">First-stage gain</th><td class="value">50 V/V (34 dB)</td><td class="cond">Measured</td></tr>
+              <tr><th scope="row">Two-stage gain</th><td class="value">1025 V/V (60.2 dB)</td><td class="cond">Measured; 61 dB at the peak</td></tr>
+              <tr><th scope="row">Low-pass corner</th><td class="value"><span class="correction"><span class="note">target</span> <del><span class="sr-only">predicted </span>160 Hz</del> <ins><span class="sr-only">result </span>190.5 Hz</ins></span></td><td class="cond">&minus;3 dB point, moved by resistor and capacitor tolerances</td></tr>
+              <tr><th scope="row">Gain on the ECG signal</th><td class="value"><span class="correction"><span class="note">target</span> <del><span class="sr-only">predicted </span>1000 V/V</del> <ins><span class="sr-only">result </span>560&ndash;580 V/V</ins></span></td><td class="cond">ECG simulator at 80 and 240 BPM; filtering cost part of the amplitude</td></tr>
+              <tr><th scope="row">Wireless sampling</th><td class="value">200 Hz</td><td class="cond">Feather to Feather over BLE</td></tr>
+            </tbody>
+          </table>
         </section>
 
         <section class="project-panel">
-          <h2>Wireless Capture &amp; Heart Rate</h2>
+          <h2>Wireless capture and heart rate</h2>
           <p>
             A peripheral Feather collected ECG samples and streamed them over BLE at 200 Hz to a central Feather and a
             computer. I wrote a Python script that read the serial samples, applied a light median filter, estimated a
@@ -176,7 +180,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Technical Report</h2>
+          <h2>Technical report</h2>
           <p>
             The full ESE 2150 report is embedded below and can be scrolled directly on this page. It includes the
             design procedure, component choices, Bode plots, oscilloscope measurements, wireless capture workflow,
@@ -186,7 +190,7 @@
             <iframe src="ECG_Monitor_Report.pdf" title="Wireless ECG monitor report"></iframe>
           </div>
           <div class="project-actions">
-            <a href="ECG_Monitor_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Full Report</a>
+            <a href="ECG_Monitor_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open full report</a>
           </div>
         </section>
       </div>
@@ -194,26 +198,54 @@
 
     <!-- build:projectnav -->
     <nav class="project-pager" aria-label="Project navigation">
-      <a class="project-pager-link project-pager-prev" href="../../projects/Metal_Detector_ESE319/metal-detector.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Metal Detector PCB</span></a>
-      <a class="project-pager-link project-pager-next" href="../../projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Guitar Hero Synthesizer</span></a>
+      <a class="project-pager-link project-pager-prev" href="../../projects/Metal_Detector_ESE319/metal-detector.html"><span class="project-pager-dir">&larr; Previous project</span><span class="project-pager-title">Metal Detector PCB</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html"><span class="project-pager-dir">Next project &rarr;</span><span class="project-pager-title">Guitar Hero Synthesizer</span></a>
     </nav>
     <!-- /build:projectnav -->
   </main>
 
   <!-- build:footer -->
-  <footer class="site-footer" id="contact">
-    <div>
-      <p class="eyebrow">Contact Me</p>
-      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="../../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
-      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
-      <a href="tel:+12155267626">+1 (215) 526-7626</a>
-      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
   <script src="../../scroll-animations.js" defer></script>

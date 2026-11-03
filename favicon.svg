@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#111318"/>
-  <path d="M16 45V19h17c8 0 13 5 13 13s-5 13-13 13H16zm8-7h8c4 0 6-2 6-6s-2-6-6-6h-8v12z" fill="#6c8cff"/>
-  <path d="M46 19v26h-7V19h7z" fill="#a78bfa"/>
+  <rect width="64" height="64" rx="6" fill="#173a32"/>
+  <rect x="10" y="17" width="44" height="30" fill="#f6f8f7"/>
+  <rect x="13" y="20" width="38" height="24" fill="none" stroke="#16223a" stroke-width="1.5"/>
+  <text x="32" y="39" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-size="16" font-weight="700" fill="#16223a">PD</text>
 </svg>

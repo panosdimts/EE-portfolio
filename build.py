@@ -38,7 +38,7 @@ PAGER_END = "<!-- /build:projectnav -->"
 HEADER_RE = re.compile(
     r'<a class="skip-link".*?</header>', re.S)
 FOOTER_RE = re.compile(
-    r'<footer class="site-footer".*?<script src="[^"]*scroll-animations\.js" defer></script>',
+    r'<footer class="(?:site-footer|back-cover)".*?<script src="[^"]*scroll-animations\.js" defer></script>',
     re.S)
 # Zero-width: the pager is inserted just before </main>, never replacing copy.
 PAGER_RE = re.compile(r"(?=\n[ \t]*</main>)")
@@ -46,7 +46,8 @@ PAGER_RE = re.compile(r"(?=\n[ \t]*</main>)")
 # Reading order of the project pages. Drives the previous/next pager; the
 # titles are copied verbatim from each page's own <h1 class="project-detail-title">.
 PROJECTS = [
-    ("projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html", "SRAM-Based 4-bit MAC Accelerator"),
+    ("projects/Ferroelectric_Research/ferroelectric-research.html", "AlScN Ferroelectric Junctions"),
+    ("projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html", "SRAM-Based 4&#8209;bit MAC Accelerator"),
     ("projects/Metal_Detector_ESE319/metal-detector.html", "Metal Detector PCB"),
     ("projects/Wireless_ECG_Monitor/ecg.html", "Wireless ECG Monitor"),
     ("projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html", "Guitar Hero Synthesizer"),
@@ -55,12 +56,18 @@ PROJECTS = [
     ("projects/Tetris_CIS_Project/tetris.html", "Java Tetris"),
 ]
 
+# The 404 page is served at whatever URL was missing, so relative links would
+# resolve against that URL. It links from the site root instead.
+SITE_ROOT = "/EE-portfolio/"
+
 ACTIVE = 'class="nav-link active" aria-current="{}"'
 INACTIVE = 'class="nav-link"'
 
 
 def page_root(path: str) -> str:
     """Relative prefix from a page back to the site root ('' or '../../')."""
+    if path == "404.html":
+        return SITE_ROOT
     depth = path.replace("\\", "/").count("/")
     return "../" * depth
 
@@ -103,6 +110,7 @@ PAGER_LINK = (
 )
 
 
+
 def render_pager(path: str) -> str | None:
     """Previous/next markup for a project page, or None for other pages."""
     order = [p for p, _ in PROJECTS]
@@ -114,11 +122,11 @@ def render_pager(path: str) -> str | None:
     if i > 0:
         target, title = PROJECTS[i - 1]
         links.append(PAGER_LINK.format(
-            side="prev", href=root + target, label="&larr; Previous", title=title))
+            side="prev", href=root + target, label="&larr; Previous project", title=title))
     if i < len(order) - 1:
         target, title = PROJECTS[i + 1]
         links.append(PAGER_LINK.format(
-            side="next", href=root + target, label="Next &rarr;", title=title))
+            side="next", href=root + target, label="Next project &rarr;", title=title))
     joined = "\n      ".join(links)
     return (
         '<nav class="project-pager" aria-label="Project navigation">\n'

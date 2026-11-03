@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173a32" />
+  <meta name="description" content="AlScN ferroelectric junction research by Panagiotis Dimtsoudis in Penn's Device Research and Engineering Laboratory: 1 nm AlN / 4 nm AlScN / 1 nm AlN junctions measured from 400 to 14 K, with the measurements, analysis and results." />
+  <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Ferroelectric_Research/ferroelectric-research.html" />
+  <meta property="og:title" content="AlScN Ferroelectric Junctions | Panagiotis Dimtsoudis" />
+  <meta property="og:description" content="Ultrathin all-nitride ferroelectric junctions that keep switching from 400 down to 14 K: measurements, analysis and results from Penn's Device Research and Engineering Laboratory." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://panosdimts.github.io/EE-portfolio/projects/Ferroelectric_Research/ferroelectric-research.html" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <script src="../../site.js" defer></script>
+  <title>AlScN Ferroelectric Junctions | Panagiotis Dimtsoudis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+  <!-- build:header -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="../../index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+          <li><a href="../../about.html" class="nav-link">About</a></li>
+          <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- /build:header -->
+
+  <main id="main-content" class="project-detail" tabindex="-1">
+    <a href="../../projects.html" class="project-detail-back">&larr; All projects</a>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <h1 class="project-detail-title">AlScN Ferroelectric Junctions</h1>
+        <p class="project-detail-tag">Device research &middot; cryogenic memory &middot; compute-in-memory</p>
+        <p class="project-detail-sub">
+          Ultrathin all-nitride ferroelectric junctions, 1&nbsp;nm AlN / 4&nbsp;nm AlScN / 1&nbsp;nm AlN between aluminum electrodes, measured from 400 down to 14&nbsp;K in Penn&rsquo;s Device Research and Engineering Laboratory. I run the measurements and write the analysis; the group&rsquo;s results are below. The paper itself is a manuscript in preparation and is not public yet.
+        </p>
+        <div class="project-meta-grid">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Role</span>
+            <span class="project-meta-value">Undergraduate Research Assistant, May 2026 &ndash; present</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Lab</span>
+            <span class="project-meta-value">Device Research and Engineering Laboratory, Penn Engineering</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Device</span>
+            <span class="project-meta-value">Al / AlN / AlScN / AlN / Al, 6&nbsp;nm active stack</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Paper</span>
+            <span class="project-meta-value">Manuscript in preparation; not public yet</span>
+          </div>
+        </div>
+      </div>
+
+      <figure class="project-detail-cover stack-figure" id="fig-1">
+        <div class="stack-sketch" role="img" aria-label="Schematic of the junction: a 1 nm AlN, 4 nm AlScN and 1 nm AlN stack between aluminum top and bottom electrodes, contacted by a probe needle">
+          <span class="stack-probe" aria-hidden="true"></span>
+          <span class="stack-layer stack-electrode">Al top electrode</span>
+          <span class="stack-layer stack-aln">AlN &middot; 1&nbsp;nm</span>
+          <span class="stack-layer stack-alscn">AlScN &middot; 4&nbsp;nm, ferroelectric</span>
+          <span class="stack-layer stack-aln">AlN &middot; 1&nbsp;nm</span>
+          <span class="stack-layer stack-electrode">Al bottom electrode</span>
+          <span class="stack-dim" aria-hidden="true">6&nbsp;nm</span>
+        </div>
+        <figcaption><span class="fig-no">Fig. 1</span> &mdash; The junction as I measure it, as a schematic, not to scale.</figcaption>
+      </figure>
+    </section>
+
+    <div class="project-content-grid">
+      <aside class="project-sidebar">
+        <div class="project-info-card">
+          <h2>Summary</h2>
+          <p>Can a ferroelectric only 6&nbsp;nm thick keep switching, and keep a readable resistance state, from elevated temperature all the way down to cryogenic operation? The group&rsquo;s answer for this all-nitride stack is yes, from 400 to 14&nbsp;K.</p>
+        </div>
+        <div class="project-info-card">
+          <h2>Tools</h2>
+          <div class="project-chip-row">
+            <span class="skill-chip">Cryogenic probe station</span>
+            <span class="skill-chip">High-temperature probe station</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">3D CAD</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-detail-body">
+        <section class="project-panel" id="overview">
+          <h2>Overview</h2>
+          <p>
+            Aluminum scandium nitride (AlScN) is a wurtzite nitride ferroelectric with strong polarization, thermal stability, and sputter-based back-end-of-line compatibility. This work studies monolithic all-nitride Al / AlN / AlScN / AlN / Al junctions built around a 1&nbsp;nm AlN / 4&nbsp;nm AlScN / 1&nbsp;nm AlN active stack, and asks whether a 6&nbsp;nm heterostructure can preserve ferroelectric switching and a nonvolatile resistance readout from elevated temperature down to cryogenic operation.
+          </p>
+        </section>
+
+        <section class="project-panel" id="my-part">
+          <h2>What I did</h2>
+          <ul class="project-list">
+            <li>Operated the cryogenic and high-temperature probe stations for the device measurements.</li>
+            <li>Ran the DC and AC J&ndash;V, C&ndash;V, PUND, breakdown and endurance measurements used in the analysis, and wrote the measurement sequences so every device and temperature point is captured the same way.</li>
+            <li>Collected and organized the temperature-dependent characterization data.</li>
+            <li>Analyzed switching, hysteresis, breakdown, capacitance, polarization, endurance, ON/OFF ratio and read-current trends across temperature.</li>
+            <li>Wrote the Python for data processing, visualization, parameter extraction and device-to-device comparison.</li>
+            <li>Built the device visuals: the cross-section in Fig. 2, and 3D CAD models of the device stack and of an 8&nbsp;&times;&nbsp;8 crossbar array for the compute-in-memory work.</li>
+          </ul>
+        </section>
+
+        <section class="project-panel" id="methods">
+          <h2>What I measure</h2>
+          <table class="readings">
+            <thead>
+              <tr><th scope="col">Measurement</th><th scope="col">Sweep</th><th scope="col">What I extract from it</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">J&ndash;V</th><td class="value">DC and AC</td><td class="cond">Switching voltages, the ON/OFF current ratio, and the read current after each switch</td></tr>
+              <tr><th scope="row">C&ndash;V</th><td class="value">AC</td><td class="cond">The capacitance loop against bias, and where its peaks sit</td></tr>
+              <tr><th scope="row">PUND</th><td class="value">Pulse train</td><td class="cond">Switched polarization, separated from leakage and capacitive current</td></tr>
+              <tr><th scope="row">Breakdown</th><td class="value">Ramped field</td><td class="cond">The breakdown field</td></tr>
+              <tr><th scope="row">Endurance</th><td class="value">Repeated cycles</td><td class="cond">How the switching window holds up over repeated cycles</td></tr>
+            </tbody>
+          </table>
+          <p>Every measurement is repeated across the 14 to 400&nbsp;K range, on a cryogenic station at the low end and a high-temperature station at the top, so the same device can be compared with itself across temperature.</p>
+        </section>
+
+        <section class="project-panel" id="results">
+          <h2>What we found</h2>
+          <table class="readings">
+            <thead>
+              <tr><th scope="col">Quantity</th><th scope="col">Value</th><th scope="col">Condition</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Ferroelectric switching</th><td class="value">400 to 14&nbsp;K</td><td class="cond">Hysteretic switching preserved across the whole range in the 6&nbsp;nm junction</td></tr>
+              <tr><th scope="row">ON/OFF ratio</th><td class="value">&gt; 2</td><td class="cond">Across the measured temperature range</td></tr>
+              <tr><th scope="row">Coercive field</th><td class="value">&asymp; 5.4&nbsp;MV/cm</td><td class="cond">At 14&nbsp;K</td></tr>
+              <tr><th scope="row">Breakdown field</th><td class="value">&asymp; 11.5&nbsp;MV/cm</td><td class="cond">Under 10&nbsp;kHz operation</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Temperature- and field-dependent transport point to a tunnel-dominant, local trap-assisted readout mechanism, rather than direct tunneling through the full stack or classical Poole&ndash;Frenkel emission alone.
+          </p>
+        </section>
+
+        <section class="project-panel" id="compute-in-memory">
+          <h2>Compute-in-memory</h2>
+          <p>
+            Beyond binary memory, the measured conductance states serve as programmable analog weights for vector-matrix multiplication. Multilevel conductance programming made possible a repetition-code syndrome decoder, built from measured devices, for detecting and decoding qubit errors. Together with the cryogenic operation, that points to scaled all-nitride ferroelectric junctions as candidates for memory and local compute next to quantum-control hardware.
+          </p>
+        </section>
+
+        <section class="project-panel" id="models">
+          <h2>Device models</h2>
+          <div class="fig-grid fig-grid-single">
+            <figure class="taped fig" id="fig-2">
+              <img src="images/device-cross-section.webp" alt="CAD cross-section of the junction: the thin ferroelectric stack between electrode layers, with insulating sidewalls and contact pads on a substrate" width="1510" height="735" loading="lazy" decoding="async">
+              <figcaption><span class="fig-no">Fig. 2</span> &mdash; Device cross-section I drew in CAD.</figcaption>
+            </figure>
+          </div>
+          <p>I also built 3D CAD models of the device stack and of an 8&nbsp;&times;&nbsp;8 crossbar array of these junctions, for the compute-in-memory work.</p>
+        </section>
+
+        <section class="project-panel" id="paper">
+          <h2>Paper</h2>
+          <p>The results above are from a manuscript in preparation, to which I contributed measurements and analysis. The paper, its figures and its data stay private until it is published; it will be linked here then.</p>
+        </section>
+      </div>
+    </div>
+
+    <!-- build:projectnav -->
+    <nav class="project-pager" aria-label="Project navigation">
+      <a class="project-pager-link project-pager-next" href="../../projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html"><span class="project-pager-dir">Next project &rarr;</span><span class="project-pager-title">SRAM-Based 4&#8209;bit MAC Accelerator</span></a>
+    </nav>
+    <!-- /build:projectnav -->
+  </main>
+
+  <!-- build:footer -->
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="../../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../../scroll-animations.js" defer></script>
+  <!-- /build:footer -->
+</body>
+</html>

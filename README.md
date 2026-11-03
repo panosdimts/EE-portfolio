@@ -10,10 +10,11 @@ I use this site to document projects from coursework, research, and personal har
 
 ## Pages
 
-- `index.html` - homepage, selected projects, experience, contact
+- `index.html` - homepage: annotated bitcell layout, selected projects, experience, contact
 - `projects.html` - full project list
 - `about.html` - background, interests, skills
-- `projects/` - individual project folders with their own HTML pages and assets
+- `projects/` - individual project folders with their own HTML pages and assets, plus a methods-only research page
+- `404.html` - not-found page for GitHub Pages (links use the `/EE-portfolio/` root)
 
 ## Built With
 
@@ -31,6 +32,7 @@ EE-portfolio/
 |-- index.html
 |-- projects.html
 |-- about.html
+|-- 404.html
 |-- style.css
 |-- site.js
 |-- scroll-animations.js
@@ -39,10 +41,13 @@ EE-portfolio/
 |-- robots.txt
 |-- resume.pdf
 |-- headshot.webp
+|-- PRODUCT.md       (who the site is for, and its content rules)
+|-- DESIGN.md        (the design system: tokens, components, motion)
 |-- _partials/
 |   |-- header.html
 |   `-- footer.html
 `-- projects/
+    |-- Ferroelectric_Research/
     |-- SRAM_MAC_Accelerator_ESE5700/
     |-- Guitar_Hero_Synth_ESE3500/
     |-- Metal_Detector_ESE319/
@@ -67,8 +72,18 @@ and its own active nav link, which the script fills in. Everything outside the
 markers is untouched, so pages stay hand-editable, and running the script twice
 changes nothing.
 
+The script also writes the previous/next links on project pages, in the order
+of its `PROJECTS` list; add a new project page there and re-run it.
+
 The deployed site is still plain static HTML: the build happens before commit,
 not in the browser.
+
+## Design
+
+The site is drawn as a research lab notebook: quadrille paper, a bookcloth
+cover, prints taped onto the page, and a red pen used only to strike a
+prediction beside its result. `DESIGN.md` records the tokens, components and
+motion, and the rules that keep them consistent.
 
 ## Credits
 

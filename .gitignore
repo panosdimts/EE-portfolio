@@ -6,3 +6,6 @@ tmp/
 # Local manuscript drafts
 projects/AlScN_Ferroelectric_Diode/*.docx
 projects/AlScN_Ferroelectric_Diode/*.pdf
+
+# Impeccable design-tool state (dev only, not part of the site)
+.impeccable/

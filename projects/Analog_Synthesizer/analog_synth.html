@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101216" />
+  <meta name="theme-color" content="#173a32" />
   <meta name="description" content="In-progress analog synthesizer by Panagiotis Dimtsoudis: an eleven-sheet Altium project with the VCO block drawn and simulating, and no hardware built yet." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Analog_Synthesizer/analog_synth.html" />
   <meta property="og:title" content="Analog Synthesizer | Panagiotis Dimtsoudis" />
@@ -15,45 +15,47 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
   <title>Analog Synthesizer | Panagiotis Dimtsoudis</title>
-  <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
   <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
-      <span class="brand-mark" aria-hidden="true">PD</span>
-      <span class="brand-name">Panagiotis Dimtsoudis</span>
-    </a>
-    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav class="topbar-nav-wrap" aria-label="Primary">
-      <ul class="topbar-nav" id="primary-nav">
-        <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
-        <li><a href="../../about.html" class="nav-link">About</a></li>
-        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="../../index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+          <li><a href="../../about.html" class="nav-link">About</a></li>
+          <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
-    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+    <a href="../../projects.html" class="project-detail-back">&larr; All projects</a>
 
     <section class="project-hero">
       <div class="project-hero-copy">
-        <p class="project-detail-tag">Analog Electronics &middot; Audio Circuits</p>
         <h1 class="project-detail-title">Analog Synthesizer</h1>
+        <p class="project-detail-tag">Analog electronics &middot; audio circuits</p>
         <p class="project-detail-sub">
-          An analog synthesizer, in progress. The Altium project is set up with eleven sheets; the VCO is the one that is drawn and simulating. Nothing has been built yet.
+          An analog synthesizer, in progress. The Altium project is set up with eleven sheets; the VCO is the one that is drawn and simulates. Nothing has been built yet.
         </p>
         <div class="project-meta-grid">
           <div class="project-meta-item">
@@ -62,7 +64,7 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">Oscillators, Filters, Audio Signal Paths</span>
+            <span class="project-meta-value">Oscillators, filters, audio signal paths</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Tools</span>
@@ -79,7 +81,7 @@
     <div class="project-content-grid">
       <aside class="project-sidebar">
         <div class="project-info-card">
-          <h2>Project Snapshot</h2>
+          <h2>Summary</h2>
           <p>
             One VCO sheet drawn and simulating in an eleven-sheet Altium project. No boards, no bench measurements yet.
           </p>
@@ -89,8 +91,8 @@
           <div class="project-chip-row">
             <span class="skill-chip">Altium Designer</span>
             <span class="skill-chip">LTspice</span>
-            <span class="skill-chip">Analog Design</span>
-            <span class="skill-chip">Audio Circuits</span>
+            <span class="skill-chip">Analog design</span>
+            <span class="skill-chip">Audio circuits</span>
           </div>
         </div>
       </aside>
@@ -99,12 +101,12 @@
         <section class="project-panel">
           <h2>Overview</h2>
           <p>
-            The VCO block is drawn and simulating. The remaining sheets &mdash; filter, amplifier, control and output &mdash; are stubs. Hardware comes after they simulate.
+            The VCO block is drawn and simulates. The remaining sheets &mdash; filter, amplifier, control and output &mdash; are stubs. Hardware comes after they simulate.
           </p>
         </section>
 
         <section class="project-panel">
-          <h2>Planned Subsystems</h2>
+          <h2>Planned subsystems</h2>
           <ul class="project-list">
             <li>Oscillator stage for generating the core waveform sources.</li>
             <li>Filter and shaping stages for tone control and sound design.</li>
@@ -115,7 +117,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Next Steps</h2>
+          <h2>Next steps</h2>
           <p>
             Next steps are simulation cleanup, first-pass breadboard testing, signal-level checks,
             noise measurements, and PCB layout after the major circuit blocks are stable.
@@ -126,26 +128,54 @@
 
     <!-- build:projectnav -->
     <nav class="project-pager" aria-label="Project navigation">
-      <a class="project-pager-link project-pager-prev" href="../../projects/EcoBeam/ecobeam.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">EcoBeam</span></a>
-      <a class="project-pager-link project-pager-next" href="../../projects/Tetris_CIS_Project/tetris.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Java Tetris</span></a>
+      <a class="project-pager-link project-pager-prev" href="../../projects/EcoBeam/ecobeam.html"><span class="project-pager-dir">&larr; Previous project</span><span class="project-pager-title">EcoBeam</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Tetris_CIS_Project/tetris.html"><span class="project-pager-dir">Next project &rarr;</span><span class="project-pager-title">Java Tetris</span></a>
     </nav>
     <!-- /build:projectnav -->
   </main>
 
   <!-- build:footer -->
-  <footer class="site-footer" id="contact">
-    <div>
-      <p class="eyebrow">Contact Me</p>
-      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="../../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
-      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
-      <a href="tel:+12155267626">+1 (215) 526-7626</a>
-      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
   <script src="../../scroll-animations.js" defer></script>

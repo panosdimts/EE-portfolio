@@ -1,43 +1,5 @@
 (function () {
-  const animatedSelectors = [
-    '.hero-text',
-    '.hero-headshot',
-    '.section-heading',
-    '.project-card',
-    '.project-row',
-    '.timeline-entry',
-    '.about-layout > *',
-    '.content-stack > *',
-    '.skills-matrix > *',
-    '.project-detail-back',
-    '.project-hero-copy',
-    '.project-detail-cover',
-    '.project-meta-item',
-    '.project-info-card',
-    '.project-panel',
-    '.contact-layout > *',
-    '.site-footer'
-  ];
-
   const imageGalleries = {
-    sram: [
-      { src: 'images/bitcell-layout.png', alt: 'Layout of the 6T SRAM bitcell with VDD, VSS, wordline and bitlines labeled', caption: '6T bitcell layout, DRC and LVS clean', width: 601, height: 835 },
-      { src: 'images/read-butterfly.png', alt: 'Post-layout read butterfly curves with the inscribed SNM squares', caption: 'Post-layout read butterfly: SNM 0.13 V', width: 662, height: 676 },
-      { src: 'images/write-margin.png', alt: 'Storage-node voltages against the swept bitline voltage, flipping at 0.27 V', caption: 'Post-layout write-margin sweep: trip at 0.27 V', width: 690, height: 547 },
-      { src: 'images/functional-check.png', alt: 'Transient waveforms of a write 0, read, write 1, read sequence on a loaded bitline', caption: 'Write 0, read, write 1, read on a 16-cell bitline', width: 1423, height: 1009 },
-      { src: 'images/macro-array-corner.png', alt: 'Corner of the 16 by 4 array layout showing mirrored rows and shared supply rails', caption: 'Array corner: mirrored rows share VDD and VSS rails', width: 657, height: 424 },
-      { src: 'images/macro-schematic.png', alt: 'Schematic of the 16 by 4 SRAM macro with decoder, precharge, write drivers and read path', caption: '16 \u00d7 4 macro: decoder, precharge, write and read columns', width: 928, height: 1001 },
-      { src: 'images/decoder-waveforms.png', alt: 'Wordline waveforms for every row of the predecoded decoder', caption: 'Predecoded row decoder: 129 ps from address to wordline', width: 2361, height: 1016 },
-      { src: 'images/macro-read-after-write.png', alt: 'Macro transient waveforms reading a word back after writing it', caption: 'Macro read after write, 440 ps access time', width: 1486, height: 1225 },
-      { src: 'images/mac-block-sketch.png', alt: 'Hand-drawn block diagram of the MAC: address mux, two SRAM macros, operand registers, multiplier, adder, accumulator and sequencer, split into three pipeline stages and three supply domains', caption: 'Hand-drawn MAC block diagram: three pipeline stages, three supply domains', width: 3505, height: 1792 },
-      { src: 'images/mac-block-diagram.png', alt: 'Block diagram of the MAC with three pipeline stages and three supply domains marked', caption: 'MAC block diagram, redrawn', width: 1516, height: 770 },
-      { src: 'images/sequencer-state-sketch.png', alt: 'Hand-drawn state diagram of the sequencer with IDLE, COMPUTE, DRAIN and DONE states', caption: 'Hand-drawn sequencer states: IDLE, COMPUTE (16 cycles), DRAIN (3), DONE', width: 1497, height: 837 },
-      { src: 'images/diffr-flipflop.png', alt: 'Schematic of the transmission-gate leader-follower flip-flop with synchronous reset', caption: 'Custom flip-flop: 94 ps clock-to-Q, 1.8 fJ per clock', width: 1518, height: 706 },
-      { src: 'images/dot-product-timing.png', alt: 'Cycle-level timing diagram of one dot product showing the counter, latched address, operand registers, product register and accumulator at every clock edge', caption: 'One dot product, edge by edge: DONE rises at E19', width: 1416, height: 760 },
-      { src: 'images/mac-test-a.png', alt: 'Accumulator waveform climbing in steps to 845 with the done signal rising', caption: 'Test A: accumulator reaches 845, done after 19 cycles', width: 1463, height: 809 },
-      { src: 'images/mac-0p8ns-failure.png', alt: 'Accumulator at a 0.8 ns clock against the correct running sum, with errors of 16, 32 and 16 in three cycles', caption: 'At 0.8 ns: three late bits, 909 instead of 845', width: 1341, height: 832 },
-      { src: 'images/mac-energy.png', alt: 'Bar chart of energy per dot product split across the memory, MAC and clock supplies', caption: 'Energy per dot product by supply domain', width: 1223, height: 634 }
-    ],
     pcb: [
       { src: 'images/PCB_MD.png', alt: 'Metal Detector PCB 3D view', caption: 'PCB 3D view', width: 608, height: 516 },
       { src: 'images/PCB_Top_View.png', alt: 'Metal Detector PCB top view', caption: 'PCB top view', width: 725, height: 593 },
@@ -97,42 +59,167 @@
     return `Open fullscreen view: ${alt || 'project image'}`;
   }
 
-  function setupScrollAnimations() {
-    const elements = Array.from(document.querySelectorAll(animatedSelectors.join(',')));
+  // The correction stroke: wherever an entry reports an estimate against a
+  // result, the struck estimate's red pen line draws once, left to right,
+  // when the line enters the viewport. On the home page it closes the hero
+  // sequence that style.css plays on load.
+  // Without IntersectionObserver, or with reduced motion, the stroke is
+  // simply there (style.css draws it by default).
+  function setupCorrections() {
+    setupRules();
 
-    if (!elements.length) {
+    const corrections = Array.from(document.querySelectorAll('.correction'));
+
+    if (!corrections.length || !('IntersectionObserver' in window)
+      || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      elements.forEach((element) => element.classList.add('is-visible'));
-      return;
-    }
-
-    document.documentElement.classList.add('scroll-animations-ready');
-
-    elements.forEach((element, index) => {
-      element.style.setProperty('--reveal-delay', `${Math.min(index * 18, 160)}ms`);
-    });
-
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach((element) => element.classList.add('is-visible'));
-      return;
-    }
+    document.documentElement.classList.add('strokes-pending');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
+          // A short beat, so a stroke already on screen at load is seen
+          // being drawn rather than landing with the first paint.
+          window.setTimeout(() => entry.target.classList.add('is-struck'), 240);
         }
       });
-    }, {
-      rootMargin: '0px 0px -10% 0px',
-      threshold: 0.12
+    }, { rootMargin: '0px', threshold: 1 });
+
+    corrections.forEach((correction) => observer.observe(correction));
+
+    // A line already fully on screen at load is struck after the same beat,
+    // whether or not the observer has reported yet.
+    window.setTimeout(() => {
+      corrections.forEach((correction) => {
+        const box = correction.getBoundingClientRect();
+        if (box.height && box.top >= 0 && box.bottom <= window.innerHeight) {
+          observer.unobserve(correction);
+          correction.classList.add('is-struck');
+        }
+      });
+    }, 240);
+  }
+
+  // Heading rules are ruled in ink, left to right, as each heading arrives.
+  // Same pattern as the strokes: visible by default, hidden only once this
+  // script has taken charge of them.
+  function setupRules() {
+    // Home and index pages only: on a long entry the same draw on every
+    // heading would become an identical entrance, repeated.
+    const rules = Array.from(document.querySelectorAll('.section-head'));
+
+    if (!rules.length || !('IntersectionObserver' in window)
+      || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const viewport = window.innerHeight;
+    const pending = rules.filter((rule) => rule.getBoundingClientRect().top > viewport * 0.9);
+
+    if (!pending.length) {
+      return;
+    }
+
+    document.documentElement.classList.add('rules-pending');
+    rules.filter((rule) => !pending.includes(rule)).forEach((rule) => rule.classList.add('is-ruled'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+          entry.target.classList.add('is-ruled');
+        }
+      });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0 });
+
+    pending.forEach((rule) => observer.observe(rule));
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Long entries get an index of their sections: a compact jump list under
+  // the title on narrow screens, and on wide ones a list at the foot of the
+  // margin notes that stays in view and marks the section being read.
+  function setupSectionIndex() {
+    const body = document.querySelector('.project-detail-body');
+    const sidebar = document.querySelector('.project-sidebar');
+    const heroCopy = document.querySelector('.project-hero-copy');
+
+    if (!body || !sidebar || !heroCopy) {
+      return;
+    }
+
+    const panels = Array.from(body.children)
+      .filter((panel) => panel.matches('.project-panel') && !panel.hidden && panel.querySelector(':scope > h2'));
+
+    if (panels.length < 4) {
+      return;
+    }
+
+    const items = panels.map((panel) => {
+      const label = panel.querySelector(':scope > h2').textContent.trim();
+      if (!panel.id) {
+        let slug = label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+        while (document.getElementById(slug)) {
+          slug += '-more';
+        }
+        panel.id = slug;
+      }
+      return { id: panel.id, label };
     });
 
-    elements.forEach((element) => observer.observe(element));
+    function buildNav(className, name) {
+      const nav = document.createElement('nav');
+      nav.className = className;
+      nav.setAttribute('aria-label', name);
+      items.forEach((item) => {
+        const link = document.createElement('a');
+        link.href = `#${item.id}`;
+        link.textContent = item.label;
+        nav.appendChild(link);
+      });
+      return nav;
+    }
+
+    heroCopy.appendChild(buildNav('jump-list', 'On this page'));
+
+    const pageNav = buildNav('page-nav', 'Sections of this page');
+    const heading = document.createElement('p');
+    heading.className = 'page-nav-title';
+    heading.textContent = 'On this page';
+    heading.setAttribute('aria-hidden', 'true');
+    pageNav.prepend(heading);
+    sidebar.appendChild(pageNav);
+
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
+
+    const links = new Map(items.map((item) => [item.id, pageNav.querySelector(`a[href="#${item.id}"]`)]));
+    const inView = new Set();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          inView.add(entry.target.id);
+        } else {
+          inView.delete(entry.target.id);
+        }
+      });
+      const current = items.find((item) => inView.has(item.id));
+      links.forEach((link, id) => {
+        if (current && id === current.id) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }, { rootMargin: '-20% 0px -55% 0px' });
+
+    panels.forEach((panel) => observer.observe(panel));
   }
 
   function setupImageGalleries() {
@@ -149,9 +236,15 @@
 
       let activeIndex = 0;
 
-      function showImage(nextIndex) {
+      function showImage(nextIndex, fromUser = true) {
         activeIndex = (nextIndex + images.length) % images.length;
         image.src = images[activeIndex].src;
+
+        // A short fade so the swap reads as a change, not a flicker; never
+        // on the first figure, which nobody asked to change.
+        if (fromUser && !reducedMotion.matches && typeof image.animate === 'function') {
+          image.animate([{ opacity: 0.25 }, { opacity: 1 }], { duration: 180, easing: 'ease-out' });
+        }
         image.alt = images[activeIndex].alt;
         image.width = images[activeIndex].width;
         image.height = images[activeIndex].height;
@@ -177,7 +270,7 @@
       gallery.querySelector('.image-switcher-prev')?.addEventListener('click', () => showImage(activeIndex - 1));
       gallery.querySelector('.image-switcher-next')?.addEventListener('click', () => showImage(activeIndex + 1));
       dots.forEach((dot, index) => dot.addEventListener('click', () => showImage(index)));
-      showImage(0);
+      showImage(0, false);
     });
   }
 
@@ -246,7 +339,9 @@
         button.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
 
         if (shouldOpen) {
-          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // An instant jump: the panel opened from a keyboard or a click, and
+          // motion on that action would only delay the reader.
+          panel.scrollIntoView({ block: 'start' });
           const heading = panel.querySelector('h2, h3');
           if (heading) {
             heading.tabIndex = -1;
@@ -269,6 +364,9 @@
         if (opener) {
           opener.setAttribute('aria-expanded', 'false');
           opener.focus({ preventScroll: true });
+          // Hiding the panel can leave the page clamped near the footer, far
+          // from the button that opened it.
+          opener.scrollIntoView({ block: 'center' });
         }
       });
     });
@@ -346,11 +444,13 @@
     lightbox.innerHTML = `
       <button class="image-lightbox-close" type="button" aria-label="Close fullscreen image">Close</button>
       <img alt="">
+      <p class="image-lightbox-caption"></p>
     `;
 
     document.body.appendChild(lightbox);
 
     const lightboxImage = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('.image-lightbox-caption');
     const closeButton = lightbox.querySelector('.image-lightbox-close');
     let previousActiveElement = null;
     let scrollPosition = 0;
@@ -360,6 +460,11 @@
       previousActiveElement = document.activeElement;
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt || '';
+      // Carry the figure's caption into the enlarged view.
+      const caption = image.closest('figure')?.querySelector('figcaption')
+        || image.closest('.image-switcher')?.querySelector('[data-gallery-caption]');
+      lightboxCaption.textContent = caption ? caption.textContent.trim() : '';
+      lightboxCaption.hidden = !caption;
       lightbox.classList.add('is-open');
       document.body.classList.add('lightbox-open');
       closeButton.focus({ preventScroll: true });
@@ -369,7 +474,9 @@
       lightbox.classList.remove('is-open');
       lightboxImage.removeAttribute('src');
       document.body.classList.remove('lightbox-open');
-      window.scrollTo({ top: scrollPosition, left: window.scrollX, behavior: 'auto' });
+      // 'instant', so the page snaps back to where the lightbox opened even
+      // if a smooth scroll-behavior is ever set on html again.
+      window.scrollTo({ top: scrollPosition, left: window.scrollX, behavior: 'instant' });
 
       if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
         previousActiveElement.focus({ preventScroll: true });
@@ -417,7 +524,8 @@
   }
 
   function init() {
-    setupScrollAnimations();
+    setupCorrections();
+    setupSectionIndex();
     setupImageGalleries();
     setupVideoGalleries();
     setupTogglePanels();

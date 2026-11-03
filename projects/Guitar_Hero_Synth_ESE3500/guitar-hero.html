@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101216" />
+  <meta name="theme-color" content="#173a32" />
   <meta name="description" content="ATmega328PB-based Guitar Hero synthesizer project with bare-metal C firmware, PWM audio synthesis, controller inputs, and pitch controls." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html" />
   <meta property="og:title" content="Guitar Hero Synthesizer | Panagiotis Dimtsoudis" />
@@ -15,43 +15,45 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
   <title>Guitar Hero Synthesizer | Panagiotis Dimtsoudis</title>
-  <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
   <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
-      <span class="brand-mark" aria-hidden="true">PD</span>
-      <span class="brand-name">Panagiotis Dimtsoudis</span>
-    </a>
-    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav class="topbar-nav-wrap" aria-label="Primary">
-      <ul class="topbar-nav" id="primary-nav">
-        <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
-        <li><a href="../../about.html" class="nav-link">About</a></li>
-        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="../../index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+          <li><a href="../../about.html" class="nav-link">About</a></li>
+          <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
-    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+    <a href="../../projects.html" class="project-detail-back">&larr; All projects</a>
 
     <section class="project-hero">
       <div class="project-hero-copy">
-        <p class="project-detail-tag">Embedded Systems &middot; Microcontrollers &middot; Audio</p>
         <h1 class="project-detail-title">Guitar Hero Synthesizer</h1>
+        <p class="project-detail-tag">Embedded systems &middot; microcontrollers &middot; audio</p>
         <p class="project-detail-sub">
           A Guitar Hero controller converted into an ATmega328PB synthesizer. The firmware reads the original controls, generates PWM audio, and lets the player remap fret-button notes on the LCD.
         </p>
@@ -64,11 +66,11 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Platform</span>
-            <span class="project-meta-value">ATmega328PB Microcontroller</span>
+            <span class="project-meta-value">ATmega328PB microcontroller</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">PWM Audio Synthesis &amp; Hardware Interfacing</span>
+            <span class="project-meta-value">PWM audio synthesis and hardware interfacing</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Team</span>
@@ -79,12 +81,12 @@
 
       <div class="project-detail-cover project-detail-cover-contain image-switcher image-switcher-hero" data-gallery="guitar">
         <div class="image-switcher-count" data-gallery-count>1/4</div>
-        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero Synthesizer image">&lsaquo;</button>
+        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero Synthesizer image"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
         <img src="images/guitar-hero-synth.jpeg" alt="Completed Guitar Hero controller converted into an electronic synthesizer" width="1200" height="1600" data-gallery-image>
-        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero Synthesizer image">&rsaquo;</button>
+        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero Synthesizer image"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
         <div class="image-switcher-info">
           <div class="image-switcher-caption" data-gallery-caption>Completed Guitar Hero synthesizer</div>
-          <div class="image-switcher-dots" data-gallery-dots aria-label="Guitar Hero Synthesizer image position">
+          <div class="image-switcher-dots" role="group" data-gallery-dots aria-label="Guitar Hero Synthesizer image position">
             <button class="image-switcher-dot is-active" type="button" aria-label="Show exterior view"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show inside view 1"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show inside view 2"></button>
@@ -97,7 +99,7 @@
     <div class="project-content-grid">
       <aside class="project-sidebar">
         <div class="project-info-card">
-          <h2>Project Snapshot</h2>
+          <h2>Summary</h2>
           <p>
             The original guitar controls now drive a playable embedded instrument. I built it with a three-person team for ESE 3500; the demo videos are at the bottom of the page.
           </p>
@@ -107,7 +109,7 @@
           <div class="project-chip-row">
             <span class="skill-chip">ATmega328PB</span>
             <span class="skill-chip">Embedded C</span>
-            <span class="skill-chip">PWM Audio</span>
+            <span class="skill-chip">PWM audio</span>
             <span class="skill-chip">I2C &amp; ADC</span>
           </div>
         </div>
@@ -127,7 +129,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Key Features</h2>
+          <h2>Key features</h2>
           <ul class="project-list">
             <li>Polled the fret buttons, strum bar, mute control and joystick, and sampled the whammy position through the ADC, in bare-metal C.</li>
             <li>Generated mapped musical notes using PWM audio and a decay envelope that emulates a guitar strum.</li>
@@ -138,7 +140,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>What Went Wrong</h2>
+          <h2>What went wrong</h2>
           <p>
             The first build shut itself down whenever the speaker drew current, and there was noise riding on the
             audio. I moved it to a 12 V battery pack with two 5 V LDO regulators, which fixed both.
@@ -146,7 +148,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Controller Design Sketch</h2>
+          <h2>Controller design sketch</h2>
           <figure class="design-sketch-figure">
             <img src="design-sketch.png" alt="Annotated Guitar Hero controller design sketch showing display, strum, pitch buttons, mute button, whammy, and joystick placement" width="810" height="317" loading="lazy">
             <figcaption>
@@ -157,7 +159,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>My Contribution</h2>
+          <h2>My contribution</h2>
           <ul class="project-list">
             <li>Did the electronics integration and soldered everything into the original controller enclosure.</li>
             <li>Wrote most of the bare-metal C firmware.</li>
@@ -171,7 +173,7 @@
             Full project documentation, requirements validation, development notes, and source code are linked below.
           </p>
           <div class="project-actions">
-            <a href="https://upenn-embedded.github.io/guitar-hero-reversal.github.io/" target="_blank" rel="noopener noreferrer" class="btn-outline">Project Website</a>
+            <a href="https://upenn-embedded.github.io/guitar-hero-reversal.github.io/" target="_blank" rel="noopener noreferrer" class="btn-outline">Project website</a>
             <a href="https://github.com/upenn-embedded/guitar-hero-reversal.github.io" target="_blank" rel="noopener noreferrer" class="btn-outline btn-icon">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.204.085 1.838 1.236 1.838 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
@@ -182,16 +184,16 @@
         </section>
 
         <section class="project-panel">
-          <h2>Video Gallery</h2>
+          <h2>Video gallery</h2>
           <div class="image-switcher video-switcher" data-video-gallery="guitar-videos">
             <div class="image-switcher-count" data-video-count>1/4</div>
             <div class="video-switcher-frame">
-              <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero video">&lsaquo;</button>
+              <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous Guitar Hero video"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
               <video controls data-video-player>
                 <source src="Live Demo.mp4" type="video/mp4" data-video-source>
                 Your browser does not support the video tag.
               </video>
-              <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero video">&rsaquo;</button>
+              <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next Guitar Hero video"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
             </div>
             <div class="image-switcher-info video-switcher-info">
               <h3 data-video-title>Live Demo</h3>
@@ -199,7 +201,7 @@
                 Demo Day footage of the completed instrument, showing the physical controls, LCD interface,
                 synthesized audio, and speaker output operating together in real time.
               </p>
-              <div class="image-switcher-dots" data-video-dots aria-label="Guitar Hero video position">
+              <div class="image-switcher-dots" role="group" data-video-dots aria-label="Guitar Hero video position">
                 <button class="image-switcher-dot is-active" type="button" aria-label="Show Live Demo"></button>
                 <button class="image-switcher-dot" type="button" aria-label="Show Full Feature Demo"></button>
                 <button class="image-switcher-dot" type="button" aria-label="Show Guitar Demo"></button>
@@ -213,26 +215,54 @@
 
     <!-- build:projectnav -->
     <nav class="project-pager" aria-label="Project navigation">
-      <a class="project-pager-link project-pager-prev" href="../../projects/Wireless_ECG_Monitor/ecg.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Wireless ECG Monitor</span></a>
-      <a class="project-pager-link project-pager-next" href="../../projects/EcoBeam/ecobeam.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">EcoBeam</span></a>
+      <a class="project-pager-link project-pager-prev" href="../../projects/Wireless_ECG_Monitor/ecg.html"><span class="project-pager-dir">&larr; Previous project</span><span class="project-pager-title">Wireless ECG Monitor</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/EcoBeam/ecobeam.html"><span class="project-pager-dir">Next project &rarr;</span><span class="project-pager-title">EcoBeam</span></a>
     </nav>
     <!-- /build:projectnav -->
   </main>
 
   <!-- build:footer -->
-  <footer class="site-footer" id="contact">
-    <div>
-      <p class="eyebrow">Contact Me</p>
-      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="../../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
-      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
-      <a href="tel:+12155267626">+1 (215) 526-7626</a>
-      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
   <script src="../../scroll-animations.js" defer></script>

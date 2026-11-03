@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101216" />
+  <meta name="theme-color" content="#173a32" />
   <meta name="description" content="ESE 3190 metal detector PCB project covering oscillator-based sensing, PCB layout, assembly, testing, and reporting." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/Metal_Detector_ESE319/metal-detector.html" />
   <meta property="og:title" content="Metal Detector PCB | Panagiotis Dimtsoudis" />
@@ -15,43 +15,45 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
   <title>Metal Detector PCB | Panagiotis Dimtsoudis</title>
-  <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
   <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
-      <span class="brand-mark" aria-hidden="true">PD</span>
-      <span class="brand-name">Panagiotis Dimtsoudis</span>
-    </a>
-    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav class="topbar-nav-wrap" aria-label="Primary">
-      <ul class="topbar-nav" id="primary-nav">
-        <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
-        <li><a href="../../about.html" class="nav-link">About</a></li>
-        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="../../index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+          <li><a href="../../about.html" class="nav-link">About</a></li>
+          <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
-    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+    <a href="../../projects.html" class="project-detail-back">&larr; All projects</a>
 
     <section class="project-hero">
       <div class="project-hero-copy">
-        <p class="project-detail-tag">PCB Design &middot; Analog Circuits</p>
         <h1 class="project-detail-title">Metal Detector PCB</h1>
+        <p class="project-detail-tag">PCB design &middot; analog circuits</p>
         <p class="project-detail-sub">
           An oscillator-based metal detector circuit turned into a fabricated PCB, built from ALD1103 MOSFETs with two LC oscillators, a mixer, and an RC low-pass filter. I assembled the board and debugged it stage by stage; the fixed oscillator measured 50.2 kHz against 50.27 kHz in LTspice.
         </p>
@@ -62,27 +64,27 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">Analog PCB Design &amp; Circuit Analysis</span>
+            <span class="project-meta-value">Analog PCB design and circuit analysis</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Deliverables</span>
-            <span class="project-meta-value">PCB Layout, Assembled Detector, Technical Report</span>
+            <span class="project-meta-value">PCB layout, assembled detector, technical report</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Role</span>
-            <span class="project-meta-value">Solo project &middot; Circuit Design, PCB Layout, Assembly &amp; Testing</span>
+            <span class="project-meta-value">Solo project &middot; circuit design, PCB layout, assembly, and testing</span>
           </div>
         </div>
       </div>
 
-      <div class="project-detail-cover project-detail-cover-contain project-detail-cover-light image-switcher image-switcher-hero pcb-gallery" data-gallery="pcb">
-        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous PCB view">&lsaquo;</button>
+      <div class="project-detail-cover image-switcher image-switcher-hero" data-gallery="pcb">
+        <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous PCB view"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
         <img src="images/PCB_MD.png" alt="Metal Detector PCB 3D view" width="608" height="516" data-gallery-image>
-        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next PCB view">&rsaquo;</button>
+        <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next PCB view"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
         <div class="image-switcher-info">
-          <div class="image-switcher-caption" data-gallery-caption>PCB 3D View</div>
+          <div class="image-switcher-caption" data-gallery-caption>PCB 3D view</div>
           <div class="image-switcher-count" data-gallery-count>1/3</div>
-          <div class="image-switcher-dots" data-gallery-dots aria-label="PCB image position">
+          <div class="image-switcher-dots" role="group" data-gallery-dots aria-label="PCB image position">
             <button class="image-switcher-dot is-active" type="button" aria-label="Show PCB 3D view"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show PCB top view"></button>
             <button class="image-switcher-dot" type="button" aria-label="Show PCB bottom view"></button>
@@ -94,7 +96,7 @@
     <div class="project-content-grid">
       <aside class="project-sidebar">
         <div class="project-info-card">
-          <h2>Project Snapshot</h2>
+          <h2>Summary</h2>
           <p>
             Schematic to two-layer layout to a fabricated board, hand-soldered and debugged on a scope stage by stage. The finished detector drives an 8 &Omega; speaker with an audible beat note.
           </p>
@@ -104,10 +106,10 @@
           <div class="project-chip-row">
             <span class="skill-chip">Altium Designer</span>
             <span class="skill-chip">LTspice</span>
-            <span class="skill-chip">PCB Layout</span>
-            <span class="skill-chip">ALD1103 / MOSFET Analog</span>
-            <span class="skill-chip">Hand Soldering</span>
-            <span class="skill-chip">Oscilloscope Debugging</span>
+            <span class="skill-chip">PCB layout</span>
+            <span class="skill-chip">ALD1103 / MOSFET analog</span>
+            <span class="skill-chip">Hand soldering</span>
+            <span class="skill-chip">Oscilloscope debugging</span>
           </div>
         </div>
       </aside>
@@ -124,7 +126,22 @@
         </section>
 
         <section class="project-panel">
-          <h2>Design Process</h2>
+          <h2>Results</h2>
+          <table class="readings">
+            <thead>
+              <tr><th scope="col">Quantity</th><th scope="col">Value</th><th scope="col">Condition</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Fixed oscillator</th><td class="value"><span class="correction"><span class="note">LTspice</span> <del><span class="sr-only">predicted </span>50.27&nbsp;kHz</del> <ins><span class="sr-only">result </span>50.2&nbsp;kHz</ins></span></td><td class="cond">Simulated against measured on the assembled board, 0.14% apart</td></tr>
+              <tr><th scope="row">Search-coil oscillator</th><td class="value"><span class="correction"><span class="note">LTspice</span> <del><span class="sr-only">predicted </span>49.19&nbsp;kHz</del> <ins><span class="sr-only">result </span>48.3&nbsp;kHz</ins></span></td><td class="cond">Simulated against measured, 1.8% low</td></tr>
+              <tr><th scope="row">Output</th><td class="value">Beat note</td><td class="cond">Measured on the assembled board into an 8&nbsp;&Omega; speaker</td></tr>
+              <tr><th scope="row">Board</th><td class="value">2 layers</td><td class="cond">Routed in Altium, hand-soldered, test points on every stage</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="project-panel">
+          <h2>Design process</h2>
           <ul class="project-list">
             <li>Took the schematic to a two-layer board in Altium, with test points left on each stage so the oscillators, the mixer and the filter could be probed separately.</li>
             <li>Kept the two oscillators apart on the board, so the fixed one could not pull the search-coil one into lock and kill the beat note.</li>
@@ -134,15 +151,15 @@
         </section>
 
         <section class="project-panel">
-          <h2>Completed Detector</h2>
+          <h2>The built detector</h2>
           <div class="image-switcher" data-gallery="detector">
-            <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous metal detector image">&lsaquo;</button>
+            <button class="image-switcher-btn image-switcher-prev" type="button" aria-label="Show previous metal detector image"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
             <img src="images/metal-detector-no-bg.webp" alt="Completed metal detector assembly" width="1086" height="1448" data-gallery-image>
-            <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next metal detector image">&rsaquo;</button>
+            <button class="image-switcher-btn image-switcher-next" type="button" aria-label="Show next metal detector image"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
             <div class="image-switcher-info">
               <div class="image-switcher-caption" data-gallery-caption>Completed metal detector assembly</div>
               <div class="image-switcher-count" data-gallery-count>1/2</div>
-              <div class="image-switcher-dots" data-gallery-dots aria-label="Built detector image position">
+              <div class="image-switcher-dots" role="group" data-gallery-dots aria-label="Built detector image position">
                 <button class="image-switcher-dot is-active" type="button" aria-label="Show completed detector assembly"></button>
                 <button class="image-switcher-dot" type="button" aria-label="Show detector in the test setup"></button>
               </div>
@@ -151,7 +168,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Technical Report</h2>
+          <h2>Technical report</h2>
           <p>
             The technical report is embedded below and can be scrolled directly on this page. Use the button beneath it to open the PDF in a separate window.
           </p>
@@ -159,7 +176,7 @@
             <iframe src="Metal_Detector_Report.pdf" title="Metal Detector PCB report"></iframe>
           </div>
           <div class="project-actions">
-            <a href="Metal_Detector_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open Full Report</a>
+            <a href="Metal_Detector_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open full report</a>
           </div>
         </section>
       </div>
@@ -167,26 +184,54 @@
 
     <!-- build:projectnav -->
     <nav class="project-pager" aria-label="Project navigation">
-      <a class="project-pager-link project-pager-prev" href="../../projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">SRAM-Based 4-bit MAC Accelerator</span></a>
-      <a class="project-pager-link project-pager-next" href="../../projects/Wireless_ECG_Monitor/ecg.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Wireless ECG Monitor</span></a>
+      <a class="project-pager-link project-pager-prev" href="../../projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html"><span class="project-pager-dir">&larr; Previous project</span><span class="project-pager-title">SRAM-Based 4&#8209;bit MAC Accelerator</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Wireless_ECG_Monitor/ecg.html"><span class="project-pager-dir">Next project &rarr;</span><span class="project-pager-title">Wireless ECG Monitor</span></a>
     </nav>
     <!-- /build:projectnav -->
   </main>
 
   <!-- build:footer -->
-  <footer class="site-footer" id="contact">
-    <div>
-      <p class="eyebrow">Contact Me</p>
-      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="../../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
-      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
-      <a href="tel:+12155267626">+1 (215) 526-7626</a>
-      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
   <script src="../../scroll-animations.js" defer></script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101216" />
+  <meta name="theme-color" content="#173a32" />
   <meta name="description" content="EcoBeam, a co-developed ESE 1110 embedded-system prototype for trail guidance, environmental sensing, distress signaling, solar power, and radio communication." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects/EcoBeam/ecobeam.html" />
   <meta property="og:title" content="EcoBeam | Panagiotis Dimtsoudis" />
@@ -15,43 +15,45 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <script src="../../site.js" defer></script>
   <title>EcoBeam | Panagiotis Dimtsoudis</title>
-  <link rel="stylesheet" href="../../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
   <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand-link" href="../../index.html" aria-label="Panagiotis Dimtsoudis home">
-      <span class="brand-mark" aria-hidden="true">PD</span>
-      <span class="brand-name">Panagiotis Dimtsoudis</span>
-    </a>
-    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav class="topbar-nav-wrap" aria-label="Primary">
-      <ul class="topbar-nav" id="primary-nav">
-        <li><a href="../../index.html" class="nav-link">Home</a></li>
-        <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
-        <li><a href="../../about.html" class="nav-link">About</a></li>
-        <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="../../index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../projects.html" class="nav-link active" aria-current="true">Projects</a></li>
+          <li><a href="../../about.html" class="nav-link">About</a></li>
+          <li><a href="../../resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <!-- /build:header -->
 
   <main id="main-content" class="project-detail" tabindex="-1">
-    <a href="../../projects.html" class="project-detail-back">&larr; Back to Projects</a>
+    <a href="../../projects.html" class="project-detail-back">&larr; All projects</a>
 
     <section class="project-hero">
       <div class="project-hero-copy">
-        <p class="project-detail-tag">Sustainable Embedded Systems &middot; Mesh Networking</p>
         <h1 class="project-detail-title">EcoBeam</h1>
+        <p class="project-detail-tag">Sustainable embedded systems &middot; mesh networking</p>
         <p class="project-detail-sub">
           A solar-powered trail node, co-developed by a three-person team, that shows direction locally, records environmental data, and sends status through radio-linked nodes. The prototype combines an 8 &times; 8 LED matrix, sensors, solar power, and a distress button.
         </p>
@@ -62,15 +64,15 @@
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Role</span>
-            <span class="project-meta-value">Co-Developer (3-Person Team)</span>
+            <span class="project-meta-value">Co-developer, three-person team</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Focus</span>
-            <span class="project-meta-value">Trail Safety &amp; Environmental Monitoring</span>
+            <span class="project-meta-value">Trail safety and environmental monitoring</span>
           </div>
           <div class="project-meta-item">
             <span class="project-meta-label">Subsystems</span>
-            <span class="project-meta-value">Display, Sensors, Radio, Power</span>
+            <span class="project-meta-value">Display, sensors, radio, power</span>
           </div>
         </div>
       </div>
@@ -83,21 +85,21 @@
     <div class="project-content-grid">
       <aside class="project-sidebar">
         <div class="project-info-card">
-          <h2>Project Snapshot</h2>
+          <h2>Summary</h2>
           <p>
             EcoBeam is a trail-mounted prototype with local display, sensing, solar power, and radio communication. I co-developed it with a three-person team as our ESE 1110 final project.
           </p>
         </div>
         <div class="project-info-card">
-          <h2>Tools &amp; Areas</h2>
+          <h2>Tools and areas</h2>
           <div class="project-chip-row">
             <span class="skill-chip">Arduino</span>
             <span class="skill-chip">XBee</span>
-            <span class="skill-chip">LED Matrix</span>
+            <span class="skill-chip">LED matrix</span>
             <span class="skill-chip">Sensors</span>
-            <span class="skill-chip">Solar Power</span>
-            <span class="skill-chip">Mesh Networks</span>
-            <span class="skill-chip">CAD Enclosure</span>
+            <span class="skill-chip">Solar power</span>
+            <span class="skill-chip">Mesh networks</span>
+            <span class="skill-chip">CAD enclosure</span>
           </div>
         </div>
       </aside>
@@ -107,14 +109,14 @@
           <h2>Overview</h2>
           <p>
             A trail node has to work where there is no mains power and no network. Each EcoBeam carries its own solar
-            supply and links to its neighbours by radio rather than to infrastructure. A node points users with an
+            supply and links to its neighbors by radio rather than to infrastructure. A node points users with an
             8 &times; 8 LED matrix, collects temperature and CO&#8322; data, and sends status information over that radio
             link. A distress button gives the field node a direct emergency input.
           </p>
         </section>
 
         <section class="project-panel">
-          <h2>System Architecture</h2>
+          <h2>System architecture</h2>
           <figure class="design-sketch-figure">
             <img src="images/ecobeam-system-diagram.png" alt="EcoBeam system architecture diagram showing sensors, radio module, power system, distress button, mesh network, ground station, and database" width="601" height="881" loading="lazy">
             <figcaption>
@@ -126,7 +128,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>Core Features</h2>
+          <h2>Core features</h2>
           <ul class="project-list">
             <li>Uses an 8 &times; 8 LED matrix to indicate trail direction or local status at the node.</li>
             <li>Logs temperature and CO&#8322; from onboard sensors.</li>
@@ -148,7 +150,7 @@
         </section>
 
         <section class="project-panel">
-          <h2>My Contribution</h2>
+          <h2>My contribution</h2>
           <ul class="project-list">
             <li>Designed the CAD enclosure that houses the node electronics, front-panel LED matrix, and distress button.</li>
             <li>Implemented the information and distress modes, including message routing and acknowledgments between radio-linked nodes.</li>
@@ -163,26 +165,54 @@
 
     <!-- build:projectnav -->
     <nav class="project-pager" aria-label="Project navigation">
-      <a class="project-pager-link project-pager-prev" href="../../projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html"><span class="project-pager-dir">&larr; Previous</span><span class="project-pager-title">Guitar Hero Synthesizer</span></a>
-      <a class="project-pager-link project-pager-next" href="../../projects/Analog_Synthesizer/analog_synth.html"><span class="project-pager-dir">Next &rarr;</span><span class="project-pager-title">Analog Synthesizer</span></a>
+      <a class="project-pager-link project-pager-prev" href="../../projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html"><span class="project-pager-dir">&larr; Previous project</span><span class="project-pager-title">Guitar Hero Synthesizer</span></a>
+      <a class="project-pager-link project-pager-next" href="../../projects/Analog_Synthesizer/analog_synth.html"><span class="project-pager-dir">Next project &rarr;</span><span class="project-pager-title">Analog Synthesizer</span></a>
     </nav>
     <!-- /build:projectnav -->
   </main>
 
   <!-- build:footer -->
-  <footer class="site-footer" id="contact">
-    <div>
-      <p class="eyebrow">Contact Me</p>
-      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="../../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
-      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
-      <a href="tel:+12155267626">+1 (215) 526-7626</a>
-      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
   <script src="../../scroll-animations.js" defer></script>

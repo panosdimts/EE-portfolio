@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101216" />
+  <meta name="theme-color" content="#173a32" />
   <meta name="description" content="Project index for Panagiotis Dimtsoudis: a 6T SRAM bitcell and 4-bit MAC accelerator in Cadence, an analog metal-detector PCB, a wireless ECG front end, an ATmega328PB synthesizer, and a solar-powered sensor node." />
   <link rel="canonical" href="https://panosdimts.github.io/EE-portfolio/projects.html" />
   <meta property="og:title" content="Projects | Panagiotis Dimtsoudis" />
@@ -15,206 +15,176 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <script src="site.js" defer></script>
   <title>Projects | Panagiotis Dimtsoudis</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- build:header -->
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand-link" href="index.html" aria-label="Panagiotis Dimtsoudis home">
-      <span class="brand-mark" aria-hidden="true">PD</span>
-      <span class="brand-name">Panagiotis Dimtsoudis</span>
-    </a>
-    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav class="topbar-nav-wrap" aria-label="Primary">
-      <ul class="topbar-nav" id="primary-nav">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="projects.html" class="nav-link active" aria-current="page">Projects</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="index.html" aria-label="Panagiotis Dimtsoudis, home">
+        <span class="brand-label" aria-hidden="true">PD</span>
+        <span class="brand-text">
+          <span class="brand-name">Panagiotis Dimtsoudis</span>
+          <span class="brand-role">Electrical Engineering, Penn</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      <nav class="masthead-nav" aria-label="Primary">
+        <ul id="primary-nav">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link active" aria-current="page">Projects</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <!-- /build:header -->
 
   <main id="main-content" tabindex="-1">
-    <section class="page-hero">
-      <p class="eyebrow">Projects</p>
-      <h1>Projects</h1>
-      <p>Each row opens a full write-up with the schematics, measurements, and reports.</p>
+    <section class="page-open" aria-labelledby="contents-title">
+      <h1 id="contents-title">Projects</h1>
+      <p>One research role and seven projects. Each opens a full write-up with the drawings, measurements, and reports, and says plainly what did not work.</p>
     </section>
 
-    <section class="project-index" aria-label="All projects">
-      <a class="project-row" href="projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html">
-        <div class="project-row-meta">
-          <span>Digital IC Design</span>
-          <span>2026</span>
-          <img src="projects/SRAM_MAC_Accelerator_ESE5700/images/bitcell-layout-thumb.webp" alt="Layout of the 6T SRAM bitcell" width="480" height="667" loading="lazy" />
-        </div>
-        <div class="project-row-body">
-          <h2>SRAM-Based 4-bit MAC Accelerator</h2>
-          <p>A custom 6T SRAM bitcell, DRC/LVS clean and characterized post-layout, tiled into a 16 &times; 4 macro and built into a pipelined 4-bit MAC that closes at 0.90 ns at 0.39 pJ per multiply-accumulate. ESE 5700, with Dhruva Jindal.</p>
-          <div class="chip-row">
-            <span class="skill-chip">Cadence Virtuoso</span>
-            <span class="skill-chip">Custom Layout</span>
-            <span class="skill-chip">SRAM</span>
-            <span class="skill-chip">Spectre</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-row" href="projects/Metal_Detector_ESE319/metal-detector.html">
-        <div class="project-row-meta">
-          <span>Analog PCB</span>
-          <span>2026</span>
-          <img src="projects/Metal_Detector_ESE319/images/PCB_MD-thumb.webp" alt="3D render of the metal detector PCB" width="608" height="516" loading="lazy" />
-        </div>
-        <div class="project-row-body">
-          <h2>Metal Detector PCB</h2>
-          <p>An LC-oscillator detector for ESE 3190, routed as a two-layer board, soldered by hand, then debugged stage by stage: the oscillator landed at 50.2 kHz against 50.27 kHz in LTspice.</p>
-          <div class="chip-row">
-            <span class="skill-chip">PCB Layout</span>
-            <span class="skill-chip">Analog Circuits</span>
-            <span class="skill-chip">Soldering</span>
-            <span class="skill-chip">Testing</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-row" href="projects/Wireless_ECG_Monitor/ecg.html">
-        <div class="project-row-meta">
-          <span>Bioelectronics</span>
-          <span>2026</span>
-          <img src="projects/Wireless_ECG_Monitor/images/circuit-1-thumb.webp" alt="Wireless ECG monitor breadboard circuit" width="700" height="933" loading="lazy" />
-        </div>
-        <div class="project-row-body">
-          <h2>Wireless ECG Monitor</h2>
-          <p>A multi-stage analog front end for ESE 2150 &mdash; AD623 instrumentation amp, virtual ground, 0.5 Hz high-pass and 160 Hz low-pass &mdash; sampled by a Feather and streamed over BLE, with Python finding R-peaks on the receiving end. Measured 61 dB maximum gain and a &minus;3 dB corner at 190.5 Hz.</p>
-          <div class="chip-row">
-            <span class="skill-chip">ECG</span>
-            <span class="skill-chip">Analog Filters</span>
-            <span class="skill-chip">Feather</span>
-            <span class="skill-chip">Python</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-row" href="projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html">
-        <div class="project-row-meta">
-          <span>Embedded Audio</span>
-          <span>2026</span>
-          <img src="projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth-thumb.webp" alt="Guitar Hero controller converted into a synthesizer" width="700" height="933" loading="lazy" />
-        </div>
-        <div class="project-row-body">
-          <h2>Guitar Hero Synthesizer</h2>
-          <p>A three-person ESE 3500 build: a Guitar Hero controller rebuilt around an ATmega328PB, with bare-metal C firmware driving PWM audio, an I2C LCD for remapping fret notes, and a 12 V pack split across two 5 V LDOs after the speaker kept shutting the board down.</p>
-          <div class="chip-row">
-            <span class="skill-chip">ATmega328PB</span>
-            <span class="skill-chip">Bare-Metal C</span>
-            <span class="skill-chip">PWM Audio</span>
-            <span class="skill-chip">I2C</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-row" href="projects/EcoBeam/ecobeam.html">
-        <div class="project-row-meta">
-          <span>Embedded Systems</span>
-          <span>2024</span>
-          <img src="projects/EcoBeam/images/ecobeam-prototype-thumb.webp" alt="EcoBeam prototype mounted outdoors" width="700" height="933" loading="lazy" />
-        </div>
-        <div class="project-row-body">
-          <h2>EcoBeam</h2>
-          <p>A three-person ESE 1110 prototype: a trail-mounted node with an 8 &times; 8 LED matrix, temperature and CO&#8322; sensing, a distress button, XBee links that meshed in testing, and a solar supply, inside a CAD enclosure I designed.</p>
-          <div class="chip-row">
-            <span class="skill-chip">Arduino</span>
-            <span class="skill-chip">Mesh Networking</span>
-            <span class="skill-chip">Solar Power</span>
-            <span class="skill-chip">Sensors</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-row" href="projects/Analog_Synthesizer/analog_synth.html">
-        <div class="project-row-meta">
-          <span>Analog Hardware</span>
-          <span>In progress</span>
-          <div class="project-row-placeholder" aria-hidden="true">VCO &middot; VCF &middot; VCA</div>
-        </div>
-        <div class="project-row-body">
-          <h2>Analog Synthesizer</h2>
-          <p>An eleven-sheet Altium project for a VCO&ndash;VCF&ndash;VCA synthesizer. The VCO sheet is drawn and simulating; the other sheets are stubs, and nothing has been built yet.</p>
-          <div class="chip-row">
-            <span class="skill-chip">Altium Designer</span>
-            <span class="skill-chip">LTspice</span>
-            <span class="skill-chip">Analog Design</span>
-            <span class="skill-chip">Audio Circuits</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="project-row" href="projects/Tetris_CIS_Project/tetris.html">
-        <div class="project-row-meta">
-          <span>Software / Game</span>
-          <span>Spring 2025</span>
-          <div class="project-mini-tetris" aria-hidden="true">
-            <span class="tetris-block cyan" style="--x: 4; --y: 1;"></span>
-            <span class="tetris-block cyan" style="--x: 4; --y: 2;"></span>
-            <span class="tetris-block cyan" style="--x: 4; --y: 3;"></span>
-            <span class="tetris-block purple" style="--x: 2; --y: 7;"></span>
-            <span class="tetris-block purple" style="--x: 3; --y: 7;"></span>
-            <span class="tetris-block purple" style="--x: 4; --y: 7;"></span>
-            <span class="tetris-block purple" style="--x: 3; --y: 6;"></span>
-            <span class="tetris-block yellow" style="--x: 0; --y: 8;"></span>
-            <span class="tetris-block yellow" style="--x: 1; --y: 8;"></span>
-            <span class="tetris-block yellow" style="--x: 0; --y: 9;"></span>
-            <span class="tetris-block yellow" style="--x: 1; --y: 9;"></span>
-            <span class="tetris-block green" style="--x: 4; --y: 9;"></span>
-            <span class="tetris-block green" style="--x: 5; --y: 9;"></span>
-            <span class="tetris-block green" style="--x: 3; --y: 10;"></span>
-            <span class="tetris-block green" style="--x: 4; --y: 10;"></span>
-            <span class="tetris-block red" style="--x: 6; --y: 9;"></span>
-            <span class="tetris-block red" style="--x: 7; --y: 9;"></span>
-            <span class="tetris-block red" style="--x: 7; --y: 10;"></span>
-            <span class="tetris-block red" style="--x: 8; --y: 10;"></span>
-          </div>
-        </div>
-        <div class="project-row-body">
-          <h2>Tetris</h2>
-          <p>Implemented a playable Java Swing Tetris game with a 20 by 18 board, explicit game states, save/load, tests, and Easy-mode undo.</p>
-          <div class="chip-row">
-            <span class="skill-chip">Java</span>
-            <span class="skill-chip">Swing</span>
-            <span class="skill-chip">Maven</span>
-            <span class="skill-chip">JUnit</span>
-          </div>
-        </div>
-      </a>
-    </section>
+    <ol class="contents" aria-labelledby="contents-title">
+      <li class="contents-row">
+          <span class="contents-thumb contain"><img src="projects/Ferroelectric_Research/images/device-cross-section.webp" alt="" width="1510" height="735" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/Ferroelectric_Research/ferroelectric-research.html">AlScN Ferroelectric Junctions</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Device research</span><span class="skill-chip">Penn DREL</span><span class="skill-chip">2026&ndash;present</span></span><span class="status status-open">Ongoing</span></span>
+            <span class="contents-summary">1&nbsp;nm AlN / 4&nbsp;nm AlScN / 1&nbsp;nm AlN junctions that keep ferroelectric switching from 400 down to 14&nbsp;K, with an ON/OFF ratio above 2 across the range. My measurements and analysis, and the group&rsquo;s results; the paper is a manuscript in preparation.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb"><img src="projects/SRAM_MAC_Accelerator_ESE5700/images/bitcell-layout-detail.webp" alt="" width="800" height="600" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/SRAM_MAC_Accelerator_ESE5700/sram-mac.html">SRAM-Based 4&#8209;bit MAC Accelerator</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Digital IC design</span><span class="skill-chip">ESE 5700</span><span class="skill-chip">2026</span><span class="skill-chip">With Dhruva Jindal</span></span><span class="status">Complete</span></span>
+            <span class="contents-summary">A custom 6T SRAM bitcell, DRC and LVS clean and characterized post-layout, tiled into a 16&nbsp;&times;&nbsp;4 macro and built into a pipelined 4&#8209;bit MAC. In simulation it closes timing at 0.90&nbsp;ns on the specified test vectors and uses 0.39&nbsp;pJ per multiply-accumulate.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb contain"><img src="projects/Metal_Detector_ESE319/images/PCB_MD-thumb.webp" alt="" width="608" height="516" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/Metal_Detector_ESE319/metal-detector.html">Metal Detector PCB</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Analog PCB</span><span class="skill-chip">ESE 3190</span><span class="skill-chip">2026</span><span class="skill-chip">Solo</span></span><span class="status">Complete</span></span>
+            <span class="contents-summary">An LC-oscillator detector routed as a two-layer board, soldered by hand, then debugged stage by stage. The fixed oscillator landed at 50.2&nbsp;kHz against 50.27&nbsp;kHz in LTspice.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb"><img src="projects/Wireless_ECG_Monitor/images/circuit-1-thumb.webp" alt="" width="700" height="933" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/Wireless_ECG_Monitor/ecg.html">Wireless ECG Monitor</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Bioelectronics</span><span class="skill-chip">ESE 2150</span><span class="skill-chip">2025</span><span class="skill-chip">With Damodar Pai</span></span><span class="status">Complete</span></span>
+            <span class="contents-summary">An AD623 instrumentation amp, a virtual ground, and 0.5&nbsp;Hz and 160&nbsp;Hz filters, sampled by a Feather and streamed over BLE, with Python finding R-peaks on the receiving end. 61&nbsp;dB maximum gain, and the low-pass corner measured at 190.5&nbsp;Hz.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb"><img src="projects/Guitar_Hero_Synth_ESE3500/images/guitar-hero-synth-thumb.webp" alt="" width="700" height="933" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/Guitar_Hero_Synth_ESE3500/guitar-hero.html">Guitar Hero Synthesizer</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Embedded audio</span><span class="skill-chip">ESE 3500</span><span class="skill-chip">2026</span><span class="skill-chip">Team of three</span></span><span class="status">Complete</span></span>
+            <span class="contents-summary">A Guitar Hero controller rebuilt around an ATmega328PB: bare-metal C firmware driving PWM audio, an I2C LCD for remapping fret notes, and a 12&nbsp;V pack split across two 5&nbsp;V LDOs after the speaker kept resetting the board.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb"><img src="projects/EcoBeam/images/ecobeam-prototype-thumb.webp" alt="" width="700" height="933" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/EcoBeam/ecobeam.html">EcoBeam</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Embedded systems</span><span class="skill-chip">ESE 1110</span><span class="skill-chip">2024</span><span class="skill-chip">Team of three</span></span><span class="status">Prototype</span></span>
+            <span class="contents-summary">A trail-mounted node with an 8&nbsp;&times;&nbsp;8 LED matrix, temperature and CO&#8322; sensing, a distress button, XBee links that meshed in testing, and a solar supply, inside a CAD enclosure I designed.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb"><img src="projects/Analog_Synthesizer/images/vco1-core-detail.webp" alt="" width="800" height="600" loading="lazy" decoding="async" /></span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/Analog_Synthesizer/analog_synth.html">Analog Synthesizer</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Analog audio</span><span class="skill-chip">Altium</span><span class="skill-chip">LTspice</span></span><span class="status status-open">In progress</span></span>
+            <span class="contents-summary">An eleven-sheet Altium project for an oscillator&ndash;filter&ndash;amplifier (VCO&ndash;VCF&ndash;VCA) synthesizer. The VCO sheet is drawn and simulates; the other sheets are stubs, and nothing has been built yet.</span>
+          </span>
+      </li>
+      <li class="contents-row">
+          <span class="contents-thumb">
+            <span class="mini-board" aria-hidden="true">
+              <span class="tetris-block cyan" style="--x: 4; --y: 1;"></span>
+              <span class="tetris-block cyan" style="--x: 4; --y: 2;"></span>
+              <span class="tetris-block cyan" style="--x: 4; --y: 3;"></span>
+              <span class="tetris-block purple" style="--x: 2; --y: 7;"></span>
+              <span class="tetris-block purple" style="--x: 3; --y: 7;"></span>
+              <span class="tetris-block purple" style="--x: 4; --y: 7;"></span>
+              <span class="tetris-block purple" style="--x: 3; --y: 6;"></span>
+              <span class="tetris-block yellow" style="--x: 0; --y: 8;"></span>
+              <span class="tetris-block yellow" style="--x: 1; --y: 8;"></span>
+              <span class="tetris-block yellow" style="--x: 0; --y: 9;"></span>
+              <span class="tetris-block yellow" style="--x: 1; --y: 9;"></span>
+              <span class="tetris-block green" style="--x: 4; --y: 9;"></span>
+              <span class="tetris-block green" style="--x: 5; --y: 9;"></span>
+              <span class="tetris-block green" style="--x: 3; --y: 10;"></span>
+              <span class="tetris-block green" style="--x: 4; --y: 10;"></span>
+              <span class="tetris-block red" style="--x: 6; --y: 9;"></span>
+              <span class="tetris-block red" style="--x: 7; --y: 9;"></span>
+              <span class="tetris-block red" style="--x: 7; --y: 10;"></span>
+              <span class="tetris-block red" style="--x: 8; --y: 10;"></span>
+            </span>
+          </span>
+          <span class="contents-text">
+            <span class="toc-line"><a class="toc-title" href="projects/Tetris_CIS_Project/tetris.html">Java Tetris</a></span>
+            <span class="ledger-meta"><span class="tags"><span class="skill-chip">Software</span><span class="skill-chip">CIS 1200</span><span class="skill-chip">Spring 2025</span><span class="skill-chip">Solo</span></span><span class="status">Complete</span></span>
+            <span class="contents-summary">A playable Java Swing Tetris with a 20&nbsp;&times;&nbsp;18 board, explicit game states, save and load, JUnit tests, and undo in Easy mode.</span>
+          </span>
+      </li>
+    </ol>
   </main>
 
   <!-- build:footer -->
-  <footer class="site-footer" id="contact">
-    <div>
-      <p class="eyebrow">Contact Me</p>
-      <p>Looking for Summer 2027 internships in IC design, analog hardware, and device characterization.</p>
+  <footer class="back-cover" id="contact">
+    <div class="back-cover-inner">
+      <div class="sign-off">
+        <h2>Open to Summer 2027 internships</h2>
+        <p>IC design, analog hardware, and device characterization. Email is the fastest way to reach me.</p>
+        <div class="actions">
+          <a class="button button-paper" href="mailto:panosdim@engineering.upenn.edu">Email me</a>
+          <a class="button-link" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+      <dl class="contact-form">
+        <div>
+          <dt class="label">Email</dt>
+          <dd>
+            <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
+            <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu" aria-label="Copy email address">Copy</button>
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Phone</dt>
+          <dd><a href="tel:+12155267626">+1 (215) 526-7626</a></dd>
+        </div>
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">github.com/panosdimts</a></dd>
+        </div>
+        <div>
+          <dt class="label">LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/panosdimtsoudis</a></dd>
+        </div>
+        <div>
+          <dt class="label">Location</dt>
+          <dd>Philadelphia, PA</dd>
+        </div>
+      </dl>
+      <p class="signature">
+        <span>Recorded by</span>
+        <span class="sig">Panagiotis Dimtsoudis</span>
+        <span>&copy; <span data-current-year>2026</span></span>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:panosdim@engineering.upenn.edu">panosdim@engineering.upenn.edu</a>
-      <button type="button" class="copy-inline" data-copy-email="panosdim@engineering.upenn.edu">Copy email</button>
-      <a href="tel:+12155267626">+1 (215) 526-7626</a>
-      <a href="https://github.com/panosdimts" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/panosdimtsoudis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-    <p class="footer-note">&copy; <span data-current-year>2026</span> Panagiotis Dimtsoudis.</p>
   </footer>
 
   <script src="scroll-animations.js" defer></script>
